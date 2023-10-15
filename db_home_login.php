@@ -21,10 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // ดำเนินการตรวจสอบข้อมูลเข้าสู่ระบบ
         if (checkLogin($email, $password)) {
-            echo "<script type='text/javascript'>";
-            echo "alert('เข้าสู่ระบบสำเร็จ');";
-            // echo "window.location = 'home_register.php'; ";
-            echo "</script>";
+            echo 'เข้าสู่ระบบสำเร็จ';
         } else {
             echo'เข้าสู่ระบบไม่สำเร็จ';
         }

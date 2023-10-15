@@ -18,8 +18,6 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta name="author" content="" />
 
     <title>Inance</title>
-    <title>Inance</title>
-    <title>Inance</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"

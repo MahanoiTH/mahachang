@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
 <!-- header section strats -->
 <header class="header_section">
   <div class="header_top">
@@ -37,9 +42,17 @@
             <li class="nav-item active">
               <a class="nav-link" href="index.php">หน้าแรก <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <?php
+            if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
+              // ถ้าเข้าสู่ระบบแล้ว แสดงลิงก์ "Logout"
+              echo '';
+            } else {
+              echo '<li class="nav-item">
               <a class="nav-link" href="้home_register.php"> ลงทะเบียน</a>
-            </li>
+            </li>';
+            }
+            ?>
+
             <li class="nav-item">
               <a class="nav-link" href="about.php"> เกี่ยวกับเรา</a>
             </li>
@@ -50,19 +63,43 @@
               <a class="nav-link" href="contact.php">ติดต่อเรา</a>
             </li>
           </ul>
-            <img src="images/client-1.jpg" alt="" class="user-pic">
+          <img src="images/client-1.jpg" alt="" class="user-pic" onclick="toggleMenu()">
 
-            <div class="submenu-wrapper">
-              <div class="submenu">
-                <div class="user-info">
-                  <img src="images/client-1.jpg" alt="">
-                  <h2>noi autthapon</h2>
-                </div>
+          <div class="submenu-wrapper" id="subMenu">
+            <div class="submenu">
+              <div class="user-info">
+                <img src="images/client-1.jpg" alt="">
+                <h2>autthapon</h2>
               </div>
+              <hr />
+
+              <a href="submenu-link" class="submenu-link">
+                <p>Edit Profile</p>
+                <span></span>
+              </a>
+
+              <a href="submenu-link" class="submenu-link">
+                <p>Message</p>
+                <span></span>
+              </a>
+
+              <a href="db_home_logout.php" class="submenu-link">
+
+                <p><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</p>
+                <span></span>
+              </a>
+
             </div>
+          </div>
         </div>
       </nav>
     </div>
   </div>
 </header>
+<script>
+  let submenu = document.getElementById("subMenu");
+  function toggleMenu() {
+    submenu.classList.toggle("openMenu");
+  }
+</script>
 <!-- end header section -->
