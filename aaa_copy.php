@@ -12,7 +12,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Inance</title>
+    <title>mahachang</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"

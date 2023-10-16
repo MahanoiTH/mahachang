@@ -17,7 +17,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <a href="">
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <span>
-            Email : demo@gmail.com
+            Email : mahachang@gmail.com
           </span>
         </a>
       </div>
@@ -63,34 +63,41 @@ if (session_status() == PHP_SESSION_NONE) {
               <a class="nav-link" href="contact.php">ติดต่อเรา</a>
             </li>
           </ul>
-          <img src="images/client-1.jpg" alt="" class="user-pic" onclick="toggleMenu()">
-
-          <div class="submenu-wrapper" id="subMenu">
-            <div class="submenu">
-              <div class="user-info">
-                <img src="images/client-1.jpg" alt="">
-                <h2>autthapon</h2>
-              </div>
-              <hr />
-
-              <a href="submenu-link" class="submenu-link">
-                <p>Edit Profile</p>
-                <span></span>
-              </a>
-
-              <a href="submenu-link" class="submenu-link">
-                <p>Message</p>
-                <span></span>
-              </a>
-
-              <a href="db_home_logout.php" class="submenu-link">
-
-                <p><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</p>
-                <span></span>
-              </a>
-
-            </div>
-          </div>
+          <?php
+            if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
+              // ถ้าเข้าสู่ระบบแล้ว แสดงลิงก์ "Logout"
+              echo '<img src="images/client-1.jpg" alt="" class="user-pic" onclick="toggleMenu()">
+                    <div class="submenu-wrapper" id="subMenu">
+                      <div class="submenu">
+                        <div class="user-info">
+                          <img src="images/client-1.jpg" alt="">
+                          <h2>autthapon</h2>
+                        </div>
+                        <hr />
+          
+                        <a href="business_profile.php" class="submenu-link">
+                          <p>Profile</p>
+                          <span></span>
+                        </a>
+          
+                        <a href="submenu-link" class="submenu-link">
+                          <p>Message</p>
+                          <span></span>
+                        </a>
+          
+                        <a href="db_home_logout.php" class="submenu-link">
+          
+                          <p><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</p>
+                          <span></span>
+                        </a>
+          
+                      </div>
+                    </div>';
+            } else {
+              echo '<img src="images/logo-users.png" alt="" class="user-pic" onclick="toggleMenu()">';
+            }
+            ?>
+          
         </div>
       </nav>
     </div>
