@@ -49,6 +49,7 @@ function checkLogin($email, $password) {
             session_start();
             $_SESSION['email'] = $email;
             $_SESSION['type_id'] = $row['type_id'];
+            $_SESSION['user_name'] = $row['username'];
             return true;
         }
     }

@@ -31,7 +31,12 @@
     <style>
         .layout_padding {
             padding-bottom: 60px;
-            padding-top: 70px;
+            padding-top: 10px;
+        }
+
+        .content-repair {
+            overflow-y: auto;
+            height: 1000px;
         }
     </style>
 
@@ -74,7 +79,7 @@
 
     </div>
     <section class="client_section mt-2">
-        <div class="container">
+        <div class="container content-repair">
             <div class="heading_container heading_center">
                 <h2>
                     ผลการค้นหา

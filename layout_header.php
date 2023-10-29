@@ -71,17 +71,17 @@ if (session_status() == PHP_SESSION_NONE) {
                       <div class="submenu">
                         <div class="user-info">
                           <img src="images/client-1.jpg" alt="">
-                          <h2>autthapon</h2>
+                          <h2>' . $_SESSION['user_name'] . '</h2>
                         </div>
                         <hr />
           
                         <a href="business_profile.php" class="submenu-link">
-                          <p>Profile</p>
+                          <p><i class="fa fa fa-user" aria-hidden="true"></i> Profile</p>
                           <span></span>
                         </a>
           
                         <a href="submenu-link" class="submenu-link">
-                          <p>Message</p>
+                          <p><i class="fa fa-envelope-open" aria-hidden="true"></i> Message</p>
                           <span></span>
                         </a>
           
