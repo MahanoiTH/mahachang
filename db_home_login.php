@@ -50,6 +50,7 @@ function checkLogin($email, $password) {
             $_SESSION['email'] = $email;
             $_SESSION['type_id'] = $row['type_id'];
             $_SESSION['user_name'] = $row['username'];
+            $_SESSION['user_id'] = $row['user_id'];
             return true;
         }
     }

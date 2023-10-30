@@ -85,15 +85,20 @@
         }
 
         #image-container {
-        display: flex;  /* กำหนดให้รูปภาพแสดงเป็นแนวนอน */
-        flex-wrap: wrap; /* กำหนดให้ขึ้นบรรทัดใหม่เมื่อขนาดของหน้าจอจำกัด */
-        gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
-    }
+            display: flex;
+            /* กำหนดให้รูปภาพแสดงเป็นแนวนอน */
+            flex-wrap: wrap;
+            /* กำหนดให้ขึ้นบรรทัดใหม่เมื่อขนาดของหน้าจอจำกัด */
+            gap: 10px;
+            /* ระยะห่างระหว่างรูปภาพ */
+        }
 
-    #image-container img {
-        max-width: 200px; /* กำหนดขนาดสูงสุดของรูปภาพ */
-        height: auto; /* ให้สูงของรูปภาพปรับตามอัตราส่วน */
-    }
+        #image-container img {
+            max-width: 200px;
+            /* กำหนดขนาดสูงสุดของรูปภาพ */
+            height: auto;
+            /* ให้สูงของรูปภาพปรับตามอัตราส่วน */
+        }
     </style>
 
 </head>
@@ -134,59 +139,60 @@
                             <div class="col-md-6">
                                 <form action="">
                                     <div>
-                                        <input type="text" class="message-box" placeholder="คำอธิบายการรับงาน" />
+                                        <input id="input_desc" type="text" class="message-box"
+                                            placeholder="คำอธิบายการรับงาน" />
                                     </div>
                                     <div>
                                         <select class="form-select" name="HotType" style="width:150px;" tabindex="1"
                                             fdprocessedid="x31fzo" aria-label="Default select example">
                                             <option value="">เลือกประเภท -----------------</option>
 
-                                            <option value="ออกแบบ-ตกแต่งภายใน">
+                                            <option value="ออกแบบ-ตกแต่งภายใน" data-id="1">
                                                 ออกแบบ-ตกแต่งภายใน</option>
 
-                                            <option value="สร้างบ้าน-สร้างอาคาร">
+                                            <option value="สร้างบ้าน-สร้างอาคาร" data-id="2">
                                                 สร้างบ้าน-สร้างอาคาร</option>
 
-                                            <option value="ต่อเติมบ้าน-ซ่อมบ้าน">
+                                            <option value="ต่อเติมบ้าน-ซ่อมบ้าน" data-id="3">
                                                 ต่อเติมบ้าน-ซ่อมบ้าน</option>
 
-                                            <option value="ออกแบบ-ติดตั้งระบบไฟฟ้า">
+                                            <option value="ออกแบบ-ติดตั้งระบบไฟฟ้า" data-id="4">
                                                 ออกแบบ-ติดตั้งระบบไฟฟ้า</option>
 
-                                            <option value="ออกแบบ-ติดตั้งระบบประปา">
+                                            <option value="ออกแบบ-ติดตั้งระบบประปา" data-id="5">
                                                 ออกแบบ-ติดตั้งระบบประปา</option>
 
-                                            <option value="ติดตั้งแอร์-ซ่อมล้างแอร์">
+                                            <option value="ติดตั้งแอร์-ซ่อมล้างแอร์" data-id="6">
                                                 ติดตั้งแอร์-ซ่อมล้างแอร์</option>
 
-                                            <option value="โครงสร้างอาคาร">
+                                            <option value="โครงสร้างอาคาร" data-id="7">
                                                 โครงสร้างอาคาร</option>
 
-                                            <option value="โครงสร้างเหล็ก">แ
+                                            <option value="โครงสร้างเหล็ก" data-id="8">
                                                 โครงสร้างเหล็ก</option>
 
-                                            <option value="รื้อถอน-รื้ออาคาร-ทุบตึก">
+                                            <option value="รื้อถอน-รื้ออาคาร-ทุบตึก" data-id="9">
                                                 รื้อถอน-รื้ออาคาร-ทุบตึก</option>
 
-                                            <option value="ทาสี-ห้อง-บ้าน-อาคาร">
+                                            <option value="ทาสี-ห้อง-บ้าน-อาคาร" data-id="10">
                                                 ทาสี-ห้อง-บ้าน-อาคาร</option>
 
-                                            <option value="เฟอร์นิเจอร์-Built-in">
+                                            <option value="เฟอร์นิเจอร์-Built-in" data-id="11">
                                                 เฟอร์นิเจอร์-Built-in</option>
 
-                                            <option value="เขียนแบบ-ออกแบบ-3D">
+                                            <option value="เขียนแบบ-ออกแบบ-3D" data-id="12">
                                                 เขียนแบบ-ออกแบบ-3D</option>
 
-                                            <option value="งานกระเบื้อง-ปูกระเบื้อง">
+                                            <option value="งานกระเบื้อง-ปูกระเบื้อง" data-id="13">
                                                 งานกระเบื้อง-ปูกระเบื้อง</option>
 
-                                            <option value="ผ้าม่าน-พรม-มู่ลี่">
+                                            <option value="ผ้าม่าน-พรม-มู่ลี่" data-id="14">
                                                 ผ้าม่าน-พรม-มู่ลี่</option>
 
-                                            <option value="เหล็ก-สแตนเลส-อลูมิเนียม">
+                                            <option value="เหล็ก-สแตนเลส-อลูมิเนียม" data-id="15">
                                                 เหล็ก-สแตนเลส-อลูมิเนียม</option>
 
-                                            <option value="พลาสติก-โพลีคาร์บอเนต">
+                                            <option value="พลาสติก-โพลีคาร์บอเนต" data-id="16">
                                                 พลาสติก-โพลีคาร์บอเนต</option>
                                         </select>
                                     </div>
@@ -198,10 +204,10 @@
                                     </div>
                                     <div id="image-container"></div>
 
-                                    <div class="d-flex ">
-                                        <button>
-                                            SEND
-                                        </button>
+                                    <div class="d-flex">
+                                        <a class="btn btn-success mt-2" id="btn_save">
+                                            บันทึก
+                                            <a>
                                     </div>
                                 </form>
                             </div>
@@ -231,35 +237,82 @@
         <script src="js/custom.js"></script>
 
         <script>
-            $(document).ready(function () {
-                // เมื่อมีการเลือกไฟล์
-                $("#inputGroupFile02").on("change", function (event) {
-                    
-                    const imageContainer = $("#image-container");
-                    imageContainer.empty(); // เคลียร์รูปภาพที่แสดงก่อนหน้า
+            (function () {
+                var job_id = null;
 
-                    const files = event.target.files;
-                    $.each(files, function (index, file) {
-                        if (file.type.startsWith("img-jobs/")) {
-                            const reader = new FileReader();
-                            reader.onload = function () {
-                                const img = $("<img>");
-                                img.attr("src", reader.result);
-                                img.css("max-width", "200px"); // ปรับขนาดรูปภาพตามต้องการ
-                                imageContainer.append(img);
-                            };
-                            reader.readAsDataURL(file);
-                            console.log("start");
+                var Maha = function () {
+
+                    return {
+                        onChangeJobs: function () {
+                            // เมื่อมีการเปลี่ยนค่าใน <select>
+                            $(".form-select").change(function () {
+                                // ดึงค่า `data-id` จาก option ที่ถูกเลือก
+                                var selectedOption = $(this).find("option:selected");
+                                job_id = selectedOption.data("id");
+
+                                // แสดงค่า `data-id` ใน console (เพื่อตรวจสอบ)
+                                console.log("ค่า data-id ที่ถูกเลือก: " + job_id);
+
+                                // ตอนนี้คุณสามารถใช้ค่า `data-id` ที่ดึงมาได้ตามที่คุณต้องการ
+                            });
+                        },
+                        onClickBtnSave: function () {
+                            $('#btn_save').on('click', function () {
+                                console.log("ttt");
+                                Maha.submitJobs();
+
+                            });
+                        },
+                        submitJobs: function () {
+                            var description = $('#input_desc').val();
+
+                            var data = new FormData();
+                            data.append('description', description);
+                            data.append('jobs_id', job_id);
+                            // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
+                            var files = $('#inputGroupFile02')[0].files;
+                            for (var i = 0; i < files.length; i++) {
+                                data.append('img_url[]', files[i]);
+                            }
+
+                            $.ajax({
+                                url: "db_websubmit_job.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+                                method: "POST",
+                                data: data, // ส่งค่า product_id ไปยัง cart.php
+                                processData: false,  // อย่าจัดการข้อมูลเอง
+                                contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+                                success: function (response) {
+                                    // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                                    if (response === "success") {
+                                        window.location = 'noti.php';
+                                    } else {
+                                        alert(response);
+                                    }
+                                }
+                            });
+
+                        },
+
+
+                        init: function () {
+                            // Oasis.submitpayment();
+                            // Maha.goBottom();
+                            Maha.onClickBtnSave();
+                            Maha.onChangeJobs();
                         }
-                    });
+                    }
+                }();
+                $(document).ready(function () {
+                    Maha.init();
                 });
-            });
+            })();
+
         </script>
 
-        
 
-        
-        
+
+
+
 
 
 </body>
