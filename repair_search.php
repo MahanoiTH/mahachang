@@ -2,6 +2,7 @@
 <html>
 <?php include("db_check_login.php");
 ?>
+
 <head>
     <!-- Basic -->
     <meta charset="utf-8" />
@@ -38,6 +39,15 @@
             overflow-y: auto;
             height: 1000px;
         }
+
+        .img_job_container {
+            margin-top: 5px;
+        }
+
+        .img_bs_jobs {
+            height: 150px;
+            width: 300px;
+        }
     </style>
 
 </head>
@@ -57,7 +67,59 @@
         <section class="professional_section layout_padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-11 text-center">
+                    <div class="col-md-4 text-center">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected data-id="-1">เลือกหมวดงาน...</option>
+                            <option value="ออกแบบ-ตกแต่งภายใน" data-id="1">
+                                ออกแบบ-ตกแต่งภายใน</option>
+
+                            <option value="สร้างบ้าน-สร้างอาคาร" data-id="2">
+                                สร้างบ้าน-สร้างอาคาร</option>
+
+                            <option value="ต่อเติมบ้าน-ซ่อมบ้าน" data-id="3">
+                                ต่อเติมบ้าน-ซ่อมบ้าน</option>
+
+                            <option value="ออกแบบ-ติดตั้งระบบไฟฟ้า" data-id="4">
+                                ออกแบบ-ติดตั้งระบบไฟฟ้า</option>
+
+                            <option value="ออกแบบ-ติดตั้งระบบประปา" data-id="5">
+                                ออกแบบ-ติดตั้งระบบประปา</option>
+
+                            <option value="ติดตั้งแอร์-ซ่อมล้างแอร์" data-id="6">
+                                ติดตั้งแอร์-ซ่อมล้างแอร์</option>
+
+                            <option value="โครงสร้างอาคาร" data-id="7">
+                                โครงสร้างอาคาร</option>
+
+                            <option value="โครงสร้างเหล็ก" data-id="8">
+                                โครงสร้างเหล็ก</option>
+
+                            <option value="รื้อถอน-รื้ออาคาร-ทุบตึก" data-id="9">
+                                รื้อถอน-รื้ออาคาร-ทุบตึก</option>
+
+                            <option value="ทาสี-ห้อง-บ้าน-อาคาร" data-id="10">
+                                ทาสี-ห้อง-บ้าน-อาคาร</option>
+
+                            <option value="เฟอร์นิเจอร์-Built-in" data-id="11">
+                                เฟอร์นิเจอร์-Built-in</option>
+
+                            <option value="เขียนแบบ-ออกแบบ-3D" data-id="12">
+                                เขียนแบบ-ออกแบบ-3D</option>
+
+                            <option value="งานกระเบื้อง-ปูกระเบื้อง" data-id="13">
+                                งานกระเบื้อง-ปูกระเบื้อง</option>
+
+                            <option value="ผ้าม่าน-พรม-มู่ลี่" data-id="14">
+                                ผ้าม่าน-พรม-มู่ลี่</option>
+
+                            <option value="เหล็ก-สแตนเลส-อลูมิเนียม" data-id="15">
+                                เหล็ก-สแตนเลส-อลูมิเนียม</option>
+
+                            <option value="พลาสติก-โพลีคาร์บอเนต" data-id="16">
+                                พลาสติก-โพลีคาร์บอเนต</option>
+                        </select>
+                    </div>
+                    <div class="col-md-7 text-center">
                         <div class="detail-box">
                             <form>
                                 <input type="text" class="form-control">
@@ -66,9 +128,9 @@
                         </div>
                     </div>
                     <div class="col-md-1">
-                        <a href="" class="btn btn-success">
+                        <button id="btn_search" class="btn btn-success">
                             ค้นหา
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -85,141 +147,7 @@
                     ผลการค้นหา
                 </h2>
             </div>
-
-            <div class="box">
-                <div class="client_id">
-                    <div class="img-box">
-                        <img src="images/client-1.jpg" alt="">
-                    </div>
-                    <div class="client_detail">
-                        <div class="client_info">
-                            <h6>
-                                Jorch morik
-                            </h6>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    </div>
-
-                </div>
-                <div class="client_text">
-                    <p>
-                        chunks as necessary, making this the first true generator on the Internet. It
-                        uses a
-                        dictionary of over 200 Latin words, combined with a handful of model sentence
-                        structures, to generate Lorem Ipsum
-                    </p>
-                    <a data-toggle="modal" href="#exampleModal" class="btn btn-success">
-                        ช่องทางติดต่่อ
-                    </a>
-                    <a href="" class="btn btn-success">
-                        ผลงาน
-                    </a>
-                    <a data-toggle="modal" href="#exampleModal" class="btn btn-info">
-                        ขอใบเสนอราคา
-                    </a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="client_id">
-                    <div class="img-box">
-                        <img src="images/client-1.jpg" alt="">
-                    </div>
-                    <div class="client_detail">
-                        <div class="client_info">
-                            <h6>
-                                Jorch morik
-                            </h6>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <div class="client_text">
-                    <p>
-                        chunks as necessary, making this the first true generator on the Internet. It
-                        uses a
-                        dictionary of over 200 Latin words, combined with a handful of model sentence
-                        structures, to generate Lorem Ipsum
-                    </p>
-                    <a href="" class="btn btn-success">
-                        ติดต่อบริษัท
-                    </a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="client_id">
-                    <div class="img-box">
-                        <img src="images/client-1.jpg" alt="">
-                    </div>
-                    <div class="client_detail">
-                        <div class="client_info">
-                            <h6>
-                                Jorch morik
-                            </h6>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <div class="client_text">
-                    <p>
-                        chunks as necessary, making this the first true generator on the Internet. It
-                        uses a
-                        dictionary of over 200 Latin words, combined with a handful of model sentence
-                        structures, to generate Lorem Ipsum
-                    </p>
-                    <a href="" class="btn btn-success">
-                        ติดต่อบริษัท
-                    </a>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="client_id">
-                    <div class="img-box">
-                        <img src="images/client-1.jpg" alt="">
-                    </div>
-                    <div class="client_detail">
-                        <div class="client_info">
-                            <h6>
-                                Jorch morik
-                            </h6>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <div class="client_text">
-                    <p>
-                        chunks as necessary, making this the first true generator on the Internet. It
-                        uses a
-                        dictionary of over 200 Latin words, combined with a handful of model sentence
-                        structures, to generate Lorem Ipsum
-                    </p>
-                    <a href="" class="btn btn-success">
-                        ติดต่อบริษัท
-                    </a>
-                </div>
-            </div>
+            <div class="content-repair-body"></div>
         </div>
     </section>
 
@@ -274,6 +202,104 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
     <!-- End Google Map -->
 
+    <script>
+        (function () {
+            var job_type_id = -1;
+            var Maha = function () {
+
+                return {
+                    onclickBtnSearch: function () {
+                        $('#btn_search').on('click', function () {
+                            var job_id = $('#inputGroupSelect01').find("option:selected");
+                            job_type_id = job_id.data("id");
+                            Maha.requestBusiness();
+                        });
+                    },
+                    requestBusiness: function () {
+                        var data = new FormData();
+                        // data.append('description', description);
+                        // data.append('jobs_id', job_id);
+                        data.append('job_type_id', job_type_id)
+                        $.ajax({
+                            url: "db_webrequest_search_business.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+                            method: "POST",
+                            data: data, // ส่งค่า product_id ไปยัง cart.php
+                            processData: false,  // อย่าจัดการข้อมูลเอง
+                            contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+                            success: function (result) {
+                                if (result == 'error') {
+                                    $(".content-repair-body").html('');
+                                } else {
+                                    var data = JSON.parse(result);
+                                    console.log(result);
+                                    Maha.createDataBusiness(data);
+                                }
+
+                                // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                                // if (response === "success") {
+                                //     window.location = 'noti.php';
+                                // } else {
+                                //     alert(response);
+                                // }
+                            }
+                        });
+                    },
+                    createDataBusiness: function (data) {
+                        console.log("start");
+                        var html_bs = '';
+
+                        for (var i = 0; i < data.length; i++) {
+                            var img_url_jobs = data[i].img_url;
+                            var path_img_jobs = '\img-jobs/2/' + img_url_jobs;
+                            console.log("sadff");
+                            html_bs += `<div class="box">
+                                            <div class="client_id">
+                                                <div class="img-box">
+                                                    <img src="images/client-1.jpg" alt="">
+                                                </div>
+                                                <div class="client_detail">
+                                                    <div class="client_info">
+                                                        <h6>${data[i].username}</h6>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    </div>
+                                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div class="client_text">
+                                                <p>
+                                                  ${data[i].description}
+                                                </p>
+                                                <a data-toggle="modal" href="#exampleModal" class="btn btn-success">ช่องทางติดต่่อ</a>
+                                                <a href="" class="btn btn-success">ผลงาน</a>
+                                                <a data-toggle="modal" href="#exampleModal" class="btn btn-info">ส่งรายละเอียดประเมิณราคา</a>
+                                            </div>
+                                            <div class="img_job_container">
+                                                <img class="img_bs_jobs" src="${img_url_jobs}" />
+                                            </div>
+                                        </div>
+                                        `;
+
+                        }
+                        $(".content-repair-body").html(html_bs);
+                    },
+
+
+                    init: function () {
+                        Maha.requestBusiness();
+                        Maha.onclickBtnSearch();
+                    }
+                }
+            }();
+            $(document).ready(function () {
+                Maha.init();
+            });
+        })();
+
+    </script>
 
 
 </body>
