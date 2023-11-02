@@ -145,7 +145,7 @@
                 <div class="sidebar">
                     <ul>
                         <li><a href="#">หน้าหลัก</a></li>
-                        <li><a href="business_profile_jobs.php">ข้อมูลการรับงาน</a></li>
+                        <li><a href="#">ข้อมูลการรับงาน</a></li>
                         <li><a href="#">ผลงาน</a></li>
                         <li><a href="business_profile_edit.php">แก้ไขโปรไฟล์</a></li>
                     </ul>
