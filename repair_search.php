@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include("db_check_login.php");
-?>
+
 
 <head>
     <!-- Basic -->
@@ -119,7 +118,96 @@
                                 พลาสติก-โพลีคาร์บอเนต</option>
                         </select>
                     </div>
-                    <div class="col-md-7 text-center">
+                    <div class="col-md-3 text-center">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected data-id="-1">เลือกจังหวัด...</option>
+                            <option value="" data-id="1">กรุงเทพมหานคร</option>
+                            <option value="" data-id="2">กระบี่</option>
+                            <option value="" data-id="3">กาฬสินธุ์</option>
+                            <option value="" data-id="4">กำแพงเพชร</option>
+                            <option value="" data-id="5">ขอนแก่น</option>
+                            <option value="" data-id="6">จันทบุรี</option>
+                            <option value="" data-id="7">ฉะเชิงเทรา</option>
+                            <option value="" data-id="8">ชลบุรี</option>
+                            <option value="" data-id="9">ชัยนาท</option>
+                            <option value="" data-id="10">ชุมพร</option>
+                            <option value="" data-id="11">เชียงราย</option>
+                            <option value="" data-id="12">เชียงใหม่</option>
+                            <option value="" data-id="13">ตรัง</option>
+                            <option value="" data-id="14">ตราด</option>
+                            <option value="" data-id="15">ตาก</option>
+                            <option value="" data-id="16">นครนายก</option>
+                            <option value="" data-id="17">นครปฐม</option>
+                            <option value="" data-id="18">นครพนม</option>
+                            <option value="" data-id="19">นครราชสีมา</option>
+                            <option value="" data-id="20">นครศรีธรรมราช</option>
+                            <option value="" data-id="21">นครสวรรค์</option>
+                            <option value="" data-id="22">นนทบุรี</option>
+                            <option value="" data-id="23">นราธิวาส</option>
+                            <option value="" data-id="24">น่าน</option>
+                            <option value="" data-id="25">บึงกาฬ</option>
+                            <option value="" data-id="26">บุรีรัมย์</option>
+                            <option value="" data-id="27">ปทุมธานี</option>
+                            <option value="" data-id="28">ประจวบคีรีขันธ์</option>
+                            <option value="" data-id="29">ปราจีนบุรี</option>
+                            <option value="" data-id="30">ปัตตานี</option>
+                            <option value="" data-id="31">พระนครศรีอยุธยา</option>
+                            <option value="" data-id="32">พะเยา</option>
+                            <option value="" data-id="33">พังงา</option>
+                            <option value="" data-id="34">พัทลุง</option>
+                            <option value="" data-id="35">พิจิตร</option>
+                            <option value="" data-id="36">พิษณุโลก</option>
+                            <option value="" data-id="37">เพชรบุรี</option>
+                            <option value="" data-id="38">เพชรบูรณ์</option>
+                            <option value="" data-id="39">แพร่</option>
+                            <option value="" data-id="40">พะเยา</option>
+                            <option value="" data-id="41">ภูเก็ต</option>
+                            <option value="" data-id="42">มหาสารคาม</option>
+                            <option value="" data-id="43">มุกดาหาร</option>
+                            <option value="" data-id="44">แม่ฮ่องสอน</option>
+                            <option value="" data-id="45">ยะลา</option>
+                            <option value="" data-id="46">ยโสธร</option>
+                            <option value="" data-id="47">ร้อยเอ็ด</option>
+                            <option value="" data-id="48">ระนอง</option>
+                            <option value="" data-id="49">ระยอง</option>
+                            <option value="" data-id="50">ราชบุรี</option>
+                            <option value="" data-id="51">ลพบุรี</option>
+                            <option value="" data-id="52">ลำปาง</option>
+                            <option value="" data-id="53">ลำพูน</option>
+                            <option value="" data-id="54">เลย</option>
+                            <option value="" data-id="55">ศรีสะเกษ</option>
+                            <option value="" data-id="56">สกลนคร</option>
+                            <option value="" data-id="57">สงขลา</option>
+                            <option value="" data-id="58">สตูล</option>
+                            <option value="" data-id="59">สมุทรปราการ</option>
+                            <option value="" data-id="60">สมุทรสาคร</option>
+                            <option value="" data-id="61">สระแก้ว</option>
+                            <option value="" data-id="62">สระบุรี</option>
+                            <option value="" data-id="63">สิงห์บุรี</option>
+                            <option value="" data-id="64">สุโขทัย</option>
+                            <option value="" data-id="65">สุพรรณบุรี</option>
+                            <option value="" data-id="66">สุราษฎร์ธานี</option>
+                            <option value="" data-id="67">สุรินทร์</option>
+                            <option value="" data-id="68">หนองคาย</option>
+                            <option value="" data-id="69">หนองบัวลำภู</option>
+                            <option value="" data-id="70">อ่างทอง</option>
+                            <option value="" data-id="71">อำนาจเจริญ</option>
+                            <option value="" data-id="72">อุดรธานี</option>
+                            <option value="" data-id="73">อุทัยธานี</option>
+                            <option value="" data-id="74">อุบลราชธานี</option>
+                            <option value="" data-id="75">อ่างทอง</option>
+                            <option value="" data-id="76">อุตรดิตถ์</option>
+                            <option value="" data-id="77">อุทัยธานี</option>
+                            <option value="" data-id="78">อุบลราชธานี</option>
+                            <option value="" data-id="79">อำนาจเจริญ</option>
+                            <option value="" data-id="80">อุดรธานี</option>
+                            <option value="" data-id="81">อุทัยธานี</option>
+                            <option value="" data-id="82">อุบลราชธานี</option>
+                            <option value="" data-id="83">อ่างทอง</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 text-center">
                         <div class="detail-box">
                             <form>
                                 <input type="text" class="form-control">
@@ -165,7 +253,8 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <input type="text" class="form-control" placeholder="ข้อความ">
+                        <input type="text" class="form-control" placeholder="ช่องทางติดต่อกลับ เบอร์โทร หรือ อีเมล์">
+                        <input type="text" class="form-control mt-2" placeholder="ข้อความ">
                         <div class="input-group mb-3 mt-2">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="inputGroupFile02">

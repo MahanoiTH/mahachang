@@ -26,7 +26,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <div class="header_bottom">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <span>
             มาหา ช่าง
           </span>
@@ -64,10 +64,10 @@ if (session_status() == PHP_SESSION_NONE) {
             </li>
           </ul>
           <?php
-            if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
-              // ถ้าเข้าสู่ระบบแล้ว แสดงลิงก์ "Logout"
-              echo '<img src="images/client-1.jpg" alt="" class="user-pic" onclick="toggleMenu()">
-                    <div class="submenu-wrapper" id="subMenu">
+          if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
+            // ถ้าเข้าสู่ระบบแล้ว แสดงลิงก์ "Logout"
+            echo '<img src="images/client-1.jpg" alt="" class="user-pic" onclick="toggleMenu()">
+                    <div class="submenu-wrapper" id="subMenu" style="z-index: index 999 !important;">
                       <div class="submenu">
                         <div class="user-info">
                           <img src="images/client-1.jpg" alt="">
@@ -93,16 +93,19 @@ if (session_status() == PHP_SESSION_NONE) {
           
                       </div>
                     </div>';
-            } else {
-              echo '<img src="images/logo-users.png" alt="" class="user-pic" onclick="toggleMenu()">';
-            }
-            ?>
-          
+          } else {
+            echo '<img src="images/logo-users.png" alt="" class="user-pic" onclick="toggleMenu()">';
+          }
+          ?>
+
         </div>
       </nav>
     </div>
   </div>
 </header>
+
+
+
 <script>
   let submenu = document.getElementById("subMenu");
   function toggleMenu() {

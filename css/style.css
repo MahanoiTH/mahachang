@@ -276,6 +276,7 @@ a:focus {
   width: 300px;
   max-height: 0px;
   overflow: hidden;
+  z-index: 999;
 }
   .submenu-wrapper.openMenu {
     max-height: 400px;

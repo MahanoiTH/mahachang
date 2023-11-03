@@ -48,9 +48,9 @@ if (session_status() == PHP_SESSION_NONE) {
                     <div class="col-md-6 ">
                         <div class="detail-box">
                             <h1>
-                                Repair and <br>
-                                Maintenance <br>
-                                Services
+                                ศูนย์รวม <br>
+                                บริษัท <br>
+                                รับเหมาก่อสร้าง
                             </h1>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui harum voluptatem adipisci.
@@ -115,7 +115,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         </svg>
                     </div>
                     <h5 class="name">
-                        ซ่อมแซมต่อเติม
+                        ค้นหาบริษัทรับเหมา
                     </h5>
                 </div>
                 <div class="box active">
@@ -129,7 +129,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         </svg>
                     </div>
                     <h5 class="name">
-                        รีโนเวท
+                        ไอเดีย
                     </h5>
                 </div>
                 <div class="box">
@@ -144,7 +144,7 @@ if (session_status() == PHP_SESSION_NONE) {
                         </svg>
                     </div>
                     <h5 class="name">
-                        สร้างใหม่
+                        คลังความรู้
                     </h5>
                 </div>
             </div>
@@ -199,16 +199,13 @@ if (session_status() == PHP_SESSION_NONE) {
                 <div class="col-md-6 ">
                     <div class="detail-box">
                         <h2>
-                            We Provide Professional <br>
-                            Home Services.
+                            ฝากประกาศ ฟรี!!!
                         </h2>
                         <p>
-                            randomised words which don't look even slightly believable. If you are going to use a
-                            passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
-                            middle of text. All randomised words which don't look even slightly
+                        การฝากประกาศสำหรับบริษัทรับเหมาผ่านเว็บไซต์มาหาช่าง สามารถทำได้ฟรีๆ ไม่มีค่าใช้จ่าย และที่สำคัญขั้นตอนการฝากประกาศนั้น เรียกได้ว่าง่ายแสนง่าย มีเพียงแค่ไม่กี่ขั้นตอน ซึ่งสามารถทำได้ด้วยตัวเองง่ายๆ  
                         </p>
-                        <a href="">
-                            Read More
+                        <a href="business_register.php">
+                            สมัครเลย
                         </a>
                     </div>
                 </div>

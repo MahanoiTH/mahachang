@@ -32,6 +32,7 @@
         .content-pf {
             background-color: #e4e6eb !important;
         }
+
         body,
         ul {
             margin: 0;
@@ -40,8 +41,8 @@
 
         /* Basic styling for the sidebar */
         .sidebar {
-            background-color: #333;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             height: 100vh;
             top: 122px;
             left: 0;
@@ -54,7 +55,7 @@
 
         .sidebar a {
             text-decoration: none;
-            color: #fff;
+            color: #333;
             display: block;
             margin-bottom: 10px;
         }
@@ -115,13 +116,22 @@
             margin: 0;
             padding: 25px 15px 6px 43px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 300;
             background: 0 0;
         }
 
+        .sidebar>ul>li>a>i {
+            box-sizing: border-box;
+            width: 35px;
+        }
+
         .sidebar>ul> :hover {
-            background-color: #007bff;
+            background-color: #f0f2f5;
+        }
+
+        .active-bs {
+            background-color: #f0f2f5 !important;
         }
     </style>
 
@@ -144,10 +154,12 @@
             <div class="col-2">
                 <div class="sidebar">
                     <ul>
-                        <li><a href="#">หน้าหลัก</a></li>
-                        <li><a href="business_profile_jobs.php">ข้อมูลการรับงาน</a></li>
-                        <li><a href="#">ผลงาน</a></li>
-                        <li><a href="business_profile_edit.php">แก้ไขโปรไฟล์</a></li>
+                        <li><a class="active-bs" href="#"><i class="fa fa-home fa-2x mr-2"></i> หน้าหลัก</a></li>
+                        <li><a href="business_profile_jobs.php"><i class="fa fa-building fa-2x mr-2"></i>
+                                ข้อมูลการรับงาน</a></li>
+                        <li><a href="#"><i class="fa fa-briefcase fa-2x mr-2"></i> ผลงาน</a></li>
+                        <li><a href="business_profile_edit.php"><i class="fa fa-user fa-2x mr-2"></i> แก้ไขโปรไฟล์</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -156,20 +168,24 @@
                     <div class="container">
                         <div class="heading_container">
                             <h2>
-                                กรอกข้อมูลการรับงาน
+                                รายละเอียดของประกาศ บริษัทรับเหมา
                             </h2>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <form action="">
                                     <div>
+                                        <input id="input_title" type="text" class="message-box"
+                                            placeholder="หัวข้อประกาศ" />
+                                    </div>
+                                    <div>
                                         <input id="input_desc" type="text" class="message-box"
                                             placeholder="คำอธิบายการรับงาน" />
                                     </div>
                                     <div>
-                                        <select class="form-select" name="HotType" style="width:150px;" tabindex="1"
-                                            fdprocessedid="x31fzo" aria-label="Default select example">
-                                            <option value="">เลือกประเภท -----------------</option>
+                                        <select class="custom-select mb-3" name="HotType" style="width:250px;"
+                                            tabindex="1" fdprocessedid="x31fzo" aria-label="Default select example">
+                                            <option value="">เลือกหมวดงาน -----------------</option>
 
                                             <option value="ออกแบบ-ตกแต่งภายใน" data-id="1">
                                                 ออกแบบ-ตกแต่งภายใน</option>
