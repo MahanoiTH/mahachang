@@ -66,7 +66,7 @@
                             <h2>
                                 ลงทะเบียน ฝากประกาศฟรี  
                             </h2>
-                            <form action="db_home_register.php" method="post">
+                            <form action="business_register_db.php" method="post">
                                 <div>
                                     <input name="username" class="form-control " type="text" placeholder="Name" />
                                 </div>

@@ -17,7 +17,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Inance</title>
+    <title>มาหาช่าง</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -41,6 +41,31 @@ if (session_status() == PHP_SESSION_NONE) {
         include("layout_header.php");
         ?>
         <!-- end header section -->
+        <!-- carosel -->
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="..." alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- end carosel -->
+
+
         <!-- slider section -->
         <section class="slider_section ">
             <div class="container ">
@@ -53,9 +78,11 @@ if (session_status() == PHP_SESSION_NONE) {
                                 รับเหมาก่อสร้าง
                             </h1>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui harum voluptatem adipisci.
-                                Quos molestiae saepe dicta nobis pariatur, tempora iusto, ad possimus soluta hic
-                                praesentium mollitia consequatur beatae, aspernatur culpa.
+                                ค้นหาบริษัทรับเหมาให้ง่ายและรวดเร็วที่สุด ยินดีต้อนรับสู่เว็บของเรา -
+                                ที่ทำให้คุณหาบริษัทรับเหมาได้ง่ายที่สุด!
+                                เราเสนอพื้นที่ที่ช่วยคุณค้นหาบริษัทที่มีความเชี่ยวชาญในการรับเหมาก่อสร้างและโครงการใหญ่
+                                คุณสามารถค้นหาตามประเภทงาน พื้นที่ที่บริษัทบริการ และอื่นๆ ที่คุณสนใจ
+                                เริ่มค้นหาบริษัทรับเหมาของคุณที่นี่และนำโครงการของคุณสู่ความสำเร็จ!
                             </p>
                             <?php
                             if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
@@ -202,7 +229,9 @@ if (session_status() == PHP_SESSION_NONE) {
                             ฝากประกาศ ฟรี!!!
                         </h2>
                         <p>
-                        การฝากประกาศสำหรับบริษัทรับเหมาผ่านเว็บไซต์มาหาช่าง สามารถทำได้ฟรีๆ ไม่มีค่าใช้จ่าย และที่สำคัญขั้นตอนการฝากประกาศนั้น เรียกได้ว่าง่ายแสนง่าย มีเพียงแค่ไม่กี่ขั้นตอน ซึ่งสามารถทำได้ด้วยตัวเองง่ายๆ  
+                            การฝากประกาศสำหรับบริษัทรับเหมาผ่านเว็บไซต์มาหาช่าง สามารถทำได้ฟรีๆ ไม่มีค่าใช้จ่าย
+                            และที่สำคัญขั้นตอนการฝากประกาศนั้น เรียกได้ว่าง่ายแสนง่าย มีเพียงแค่ไม่กี่ขั้นตอน
+                            ซึ่งสามารถทำได้ด้วยตัวเองง่ายๆ
                         </p>
                         <a href="business_register.php">
                             สมัครเลย
