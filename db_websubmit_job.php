@@ -6,6 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $jobs_id = $_POST['jobs_id'];
+    $jobs_title = $_POST['jobs_title'];
     $description = $_POST['description'];
     $img_url = $_FILES['img_url']; // Change to use $_FILES to handle file uploads
     $user_id = $_SESSION['user_id'];
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Insert data into the database
         if (!empty($uploaded_files)) {
-            $sql = "INSERT INTO business_jobs (user_id, job_id, description, img_url) 
+            $sql = "INSERT INTO business_jobs (user_id, job_id,business_jobs_title, description, img_url) 
                 VALUES ('$user_id', '$jobs_id', '$description', '" . implode(',', $uploaded_files) . "')";
 
             if ($conn->query($sql) === TRUE) {

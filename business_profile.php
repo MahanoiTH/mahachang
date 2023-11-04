@@ -304,9 +304,10 @@
                             });
                         },
                         submitJobs: function () {
+                            var jobs_title = $('#input_title').val();
                             var description = $('#input_desc').val();
-
                             var data = new FormData();
+                            data.append('jobs_title', jobs_title);
                             data.append('description', description);
                             data.append('jobs_id', job_id);
                             // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData

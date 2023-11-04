@@ -68,22 +68,25 @@
                             </h2>
                             <form action="business_register_db.php" method="post">
                                 <div>
-                                    <input name="username" class="form-control " type="text" placeholder="Name" />
+                                    <input name="username" class="form-control " type="text" placeholder="ชื่อผู้ใช้งาน" />
+                                </div>
+                                <div>
+                                    <input name="business_name" class="form-control mt-2" type="text" placeholder="ชื่อบริษัท" />
                                 </div>
                                 <div>
                                     <input name="phone" class="form-control mt-2" type="text"
-                                        placeholder="Phone Number" />
+                                        placeholder="เบอร์โทรศัพท์" />
                                 </div>
                                 <div>
-                                    <input name="email" class="form-control mt-2" type="email" placeholder="Email" />
+                                    <input name="email" class="form-control mt-2" type="email" placeholder="อีเมล์" />
                                 </div>
                                 <div>
                                     <input name="password" class="form-control mt-2" type="text" class="message-box"
-                                        placeholder="Password" />
+                                        placeholder="รหัสผ่าน" />
                                 </div>
                                 <div>
                                     <input class="form-control mt-2" type="text" class="message-box"
-                                        placeholder="Confirm Password" />
+                                        placeholder="ยืนยัน รหัสผ่าน" />
                                 </div>
                                 <div>
                                     <input name="insert" type="submit" value="ลงทะเบียน" class="btn-mahachang">

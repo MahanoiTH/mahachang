@@ -348,7 +348,7 @@
                                                 </div>
                                                 <div class="client_detail">
                                                     <div class="client_info">
-                                                        <h6>${data[i].username}</h6>
+                                                        <h6>${data[i].company_name}</h6>
                                                         <i class="fa fa-star" aria-hidden="true"></i>
                                                         <i class="fa fa-star" aria-hidden="true"></i>
                                                         <i class="fa fa-star" aria-hidden="true"></i>
