@@ -32,6 +32,7 @@
         .content-pf {
             background-color: #e4e6eb !important;
         }
+
         body,
         ul {
             margin: 0;
@@ -40,8 +41,8 @@
 
         /* Basic styling for the sidebar */
         .sidebar {
-            background-color: #333;
-            color: #fff;
+            background-color: #fff;
+            color: #333;
             height: 100vh;
             top: 122px;
             left: 0;
@@ -54,7 +55,7 @@
 
         .sidebar a {
             text-decoration: none;
-            color: #fff;
+            color: #333;
             display: block;
             margin-bottom: 10px;
         }
@@ -115,13 +116,22 @@
             margin: 0;
             padding: 25px 15px 6px 43px;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 300;
             background: 0 0;
         }
 
+        .sidebar>ul>li>a>i {
+            box-sizing: border-box;
+            width: 35px;
+        }
+
         .sidebar>ul> :hover {
-            background-color: #007bff;
+            background-color: #f0f2f5;
+        }
+
+        .active-bs {
+            background-color: #f0f2f5 !important;
         }
     </style>
 
@@ -144,10 +154,12 @@
             <div class="col-2">
                 <div class="sidebar">
                     <ul>
-                        <li><a href="#">หน้าหลัก</a></li>
-                        <li><a href="#">ข้อมูลการรับงาน</a></li>
-                        <li><a href="#">ผลงาน</a></li>
-                        <li><a href="business_profile_edit.php">แก้ไขโปรไฟล์</a></li>
+                        <li><a class="active-bs" href="#"><i class="fa fa-home fa-2x mr-2"></i> หน้าหลัก</a></li>
+                        <li><a href="business_profile_jobs.php"><i class="fa fa-building fa-2x mr-2"></i>
+                                ข้อมูลการรับงาน</a></li>
+                        <li><a href="#"><i class="fa fa-briefcase fa-2x mr-2"></i> ผลงาน</a></li>
+                        <li><a href="business_profile_edit.php"><i class="fa fa-user fa-2x mr-2"></i> แก้ไขโปรไฟล์</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -156,20 +168,24 @@
                     <div class="container">
                         <div class="heading_container">
                             <h2>
-                                กรอกข้อมูลการรับงาน
+                                รายละเอียดของประกาศ บริษัทรับเหมา
                             </h2>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <form action="">
                                     <div>
+                                        <input id="input_title" type="text" class="message-box"
+                                            placeholder="หัวข้อประกาศ" />
+                                    </div>
+                                    <div>
                                         <input id="input_desc" type="text" class="message-box"
                                             placeholder="คำอธิบายการรับงาน" />
                                     </div>
                                     <div>
-                                        <select class="form-select" name="HotType" style="width:150px;" tabindex="1"
-                                            fdprocessedid="x31fzo" aria-label="Default select example">
-                                            <option value="">เลือกประเภท -----------------</option>
+                                        <select id="select_job_type" class="custom-select mb-3" name="HotType" style="width:250px;"
+                                            tabindex="1" fdprocessedid="x31fzo" aria-label="Default select example">
+                                            <option value="">เลือกหมวดงาน -----------------</option>
 
                                             <option value="ออกแบบ-ตกแต่งภายใน" data-id="1">
                                                 ออกแบบ-ตกแต่งภายใน</option>
@@ -220,9 +236,17 @@
                                                 พลาสติก-โพลีคาร์บอเนต</option>
                                         </select>
                                     </div>
+                                    <div>
+                                        <select id="select_province_type" class="custom-select mb-3" id="inputGroupSelect01">
+                                            <option selected data-id="0">กรุณาเลือกจังหวัด...</option>
+                                            <?php 
+                                                include("db_search_province_list.php");
+                                            ?>
+                                        </select>
+                                    </div>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="inputGroupFile02"
-                                            accept="img-jobs/*" multiple>
+                                            accept="image/*" multiple>
                                         <label class="custom-file-label" for="inputGroupFile02">Choose image
                                             files</label>
                                     </div>
@@ -263,42 +287,42 @@
         <script>
             (function () {
                 var job_id = null;
+                var province_id = 0;
 
                 var Maha = function () {
 
                     return {
                         onChangeJobs: function () {
-                            // เมื่อมีการเปลี่ยนค่าใน <select>
-                            $(".form-select").change(function () {
-                                // ดึงค่า `data-id` จาก option ที่ถูกเลือก
+                            $("#select_job_type").change(function () {
                                 var selectedOption = $(this).find("option:selected");
                                 job_id = selectedOption.data("id");
-
-                                // แสดงค่า `data-id` ใน console (เพื่อตรวจสอบ)
-                                console.log("ค่า data-id ที่ถูกเลือก: " + job_id);
-
-                                // ตอนนี้คุณสามารถใช้ค่า `data-id` ที่ดึงมาได้ตามที่คุณต้องการ
+                            });
+                        },
+                        onChangeProvince: function () {
+                            $("#select_province_type").change(function () {
+                                var selectedOption = $(this).find("option:selected");
+                                province_id = selectedOption.data("id");
+                                console.log(province_id);
                             });
                         },
                         onClickBtnSave: function () {
                             $('#btn_save').on('click', function () {
-                                console.log("ttt");
                                 Maha.submitJobs();
-
                             });
                         },
                         submitJobs: function () {
+                            var jobs_title = $('#input_title').val();
                             var description = $('#input_desc').val();
-
                             var data = new FormData();
+                            data.append('jobs_title', jobs_title);
                             data.append('description', description);
                             data.append('jobs_id', job_id);
+                            data.append('province_id', province_id);
                             // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
                             var files = $('#inputGroupFile02')[0].files;
                             for (var i = 0; i < files.length; i++) {
                                 data.append('img_url[]', files[i]);
                             }
-
                             $.ajax({
                                 url: "db_websubmit_job.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
                                 method: "POST",
@@ -308,13 +332,12 @@
                                 success: function (response) {
                                     // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
                                     if (response === "success") {
-                                        window.location = 'noti.php';
+                                        window.location = 'business_profile_jobs.php';
                                     } else {
                                         alert(response);
                                     }
                                 }
                             });
-
                         },
 
 
@@ -323,6 +346,7 @@
                             // Maha.goBottom();
                             Maha.onClickBtnSave();
                             Maha.onChangeJobs();
+                            Maha.onChangeProvince();
                         }
                     }
                 }();
