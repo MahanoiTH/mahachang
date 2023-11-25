@@ -893,7 +893,7 @@ if (session_status() == PHP_SESSION_NONE) {
 											<div class="menu-sub menu-sub-dropdown w-175px py-4">
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="../dist/account/settings.html" class="menu-link d-flex px-5 active">
+													<a href="../dist/account/settings.php" class="menu-link d-flex px-5 active">
 													<span class="symbol symbol-20px me-4">
 														<img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
 													</span>English</a>
@@ -901,7 +901,7 @@ if (session_status() == PHP_SESSION_NONE) {
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="../dist/account/settings.html" class="menu-link d-flex px-5">
+													<a href="../dist/account/settings.php" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
 														<img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
 													</span>Spanish</a>
@@ -909,7 +909,7 @@ if (session_status() == PHP_SESSION_NONE) {
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="../dist/account/settings.html" class="menu-link d-flex px-5">
+													<a href="../dist/account/settings.php" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
 														<img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
 													</span>German</a>
@@ -917,7 +917,7 @@ if (session_status() == PHP_SESSION_NONE) {
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="../dist/account/settings.html" class="menu-link d-flex px-5">
+													<a href="../dist/account/settings.php" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
 														<img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
 													</span>Japanese</a>
@@ -925,7 +925,7 @@ if (session_status() == PHP_SESSION_NONE) {
 												<!--end::Menu item-->
 												<!--begin::Menu item-->
 												<div class="menu-item px-3">
-													<a href="../dist/account/settings.html" class="menu-link d-flex px-5">
+													<a href="../dist/account/settings.php" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
 														<img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
 													</span>French</a>
@@ -937,12 +937,12 @@ if (session_status() == PHP_SESSION_NONE) {
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5 my-1">
-											<a href="../dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+											<a href="../dist/account/settings.php" class="menu-link px-5">Account Settings</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="../dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+											<a href="../db_home_logout.php" class="menu-link px-5">Sign Out</a>
 										</div>
 										<!--end::Menu item-->
 									</div>
@@ -1234,7 +1234,7 @@ if (session_status() == PHP_SESSION_NONE) {
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="../dist/account/settings.html">
+												<a class="menu-link" href="../dist/account/settings.php">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -3442,7 +3442,7 @@ if (session_status() == PHP_SESSION_NONE) {
 												<!--end::Nav item-->
 												<!--begin::Nav item-->
 												<li class="nav-item mt-2">
-													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="../dist/account/settings.html">Settings</a>
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="../dist/account/settings.php">Settings</a>
 												</li>
 												<!--end::Nav item-->
 												<!--begin::Nav item-->
@@ -3490,7 +3490,7 @@ if (session_status() == PHP_SESSION_NONE) {
 											</div>
 											<!--end::Card title-->
 											<!--begin::Action-->
-											<a href="../dist/account/settings.html" class="btn btn-sm btn-primary align-self-center">Edit Profile</a>
+											<a href="../dist/account/settings.php" class="btn btn-sm btn-primary align-self-center">Edit Profile</a>
 											<!--end::Action-->
 										</div>
 										<!--begin::Card header-->
