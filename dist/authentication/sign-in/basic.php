@@ -216,7 +216,7 @@ License: For each use you must have a valid license purchased only from above li
 								success: function (response) {
 									// จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
 									if (response === "เข้าสู่ระบบสำเร็จ") {
-										window.location = '../dist/index.html';
+										window.location = '../dist/index.php';
 										// alert('สสส');
 									} else {
 										// alert('สส');
