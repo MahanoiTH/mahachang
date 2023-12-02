@@ -131,7 +131,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Col-->
 										<div class="col-xl-12">
 											<!--begin::Table widget 14-->
-											<div class="card card-flush h-md-100">
+											<div class="card card-flush">
 												<!--begin::Header-->
 												<div class="card-header pt-7">
 													<!--begin::Title-->
@@ -148,20 +148,19 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Header-->
 												<!--begin::Body-->
-												<div class="card-body pt-6">
+												<div class="card-body">
 													<!--begin::Table container-->
 													<div class="table-responsive">
 														<!--begin::Table-->
-														<table class="table table-row-dashed align-middle gs-0 gy-3 my-0" id="table_post_project">
+														<table class="table table-row-dashed " id="table_post_project">
 															<!--begin::Table head-->
 															<thead>
-																<tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">รูป</th>
-																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">หัวข้อโฆษณา</th>
-																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">รายละเอียดงาน</th>
-																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">สถานที่</th>
-																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">CHART</th>
-																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">VIEW</th>
+																<tr class="">
+																	<th class="p-0 pb-3  text-center" style="width: 5% !important;">รูป</th>
+																	<th class="p-0 pb-3  text-center" style="width: 20% !important;">หัวข้อโฆษณา</th>
+																	<th class="p-0 pb-3  text-center" style="width: 50% !important;">รายละเอียดงาน</th>
+																	<th class="p-0 pb-3  text-center" style="width: 20% !important;">สถานที่</th>
+																	<th class="p-0 pb-3  text-center" style="width: 5% !important;">แก้ไข/ลบ</th>
 																</tr>
 															</thead>
 															<!--end::Table head-->
@@ -7585,6 +7584,12 @@ License: For each use you must have a valid license purchased only from above li
 								Maha.requestBusiness();
 							});
 						},
+						onClickBtnEditDeleteJob: function () {
+							$('body').on('click', '.btn-edit_delete', function () {
+								console.log('asdf');
+
+							});
+						},
 						requestJob: function () {
 							var data = new FormData();
 							// data.append('description', description);
@@ -7620,6 +7625,7 @@ License: For each use you must have a valid license purchased only from above li
 
 							for (var i = 0; i < data.length; i++) {
 								var img_url_jobs = data[i].img_url;
+								var full_url = '../' +img_url_jobs;
 								var business_jobs_title = data[i].business_jobs_title;
 								var province_name = data[i].province_name;
 								var path_img_jobs = '\img-jobs/2/' + img_url_jobs;
@@ -7629,30 +7635,109 @@ License: For each use you must have a valid license purchased only from above li
 												<td>
 													<div class="d-flex align-items-center">
 														<div class="symbol symbol-50px me-3">
-															<img src="${img_url_jobs}" class="" alt="" />
+															<img src="${full_url}" class="" alt="" />
 														</div>
 													</div>
 												</td>
-												<td class="text-end pe-0">
+												<td class="text-start pe-0">
 													<span class="text-gray-600 fw-bold fs-6">${business_jobs_title}</span>
 												</td>
-												<td class="text-end pe-0">
+												<td class="text-start pe-0">
 													<!--begin::Label-->
-													<span class="badge badge-light-success fs-base">
+													<span class="">
 													${data[i].description}
 													<!--end::Label-->
 												</td>
-												<td class="text-end pe-12">
+												<td class="text-center pe-12">
 													<span class="badge py-3 px-4 fs-7 badge-light-primary">${province_name}</span>
 												</td>
-												<td class="text-end pe-0">
-													<div id="kt_table_widget_14_chart_1" class="h-50px mt-n8 pe-7" data-kt-chart-color="success"></div>
-												</td>
-												<td class="text-end">
-													<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-														<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-													</a>
-												</td>
+												<td>
+													<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end btn-edit_delete" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true" fdprocessedid="neqm9s">
+														<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
+															<span class="path1">แก้ไข</span>
+															<span class="path2">ลบ</span>
+														</i>
+													</button>
+
+													<div class="card-toolbar">
+														<!--begin::Menu-->
+														<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true" fdprocessedid="fp2f0q">
+															<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+																<span class="path4"></span>
+															</i>
+														</button>
+														<!--begin::Menu 2-->
+														<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu separator-->
+															<div class="separator mb-3 opacity-75"></div>
+															<!--end::Menu separator-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#" class="menu-link px-3">New Ticket</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#" class="menu-link px-3">New Customer</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																<!--begin::Menu item-->
+																<a href="#" class="menu-link px-3">
+																	<span class="menu-title">New Group</span>
+																	<span class="menu-arrow"></span>
+																</a>
+																<!--end::Menu item-->
+																<!--begin::Menu sub-->
+																<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3">Admin Group</a>
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3">Staff Group</a>
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3">Member Group</a>
+																	</div>
+																	<!--end::Menu item-->
+																</div>
+																<!--end::Menu sub-->
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#" class="menu-link px-3">New Contact</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu separator-->
+															<div class="separator mt-3 opacity-75"></div>
+															<!--end::Menu separator-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<div class="menu-content px-3 py-3">
+																	<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																</div>
+															</div>
+															<!--end::Menu item-->
+														</div>
+														<!--end::Menu 2-->
+														<!--end::Menu-->
+													</div>
+												<td>
 											</tr>
 											
 											`;
