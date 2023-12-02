@@ -156,12 +156,12 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Table head-->
 															<thead>
 																<tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-																	<th class="p-0 pb-3  text-start">รูป</th>
-																	<th class="p-0 pb-3  text-start">หัวข้อโฆษณา</th>
-																	<th class="p-0 pb-3  text-start">รายละเอียดงาน</th>
-																	<th class="p-0 pb-3  text-start pe-12">สถานที่</th>
-																	<th class="p-0 pb-3  text-start pe-7">CHART</th>
-																	<th class="p-0 pb-3  text-start">VIEW</th>
+																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">รูป</th>
+																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">หัวข้อโฆษณา</th>
+																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">รายละเอียดงาน</th>
+																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">สถานที่</th>
+																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">CHART</th>
+																	<th class="p-0 pb-3  text-start" style="width: 10% !important;">VIEW</th>
 																</tr>
 															</thead>
 															<!--end::Table head-->
