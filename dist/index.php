@@ -50,8 +50,8 @@ License: For each use you must have a valid license purchased only from above li
 			<!--begin::Page-->
 			<div class="app-page flex-column flex-column-fluid" id="kt_app_page">
 				<!--begin::Header-->
-				<?php 
-					include('header.php');
+				<?php
+				include('header.php');
 				?>
 
 				<!--end::Header-->
@@ -617,201 +617,22 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Table container-->
 													<div class="table-responsive">
 														<!--begin::Table-->
-														<table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
+														<table class="table table-row-dashed align-middle gs-0 gy-3 my-0" id="table_post_project">
 															<!--begin::Table head-->
 															<thead>
 																<tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-																	<th class="p-0 pb-3 min-w-175px text-start">ITEM</th>
-																	<th class="p-0 pb-3 min-w-100px text-end">BUDGET</th>
-																	<th class="p-0 pb-3 min-w-100px text-end">PROGRESS</th>
-																	<th class="p-0 pb-3 min-w-175px text-end pe-12">STATUS</th>
+																	<th class="p-0 pb-3 min-w-175px text-start">รูป</th>
+																	<th class="p-0 pb-3 min-w-100px text-end">หัวข้อโฆษณา</th>
+																	<th class="p-0 pb-3 min-w-100px text-end">รายละเอียดงาน</th>
+																	<th class="p-0 pb-3 min-w-175px text-end pe-12">สถานที่</th>
 																	<th class="p-0 pb-3 w-125px text-end pe-7">CHART</th>
 																	<th class="p-0 pb-3 w-50px text-end">VIEW</th>
 																</tr>
 															</thead>
 															<!--end::Table head-->
 															<!--begin::Table body-->
-															<tbody>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-49.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Mivy App</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Jane Cooper</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">$32,400</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<!--begin::Label-->
-																		<span class="badge badge-light-success fs-base">
-																		<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>9.2%</span>
-																		<!--end::Label-->
-																	</td>
-																	<td class="text-end pe-12">
-																		<span class="badge py-3 px-4 fs-7 badge-light-primary">In Process</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<div id="kt_table_widget_14_chart_1" class="h-50px mt-n8 pe-7" data-kt-chart-color="success"></div>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-40.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Avionica</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Esther Howard</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">$256,910</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<!--begin::Label-->
-																		<span class="badge badge-light-danger fs-base">
-																		<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>0.4%</span>
-																		<!--end::Label-->
-																	</td>
-																	<td class="text-end pe-12">
-																		<span class="badge py-3 px-4 fs-7 badge-light-warning">On Hold</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<div id="kt_table_widget_14_chart_2" class="h-50px mt-n8 pe-7" data-kt-chart-color="danger"></div>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-39.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Charto CRM</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Jenny Wilson</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">$8,220</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<!--begin::Label-->
-																		<span class="badge badge-light-success fs-base">
-																		<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>9.2%</span>
-																		<!--end::Label-->
-																	</td>
-																	<td class="text-end pe-12">
-																		<span class="badge py-3 px-4 fs-7 badge-light-primary">In Process</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<div id="kt_table_widget_14_chart_3" class="h-50px mt-n8 pe-7" data-kt-chart-color="success"></div>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-47.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Tower Hill</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Cody Fisher</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">$74,000</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<!--begin::Label-->
-																		<span class="badge badge-light-success fs-base">
-																		<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>9.2%</span>
-																		<!--end::Label-->
-																	</td>
-																	<td class="text-end pe-12">
-																		<span class="badge py-3 px-4 fs-7 badge-light-success">Complated</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<div id="kt_table_widget_14_chart_4" class="h-50px mt-n8 pe-7" data-kt-chart-color="success"></div>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-48.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">9 Degree</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Savannah Nguyen</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">$183,300</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<!--begin::Label-->
-																		<span class="badge badge-light-danger fs-base">
-																		<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>0.4%</span>
-																		<!--end::Label-->
-																	</td>
-																	<td class="text-end pe-12">
-																		<span class="badge py-3 px-4 fs-7 badge-light-primary">In Process</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<div id="kt_table_widget_14_chart_5" class="h-50px mt-n8 pe-7" data-kt-chart-color="danger"></div>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
+															<tbody id="table_post_project_body">
+																
 															</tbody>
 															<!--end::Table body-->
 														</table>
@@ -8213,8 +8034,112 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/js/custom/utilities/modals/create-project/complete.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-project/main.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
+		
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
+		<script>
+			(function () {
+				
+				var Maha = function () {
+
+					return {
+						onclickBtnSearch: function () {
+							$('#btn_search').on('click', function () {
+								var job_id = $('#inputGroupSelect01').find("option:selected");
+								job_type_id = job_id.data("id");
+								Maha.requestBusiness();
+							});
+						},
+						requestJob: function () {
+							var data = new FormData();
+							// data.append('description', description);
+							// data.append('jobs_id', job_id);
+							//data.append('job_type_id', job_type_id)
+							$.ajax({
+								url: "../db_business_job.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+								method: "POST",
+								data: data, // ส่งค่า product_id ไปยัง cart.php
+								processData: false,  // อย่าจัดการข้อมูลเอง
+								contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+								success: function (result) {
+									if (result == 'error') {
+										$(".content-repair-body").html('');
+									} else {
+										var data = JSON.parse(result);
+										console.log(result);
+										Maha.createTableJob(data);
+									}
+
+									// จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+									// if (response === "success") {
+									//     window.location = 'noti.php';
+									// } else {
+									//     alert(response);
+									// }
+								}
+							});
+						},
+						createTableJob: function (data) {
+							console.log("start");
+							var html_bs = '';
+
+							for (var i = 0; i < data.length; i++) {
+								var img_url_jobs = data[i].img_url;
+								var business_jobs_title = data[i].business_jobs_title;
+								var path_img_jobs = '\img-jobs/2/' + img_url_jobs;
+								console.log("sadff");
+								html_bs += `
+											<tr>
+												<td>
+													<div class="d-flex align-items-center">
+														<div class="symbol symbol-50px me-3">
+															<img src="${img_url_jobs}" class="" alt="" />
+														</div>
+													</div>
+												</td>
+												<td class="text-end pe-0">
+													<span class="text-gray-600 fw-bold fs-6">${business_jobs_title}</span>
+												</td>
+												<td class="text-end pe-0">
+													<!--begin::Label-->
+													<span class="badge badge-light-success fs-base">
+													${data[i].description}
+													<!--end::Label-->
+												</td>
+												<td class="text-end pe-12">
+													<span class="badge py-3 px-4 fs-7 badge-light-primary">In Process</span>
+												</td>
+												<td class="text-end pe-0">
+													<div id="kt_table_widget_14_chart_1" class="h-50px mt-n8 pe-7" data-kt-chart-color="success"></div>
+												</td>
+												<td class="text-end">
+													<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+														<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
+													</a>
+												</td>
+											</tr>
+											
+											`;
+
+							}
+							
+							$("#table_post_project_body").html('');
+							$("#table_post_project_body").html(html_bs);
+						},
+
+
+						init: function () {
+							Maha.requestJob();
+							Maha.onclickBtnSearch();
+						}
+					}
+				}();
+				$(document).ready(function () {
+					Maha.init();
+				});
+			})();
+
+		</script>
 	</body>
 	<!--end::Body-->
 </html>
