@@ -107,7 +107,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="d-flex align-items-center gap-3 gap-lg-5">
 												<!--begin::Secondary button-->
 												<div class="m-0">
-													<a href="#" class="btn btn-flex btn-sm btn-color-gray-700 bg-body fw-bold px-4" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">New Project</a>
+													<a href="#" class="btn btn-flex btn-sm btn-color-gray-700 bg-body fw-bold px-4" data-bs-toggle="modal" data-bs-target="#modalAddNewProject" >New Project</a>
 												</div>
 												<!--end::Secondary button-->
 												<!--begin::Primary button-->
@@ -7534,6 +7534,10 @@ License: For each use you must have a valid license purchased only from above li
 		</div>
 		<!--end::Modal - Users Search-->
 		<!--end::Modals-->
+		<!--begin::Modal - Add New Project -->
+			<!-- Vertically centered modal -->
+			<div class="modal-dialog modal-dialog-centered" id="modalAddNewProject">
+		<!--end::Modal -->
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->

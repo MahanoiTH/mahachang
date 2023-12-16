@@ -93,7 +93,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->
-								<h1 class="text-dark mb-3">Sign In to Oswald HTML Free</h1>
+								<h2 class="text-dark mb-3">สำหรับสมาชิกเข้าระบบ</h2>
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-semibold fs-4">New Here?
