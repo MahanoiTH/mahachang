@@ -356,8 +356,8 @@ if (session_status() == PHP_SESSION_NONE) {
                               class="img-responsive" alt="Berry Lace Dress"></a>
                         </div>
                         <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">$29.00</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                        <div class="pi-price">ติดต่อ:</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                       </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6">
@@ -367,8 +367,8 @@ if (session_status() == PHP_SESSION_NONE) {
                               class="img-responsive" alt="Berry Lace Dress"></a>
                         </div>
                         <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">$29.00</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                        <div class="pi-price">ติดต่อ:</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                       </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6">
@@ -378,8 +378,8 @@ if (session_status() == PHP_SESSION_NONE) {
                               class="img-responsive" alt="Berry Lace Dress"></a>
                         </div>
                         <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">$29.00</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                        <div class="pi-price">ติดต่อ:</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                       </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-6">
@@ -389,8 +389,8 @@ if (session_status() == PHP_SESSION_NONE) {
                               class="img-responsive" alt="Berry Lace Dress"></a>
                         </div>
                         <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">$29.00</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                        <div class="pi-price">ติดต่อ:</div>
+                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                       </div>
                     </div>
                   </div>
@@ -556,8 +556,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
@@ -571,8 +571,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -585,8 +585,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -599,8 +599,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
@@ -614,8 +614,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -628,8 +628,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -642,8 +642,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
@@ -720,8 +720,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
@@ -735,8 +735,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -749,8 +749,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -763,8 +763,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                 <div class="sticker sticker-sale"></div>
               </div>
             </div>
@@ -778,8 +778,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
             <div>
@@ -792,8 +792,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                <div class="pi-price">ติดต่อ:</div>
+                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
           </div>
@@ -834,7 +834,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-md-4 steps-block-col">
           <i class="fa fa-truck"></i>
           <div>
-            <h2>Free shipping</h2>
+            <h2>ค้นหาได้ง่าย</h2>
             <em>Express delivery withing 3 days</em>
           </div>
           <span>&nbsp;</span>
@@ -842,7 +842,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-md-4 steps-block-col">
           <i class="fa fa-gift"></i>
           <div>
-            <h2>Daily Gifts</h2>
+            <h2>บริการ</h2>
             <em>3 Gifts daily for lucky customers</em>
           </div>
           <span>&nbsp;</span>
@@ -850,8 +850,8 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-md-4 steps-block-col">
           <i class="fa fa-phone"></i>
           <div>
-            <h2>477 505 8877</h2>
-            <em>24/7 customer care available</em>
+            <h2>ติดต่อโฆษณา</h2>
+            <em>โทร. 060 6542 111 mahachang@gmail.com</em>
           </div>
         </div>
       </div>
@@ -1033,7 +1033,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <input id="product-quantity" type="text" value="1" readonly name="product-quantity"
                 class="form-control input-sm">
             </div>
-            <button class="btn btn-primary" type="submit">Add to cart</button>
+            <button class="btn btn-primary" type="submit">ดูรายละเอียด</button>
             <a href="shop-item.html" class="btn btn-default">More details</a>
           </div>
         </div>
