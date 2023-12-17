@@ -549,9 +549,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -564,9 +564,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/product2.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/product2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -578,9 +578,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model6.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/product3.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/model6.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/product3.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -592,9 +592,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model4.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/product4.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/product4.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -607,9 +607,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model5.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/product5.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/model5.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/product5.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -713,9 +713,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/k1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/k1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -728,9 +728,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/k2.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/itProduct2.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/k2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/itProduct2.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -742,9 +742,9 @@ if (session_status() == PHP_SESSION_NONE) {
             <div>
               <div class="product-item">
                 <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/k3.jpg" class="img-responsive" alt="Berry Lace Dress">
+                  <img src="assets/pages/img/products/itProduct3.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
-                    <a href="assets/pages/img/products/k3.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                    <a href="assets/pages/img/products/itProduct3.jpg" class="btn btn-default fancybox-button">Zoom</a>
                     <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
@@ -807,7 +807,7 @@ if (session_status() == PHP_SESSION_NONE) {
   </div>
 
   <!-- BEGIN BRANDS -->
-  <div class="brands">
+  <!-- <div class="brands">
     <div class="container">
       <div class="owl-carousel owl-carousel6-brands">
         <a href="shop-product-list.html"><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"></a>
@@ -824,7 +824,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <a href="shop-product-list.html"><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"></a>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- END BRANDS -->
 
   <!-- BEGIN STEPS -->
