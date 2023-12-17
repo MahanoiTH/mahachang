@@ -69,6 +69,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <link href="assets/corporate/css/style-responsive.css" rel="stylesheet">
   <link href="assets/corporate/css/themes/red.css" rel="stylesheet" id="style-color">
   <link href="assets/corporate/css/custom.css" rel="stylesheet">
+  <link href="js/DataTables/datatables.min.css" rel="stylesheet">
   <!-- Theme styles END -->
 </head>
 <!-- Head END -->
@@ -95,11 +96,11 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- END BEGIN STYLE CUSTOMIZER -->
 
   <!-- BEGIN TOP BAR -->
-    <?php include('admin_tobbar.php'); ?>
+  <?php include('admin_tobbar.php'); ?>
   <!-- END TOP BAR -->
-  
+
   <!-- BEGIN HEADER -->
-    <?php include('admin_header.php'); ?>
+  <?php include('admin_header.php'); ?>
   <!-- Header END -->
 
   <div class="main">
@@ -107,7 +108,8 @@ if (session_status() == PHP_SESSION_NONE) {
       <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
       <div class="row margin-bottom-40">
         <!-- BEGIN SALE PRODUCT -->
-        <b class="h2">โฆษณาหลัก ที่แสดงอยู่</b>
+        <b class="h2 margin-bottom-40">โฆษณาหลัก ที่แสดงอยู่</b>
+        <hr>
         <!-- <a href="javascript:;" class="btn btn-success add2cart pull-right">เพิ่มรายการ</a> -->
         <div class="col-md-12 sale-product">
           <div class="owl-carousel owl-carousel5">
@@ -218,12 +220,12 @@ if (session_status() == PHP_SESSION_NONE) {
       <!-- END SALE PRODUCT & NEW ARRIVALS -->
 
       <!-- BEGIN TABLE SHOW LIST ADVERTISING -->
-        <?php include('admin_table_show_list_advertising.php'); ?>
-      
-      <!-- END TABLE SHOW LIST ADVERTISING -->
-      
+      <?php include('admin_table_show_list_advertising.php'); ?>
 
-      
+      <!-- END TABLE SHOW LIST ADVERTISING -->
+
+
+
     </div>
   </div>
 
@@ -248,9 +250,9 @@ if (session_status() == PHP_SESSION_NONE) {
   </div> -->
   <!-- END BRANDS -->
   <!-- BEGIN FOOTER -->
-    <?php include('admin_footer.php'); ?>
+  <?php include('admin_footer.php'); ?>
   <!-- END FOOTER -->
-  
+
   <!-- END fast view of a product -->
 
   <!-- Load javascripts at bottom, this will reduce page load time -->
@@ -285,6 +287,62 @@ if (session_status() == PHP_SESSION_NONE) {
     });
   </script>
   <!-- END PAGE LEVEL JAVASCRIPTS -->
+  <!-- BEGIN CUSTOM JAVASCRIPTS -->
+
+  <script src="js/DataTables/datatables.min.js"></script>
+  <script>
+    (function () {
+
+      var Maha = function () {
+
+        return {
+          onclickBtnSearch: function () {
+            $('#btn_search').on('click', function () {
+              var job_id = $('#inputGroupSelect01').find("option:selected");
+              job_type_id = job_id.data("id");
+              Maha.requestBusiness();
+            });
+          },
+          onClickBtnEditDeleteJob: function () {
+            $('body').on('click', '.btn-edit_delete', function () {
+              console.log('asdf');
+
+            });
+          },
+          dataTableListAdvertising: function () {
+            var dataTable = $('#cs_table_main_advertising').DataTable({
+              ajax: 'data/objects.txt',
+              columns: [
+                { data: 'name' },
+                { data: 'position' },
+                { data: 'id' },
+                { data: 'start_date' },
+                { data: 'start_date' },
+                {
+                  data: function (data) {
+                    return '<button type="button" class="btn btn-default" ><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>';
+                  },
+                }
+              ]
+
+            });
+
+          },
+
+
+
+          init: function () {
+            Maha.dataTableListAdvertising();
+          }
+        }
+      }();
+      $(document).ready(function () {
+        Maha.init();
+      });
+    })();
+
+  </script>
+  <!-- END CUSTOM JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
 
