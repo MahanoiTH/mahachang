@@ -71,6 +71,40 @@ if (session_status() == PHP_SESSION_NONE) {
   <link href="assets/corporate/css/custom.css" rel="stylesheet">
   <link href="js/DataTables/datatables.min.css" rel="stylesheet">
   <!-- Theme styles END -->
+  <!--BEGIN CSS THIS PAGE -->
+  <style>
+    .ct-fancybox-lock .ct-fancybox-overlay {
+      overflow: auto;
+      overflow-y: scroll;
+    }
+
+    .ct-fancybox-overlay {
+      z-index: 100000;
+    }
+
+    .ct-fancybox-overlay-fixed {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+
+    .pr0 {
+      padding-right: 0px !important;
+    }
+
+    .mt5 {
+      margin-top: 5px !important;
+    }
+
+    .input-group-addon {
+      padding: 0px;
+    }
+
+    .product-pop-up .btn-primary {
+      margin-right: 1px;
+    }
+  </style>
+  <!--END CSS THIS PAGE -->
 </head>
 <!-- Head END -->
 
@@ -229,6 +263,88 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
   </div>
 
+  <!-- BEGIN MODAL ADD NEW ADVERTISING -->
+  <div id="modal_add_new_advertising" style="display: none; width: 700px;">
+    <div class="product-page product-pop-up">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-3">
+          <div class="product-main-image">
+            <img src="assets/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
+          </div>
+          <div class="product-other-images">
+            <a href="javascript:;" class="active"><img alt="Berry Lace Dress"
+                src="assets/pages/img/products/model3.jpg"></a>
+            <a href="javascript:;"><img alt="Berry Lace Dress" src="assets/pages/img/products/model4.jpg"></a>
+            <a href="javascript:;"><img alt="Berry Lace Dress" src="assets/pages/img/products/model5.jpg"></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-9">
+          <h2>เพิ่มรายกาารโฆษณาหลักใหม่</h2>
+          <div class="price-availability-block clearfix">
+            <div class="cs-name">
+              <label for="">ชื่อลูกค้า(บริษัท)</label>
+              <textarea id="message" name="message" rows="4" cols="40"></textarea>
+            </div>
+            <div class="cs-description">
+              <label for="">รายละเอียด(คำโฆษณา)</label>
+              <textarea id="message" name="message" rows="4" cols="40"></textarea>
+            </div>
+            <div class="order-by">
+              <label for="">ลำดับ(โฆษณาหลักจะแสดงแค่5อันดับแรก)</label>
+              <input type="text" class="text">
+            </div>
+            <div class="row mt5">
+              <label class="col-sm-12  mt5 pr0">วันที่เริ่มโฆษณา</label>
+            </div>
+            <div class="row mt5">
+              <div class="col-sm-11">
+                <div class="form-group">
+                  <div id="start_date" class="input-group date date-picker form_datetime bs-datetime col-sm-12"
+                    data-date-format="dd M yyyy" data-date-start-date="+0d">
+                    <div class="input-icon right">
+                      <i class="fa"></i>
+                      <input name="search_start_date" type="text" class="form-control" placeholder="เลือกวันที่เริ่ม">
+                    </div>
+                    <span class="input-group-addon btn-primary">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fa fa-calendar"></i>
+                      </button>
+                    </span>
+                  </div>
+                  <span class="help-block"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt5">
+              <label class="col-sm-12  mt5 pr0">วันที่สิ้นสุดโฆษณา</label>
+            </div>
+            <div class="row mt5">
+              <div class="col-sm-11">
+                <div class="form-group">
+                  <div id="start_date" class="input-group date date-picker form_datetime bs-datetime col-sm-12"
+                    data-date-format="dd M yyyy" data-date-start-date="+0d">
+                    <div class="input-icon right">
+                      <i class="fa"></i>
+                      <input name="search_start_date" type="text" class="form-control" placeholder="เลือกวันที่สิ้นสุด">
+                    </div>
+                    <span class="input-group-addon btn-primary">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fa fa-calendar"></i>
+                      </button>
+                    </span>
+                  </div>
+                  <span class="help-block"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sticker sticker-sale"></div>
+      </div>
+    </div>
+  </div>
+  <!-- END MODAL ADD NEW ADVERTISING -->
   <!-- BEGIN BRANDS -->
   <!-- <div class="brands">
     <div class="container">
@@ -274,6 +390,9 @@ if (session_status() == PHP_SESSION_NONE) {
   <script src='assets/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
   <script src="assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
   <!-- Quantity -->
+  <!-- DATEPICKER -->
+  <script src="js/bootstrap-datepicker-th.js" type="text/javascript"></script>
+  <script src="js/bootstrap-datepicker.th.min.js" type="text/javascript"></script>
 
   <script src="assets/corporate/scripts/layout.js" type="text/javascript"></script>
   <script src="assets/pages/scripts/bs-carousel.js" type="text/javascript"></script>
@@ -309,6 +428,15 @@ if (session_status() == PHP_SESSION_NONE) {
 
             });
           },
+          initModalAdvertising: function () {
+            $('#btn_add_new_addvertising').on('click', function () {
+              console.log('ttttasd');
+              $('#modal_add_new_advertising').show();
+            });
+            $('#btn_close').on('click', function () {
+              $('#modal_add_new_advertising').hide();
+            });
+          },
           dataTableListAdvertising: function () {
             var dataTable = $('#cs_table_main_advertising').DataTable({
               ajax: 'data/objects.txt',
@@ -328,11 +456,23 @@ if (session_status() == PHP_SESSION_NONE) {
             });
 
           },
+          initSetDatePicker: function () {
+            $('.date-picker').datepicker({
+              thaiyear: true,
+              language: 'th', // can use when import moment.js in this project is at _LayoutTemplate
+              autoclose: !0,
+              startDate: '-10y',
+            });
+
+          },
+
 
 
 
           init: function () {
             Maha.dataTableListAdvertising();
+            // Maha.initModalAdvertising();
+            Maha.initSetDatePicker();
           }
         }
       }();

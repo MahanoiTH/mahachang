@@ -1,7 +1,7 @@
 <div class="row margin-bottom-40">
     <!-- BEGIN SALE PRODUCT -->
     <b class="h2">ตาราง รายการโฆษณาหลัก</b>
-    <a href="javascript:;" class="btn btn-success add2cart pull-right margin-bottom-40">เพิ่มรายการ</a>
+    <a id="btn_add_new_addvertising" href="#modal_add_new_advertising" class="fancybox-fast-view btn btn-success add2cart pull-right margin-bottom-40">เพิ่มรายการ</a>
     <hr>
     <div class="col-md-12 sale-product">
         <table id="cs_table_main_advertising" class="table table-striped" style="width:100%">
