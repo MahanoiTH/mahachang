@@ -70,6 +70,8 @@ if (session_status() == PHP_SESSION_NONE) {
   <link href="assets/corporate/css/themes/red.css" rel="stylesheet" id="style-color">
   <link href="assets/corporate/css/custom.css" rel="stylesheet">
   <link href="js/DataTables/datatables.min.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+  <!-- <link href="js/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet"> -->
   <!-- Theme styles END -->
   <!--BEGIN CSS THIS PAGE -->
   <style>
@@ -102,6 +104,58 @@ if (session_status() == PHP_SESSION_NONE) {
 
     .product-pop-up .btn-primary {
       margin-right: 1px;
+    }
+
+    .ct-dropzone {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .dropzone {
+      width: 98%;
+      margin: 1%;
+      border: 2px dashed #3498db;
+      border-radius: 5px;
+      transition: 0.2s;
+      min-height: 450px;
+    }
+
+    .dropzone.dz-drag-hover {
+      border: 2px solid #3498db;
+    }
+
+    .dz-message.needsclick img {
+      width: 50px;
+      display: block;
+      margin: auto;
+      opacity: 0.6;
+      margin-bottom: 15px;
+    }
+
+    span.plus {
+      display: none;
+    }
+
+    .dropzone.dz-started .dz-message {
+      display: inline-block !important;
+      width: 120px;
+      float: right;
+      border: 1px solid rgba(238, 238, 238, 0.36);
+      border-radius: 30px;
+      height: 120px;
+      margin: 16px;
+      transition: 0.2s;
+    }
+
+    .dropzone.dz-started .dz-message span.text {
+      display: none;
+    }
+
+    .dropzone.dz-started .dz-message span.plus {
+      display: block;
+      font-size: 70px;
+      color: #aaa;
+      line-height: 110px;
     }
   </style>
   <!--END CSS THIS PAGE -->
@@ -268,30 +322,38 @@ if (session_status() == PHP_SESSION_NONE) {
     <div class="product-page product-pop-up">
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-3">
-          <div class="product-main-image">
-            <img src="assets/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
-          </div>
-          <div class="product-other-images">
-            <a href="javascript:;" class="active"><img alt="Berry Lace Dress"
-                src="assets/pages/img/products/model3.jpg"></a>
-            <a href="javascript:;"><img alt="Berry Lace Dress" src="assets/pages/img/products/model4.jpg"></a>
-            <a href="javascript:;"><img alt="Berry Lace Dress" src="assets/pages/img/products/model5.jpg"></a>
+          <!-- <div class="product-main-image"> -->
+          <div class="ct-dropzone">
+            <!-- <img src="assets/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive"> -->
+            <div id="dropzone">
+              <form class="dropzone needsclick" id="dz_upload">
+                <div class="dz-message needsclick">
+                  <span class="text">
+                    <img src="http://www.freeiconspng.com/uploads/------------------------------iconpngm--22.png"
+                      alt="Camera" />
+                    Drop files here or click to upload.
+                  </span>
+                  <span class="plus">+</span>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
+        <!-- </div> -->
         <div class="col-md-6 col-sm-6 col-xs-9">
           <h2>เพิ่มรายกาารโฆษณาหลักใหม่</h2>
           <div class="price-availability-block clearfix">
             <div class="cs-name">
               <label for="">ชื่อลูกค้า(บริษัท)</label>
-              <textarea id="message" name="message" rows="4" cols="40"></textarea>
+              <textarea id="ct_name" name="ct_name" rows="4" cols="40"></textarea>
             </div>
             <div class="cs-description">
               <label for="">รายละเอียด(คำโฆษณา)</label>
-              <textarea id="message" name="message" rows="4" cols="40"></textarea>
+              <textarea id="ct_desc" name="ct_desc" rows="4" cols="40"></textarea>
             </div>
-            <div class="order-by">
-              <label for="">ลำดับ(โฆษณาหลักจะแสดงแค่5อันดับแรก)</label>
-              <input type="text" class="text">
+            <label for="">ลำดับ(โฆษณาหลักจะแสดงแค่5อันดับแรก)</label>
+            <div class="row mt5">
+              <div class="col-sm-11 "><input id="ct_order" type="text" class="form-control"></div>
             </div>
             <div class="row mt5">
               <label class="col-sm-12  mt5 pr0">วันที่เริ่มโฆษณา</label>
@@ -303,7 +365,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     data-date-format="dd M yyyy" data-date-start-date="+0d">
                     <div class="input-icon right">
                       <i class="fa"></i>
-                      <input name="search_start_date" type="text" class="form-control" placeholder="เลือกวันที่เริ่ม">
+                      <input name="start_date" type="text" class="form-control" placeholder="เลือกวันที่เริ่ม">
                     </div>
                     <span class="input-group-addon btn-primary">
                       <button class="btn btn-primary" type="button">
@@ -325,7 +387,7 @@ if (session_status() == PHP_SESSION_NONE) {
                     data-date-format="dd M yyyy" data-date-start-date="+0d">
                     <div class="input-icon right">
                       <i class="fa"></i>
-                      <input name="search_start_date" type="text" class="form-control" placeholder="เลือกวันที่สิ้นสุด">
+                      <input name="end_date" type="text" class="form-control" placeholder="เลือกวันที่สิ้นสุด">
                     </div>
                     <span class="input-group-addon btn-primary">
                       <button class="btn btn-primary" type="button">
@@ -337,9 +399,14 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
               </div>
             </div>
+            <hr>
+            <div class="row mt5">
+              <div class="col-sm-11">
+                <a id="btn_save_new_advertising" class="btn btn-success pull-right">บันทึก</a>
+              </div>
+            </div>
           </div>
         </div>
-
         <div class="sticker sticker-sale"></div>
       </div>
     </div>
@@ -377,6 +444,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <script src="assets/plugins/respond.min.js"></script>  
     <![endif]-->
   <script src="assets/plugins/jquery.min.js" type="text/javascript"></script>
+
   <script src="assets/plugins/jquery-migrate.min.js" type="text/javascript"></script>
   <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="assets/corporate/scripts/back-to-top.js" type="text/javascript"></script>
@@ -396,6 +464,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
   <script src="assets/corporate/scripts/layout.js" type="text/javascript"></script>
   <script src="assets/pages/scripts/bs-carousel.js" type="text/javascript"></script>
+  <script src="assets/plugins/moment.min.js" type="text/javascript"></script>
+  <script src="js/dropzone.js" type="text/javascript"></script>
+  <!-- <script src="js/jquery-ui-1.12.1/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script> -->
+
+
   <script type="text/javascript">
     jQuery(document).ready(function () {
       Layout.init();
@@ -406,15 +479,75 @@ if (session_status() == PHP_SESSION_NONE) {
     });
   </script>
   <!-- END PAGE LEVEL JAVASCRIPTS -->
+
   <!-- BEGIN CUSTOM JAVASCRIPTS -->
 
   <script src="js/DataTables/datatables.min.js"></script>
-  <script>
+  <script type="text/javascript" start_date>
+
+    //submit new advertising
+    var start_date = '';
+    var end_date = '';
+    var ct_name = '';
+    var ct_desc = '';
+    var ct_order = '';
+    var acceptedFiles = [];
+    var uploadDropzone;
+    var advertising_id = 0;
+    var attc_list = [];
+    var attc_list_name = [];
+
+
     (function () {
 
       var Maha = function () {
 
         return {
+          initDropzone: function () {
+            if (uploadDropzone) {
+              console.log("Destroying existing Dropzone instance");
+              uploadDropzone.destroy();
+              console.log("Destroyed");
+            }
+
+            uploadDropzone = new Dropzone("#dz_upload", {
+              url: "upload.php",
+              paramName: "file", // The name that will be used to transfer the file
+              maxFilesize: 5, // MB,
+              addRemoveLinks: true,
+              parallelUploads: 1,
+              acceptedFiles: ".jpeg,.jpg,.png,.gif",
+              init: function () {
+                this.on("success", function (file, response) {
+                  console.log(response); // คำตอบจากการอัปโหลด
+                  console.log(file.name);
+                  // attc_list.push({ 'id': 0 , 'name': file.name, 'active': 1});
+                  attc_list_name.push(file.name);
+                  console.log(attc_list_name);
+                });
+                this.on("addedfile", function (file) {
+                  // Capture accepted files when a new file is added
+                  if (file.accepted) {
+                    acceptedFiles.push(file);
+                  }
+                });
+              }
+            });
+
+          },
+          removeFilesFromDropzone: function (element) {
+            var attc_id = $(element).data('id');
+            var fileName = $(element).data('filename');
+            $(element).parent().remove() // remove current files from dropzone
+            if ($('#dz_upload .dz-preview').length == 0) { // if no files in dropzone return to it default state
+              $('#dz_upload .dz-message').removeClass('hidden');
+              //$('#dz_upload .dz-message').css({'display' : 'block'})
+            }
+            // create list of files for submit
+            // push this file id active = 0
+            attc_list.push({ 'id': attc_id, 'fileurl': '', 'name': fileName, 'ref_file_type_id': 0, 'active': 0 })
+            //console.log(attc_list);
+          },
           onclickBtnSearch: function () {
             $('#btn_search').on('click', function () {
               var job_id = $('#inputGroupSelect01').find("option:selected");
@@ -465,6 +598,93 @@ if (session_status() == PHP_SESSION_NONE) {
             });
 
           },
+          onClickBtnSaveAddNewAdvertising: function () {
+            $('#btn_save_new_advertising').on('click', function () {
+              console.log("add");
+
+              // ตรวจสอบค่าว่างในฟิลด์
+              ct_name = $('#ct_name').val();
+              ct_desc = $('#ct_desc').val();
+              ct_order = $('#ct_order').val();
+
+              if (!ct_name || !ct_desc || !ct_order) {
+                alert('กรุณากรอกข้อมูลในทุกช่อง');
+                return false;
+              }
+
+              // ตรวจสอบค่าว่างใน start_date และ end_date
+              start_date = moment($("#start_date").datepicker('getDate')).format('YYYY-MM-DD');
+              end_date = moment($("#end_date").datepicker('getDate')).format('YYYY-MM-DD');
+
+              if (!start_date || !end_date) {
+                alert('กรุณาเลือกวันที่เริ่มต้นและสิ้นสุด');
+                return false;
+              }
+
+              console.log(start_date);
+              var active = 1;
+              Maha.submitNewAdvertising(active);
+            });
+
+          },
+          submitNewAdvertising: function (active) {
+            var data = new FormData();
+            data.append('ct_name', ct_name);
+            data.append('ct_desc', ct_desc);
+            data.append('ct_order', ct_order);
+            data.append('start_date', start_date);
+            data.append('end_date', end_date);
+            data.append('active', active);
+            // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
+
+            $.ajax({
+              url: "admin_db_submitMainAdvertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+              method: "POST",
+              data: data, // ส่งค่า product_id ไปยัง cart.php
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+                // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                if (response === "success") {
+                  // window.location = 'business_profile_jobs.php';
+                  console.log(response);
+                } else {
+                  alert(response);
+                  Maha.submitFile(response);
+                }
+              }
+            });
+          },
+          submitFile: function (id) {
+            // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
+            // ดึงไฟล์ภาพที่ Dropzone ได้รับ
+            // var files = Maha.uploadDropzone.getQueuedFiles();
+            // var fileNames = [{fil"_1.jpg", "_6.jpg"];
+            var active = 1;
+            var data = new FormData();
+            data.append('folder_id', id);
+            data.append("attc_list", attc_list_name);
+            data.append("active", active);
+            // data.append('file_names', fileNames);
+            // วนลูปเพื่อเพิ่มแต่ละไฟล์ลงใน FormData
+            $.ajax({
+              url: "admin_db_ajax_move_files_advertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+              method: "POST",
+              data: data, // ส่งค่า product_id ไปยัง cart.php
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+                // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                if (response === "success") {
+                  // window.location = 'business_profile_jobs.php';
+                  console.log(response);
+                } else {
+                  alert(response);
+                }
+              }
+            });
+          },
+
 
 
 
@@ -473,6 +693,8 @@ if (session_status() == PHP_SESSION_NONE) {
             Maha.dataTableListAdvertising();
             // Maha.initModalAdvertising();
             Maha.initSetDatePicker();
+            Maha.onClickBtnSaveAddNewAdvertising();
+            Maha.initDropzone();
           }
         }
       }();
