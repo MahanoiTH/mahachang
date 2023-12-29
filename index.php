@@ -618,34 +618,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
               </div>
             </div>
-            <div>
-              <div class="product-item">
-                <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  <div>
-                    <a href="assets/pages/img/products/model3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                  </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-              </div>
-            </div>
-            <div>
-              <div class="product-item">
-                <div class="pi-img-wrapper">
-                  <img src="assets/pages/img/products/model7.jpg" class="img-responsive" alt="Berry Lace Dress">
-                  <div>
-                    <a href="assets/pages/img/products/model7.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                  </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-              </div>
-            </div>
+
           </div>
         </div>
         <!-- END SALE PRODUCT -->
@@ -658,7 +631,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="sidebar col-md-3 col-sm-4">
           <ul class="list-group margin-bottom-25 sidebar-menu">
             <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-            งานออกแบบ ตกแต่งภายใน</a></li>
+                งานออกแบบ ตกแต่งภายใน</a></li>
             <li class="list-group-item clearfix dropdown">
               <a href="shop-product-list.html">
                 <i class="fa fa-angle-right"></i>
@@ -692,17 +665,17 @@ if (session_status() == PHP_SESSION_NONE) {
               </ul>
             </li>
             <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-            งานระบบไฟฟ้า งานระบบไฟฟ้า</a></li>
+                งานระบบไฟฟ้า งานระบบไฟฟ้า</a></li>
             <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-            งานระบบประปา งานระบบประปา</a></li>
+                งานระบบประปา งานระบบประปา</a></li>
             <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-            งานเหล็ก งานโครงสร้างเหล็ก</a></li>
+                งานเหล็ก งานโครงสร้างเหล็ก</a></li>
             <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-            งานปูพื้น ปูพื้นกระเบื้อง</a></li>
+                งานปูพื้น ปูพื้นกระเบื้อง</a></li>
             <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-            งานเขียนแบบ ออกแบบบ้าน</a></li>
-            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> 
-            งานสร้างบ้าน และอสังหาฯอื่นๆ</a></li>
+                งานเขียนแบบ ออกแบบบ้าน</a></li>
+            <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
+                งานสร้างบ้าน และอสังหาฯอื่นๆ</a></li>
           </ul>
         </div>
         <!-- END SIDEBAR -->
@@ -802,7 +775,7 @@ if (session_status() == PHP_SESSION_NONE) {
       </div>
       <!-- END SIDEBAR & CONTENT -->
 
-      
+
     </div>
   </div>
 
@@ -1074,6 +1047,105 @@ if (session_status() == PHP_SESSION_NONE) {
       Layout.initTouchspin();
       Layout.initTwitter();
     });
+  </script>
+  <!-- CUSTOM SCRIPT -->
+  <script>
+    (function () {
+      var Maha = function () {
+
+        return {
+          onClickLogin: function () {
+            $("#btn_login").on('click', function () {
+              var email = $("#input_email").val();
+              var password = $("#input_password").val();
+              $.ajax({
+                url: "db_home_login.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+                method: "POST",
+                data: { email: email, password: password }, // ส่งค่า product_id ไปยัง cart.php
+                success: function (response) {
+                  // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                  if (response === "เข้าสู่ระบบสำเร็จ") {
+                    window.location = 'index.php';
+                    // alert('สสส');
+                  } else {
+                    // alert('สส');
+                  }
+                }
+              });
+            });
+          },
+          onClickBtnLink: function () {
+            $("#btn_repair").on('click', function () {
+              window.location.href = "repair_search.php";
+            });
+          },
+          setElement: function () {
+            $("#btnPay").hide();
+            var count = $('.client_taital_main').length;
+            if (count > 0) {
+              $("#btnPay").show();
+            }
+
+          },
+          onClickBtnPlyment: function () {
+            // จัดการเหตุการณ์คลิกที่ลิงก์ "เพิ่มลงตะกร้า"
+            var searchForm = document.getElementById("searchForm");
+
+            // // เมื่อคลิกที่ปุ่มค้นหา
+            // searchForm.addEventListener("submit", function (e) {
+            //     // ป้องกันการส่งแบบฟอร์ม
+            //     e.preventDefault();
+            // });
+            $("body").on("click", "#btnPay", function (e) {
+              e.preventDefault(); // ป้องกันการรีเฟรชหน้าเว็บ
+
+              var active = 0;
+              // ส่งข้อมูลไปยัง cart.php โดยใช้ AJAX
+              $.ajax({
+                url: "payment_db.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+                method: "POST",
+                data: { active: active }, // ส่งค่า product_id ไปยัง cart.php
+                success: function (response) {
+                  // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                  if (response === "success") {
+                    window.location = 'noti.php';
+                  } else {
+                    alert(response);
+                  }
+                }
+              });
+            });
+          },
+          requestMainAdvertising: function () {
+              $.ajax({
+                url: "db_webrequest_main_advertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+                method: "POST",
+                // data:, // ส่งค่า product_id ไปยัง cart.php
+                success: function (response) {
+                  //จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                    alert(response);
+                }
+              });
+          },
+          goBottom: function () {
+            setTimeout(function () {
+              $('html, body').animate({ scrollTop: 700 }, 'fast');
+            }, 100);
+          },
+
+
+          init: function () {
+            // Oasis.submitpayment();
+            // Maha.goBottom();
+            Maha.requestMainAdvertising();
+          }
+        }
+      }();
+      $(document).ready(function () {
+        Maha.init();
+      });
+    })();
+
   </script>
   <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>
