@@ -563,11 +563,15 @@ if (session_status() == PHP_SESSION_NONE) {
           },
           initModalAdvertising: function () {
             $('#btn_add_new_addvertising').on('click', function () {
+              $('#ct_name').val('');
+              $('#ct_desc').val('');
+              $('#ct_order').val('');
+              advertising_id = 0;
               console.log('ttttasd');
-              $('#modal_add_new_advertising').show();
+              // $('#modal_add_new_advertising').show();
             });
             $('#btn_close').on('click', function () {
-              $('#modal_add_new_advertising').hide();
+              // $('#modal_add_new_advertising').hide();
             });
           },
           dataTableListAdvertising: function () {
@@ -581,7 +585,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 { data: 'end_date' },
                 {
                   data: function (data) {
-                    return `<button data-btn="edit" data-id="${data.id}" data-name="${data.customer_name}" data-desc="${data.description}" data-order="${data.advertising_order}" href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-default" ><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>`;
+                    return `<button data-btn="edit" data-id="${data.id}" data-name="${data.customer_name}" data-desc="${data.description}" data-order="${data.advertising_order}" href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-default" ><i class="fa fa-edit"></i></button><button data-id="${data.id}" data-btn="delete" type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>`;
                   },
                 }
               ],
@@ -594,8 +598,12 @@ if (session_status() == PHP_SESSION_NONE) {
                   return data.data;
                 },
               },
+              order: [
+                [2, 'asc'] // Specify the column index and sorting order as an array
+              ]
             });
           },
+
 
 
 
@@ -639,12 +647,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
           },
           onClickBtnEditMainAdvertising: function () {
-            $('#cs_table_main_advertising_wrapper').on('click','[data-btn="edit"]', function () {
-              var id = $(this).data('id');
+            $('#cs_table_main_advertising_wrapper').on('click', '[data-btn="edit"]', function () {
+              advertising_id = $(this).data('id');
               var name = $(this).data('name');
               var desc = $(this).data('desc');
               var order = $(this).data('order');
-              console.log(id);
               console.log(name);
               console.log(desc);
               console.log(order);
@@ -660,14 +667,29 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
           },
+          onClickBtnDeleteMainAdvertising: function () {
+            $('#cs_table_main_advertising_wrapper').on('click', '[data-btn="delete"]', function () {
+              console.log('start');
+              advertising_id = $(this).data('id');
+              var active = 0;
+              Maha.submitNewAdvertising(active);
+            });
+          },
           submitNewAdvertising: function (active) {
             var data = new FormData();
-            data.append('ct_name', ct_name);
-            data.append('ct_desc', ct_desc);
-            data.append('ct_order', ct_order);
-            data.append('start_date', start_date);
-            data.append('end_date', end_date);
-            data.append('active', active);
+            if (active == 1) {
+
+              data.append('id', advertising_id);
+              data.append('ct_name', ct_name);
+              data.append('ct_desc', ct_desc);
+              data.append('ct_order', ct_order);
+              data.append('start_date', start_date);
+              data.append('end_date', end_date);
+              data.append('active', active);
+            } else {
+              data.append('id', advertising_id);
+              data.append('active', active);
+            }
             // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
 
             $.ajax({
@@ -724,10 +746,11 @@ if (session_status() == PHP_SESSION_NONE) {
 
           init: function () {
             Maha.dataTableListAdvertising();
-            // Maha.initModalAdvertising();
+            Maha.initModalAdvertising();
             Maha.initSetDatePicker();
             Maha.onClickBtnSaveAddNewAdvertising();
             Maha.onClickBtnEditMainAdvertising();
+            Maha.onClickBtnDeleteMainAdvertising();
             Maha.initDropzone();
           }
         }
