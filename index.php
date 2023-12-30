@@ -547,7 +547,7 @@ if (session_status() == PHP_SESSION_NONE) {
           <h2>ประกาศโดยผู้สนับสนุน สนใจแสดงโฆษณาตำแหน่งนี้ โทร. 060 6542 111</h2>
           <div class="owl-carousel owl-carousel5">
             <div>
-              <div class="product-item">
+              <div class="product-item ct-main-advertising">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -562,7 +562,7 @@ if (session_status() == PHP_SESSION_NONE) {
               </div>
             </div>
             <div>
-              <div class="product-item">
+              <div class="product-item ct-main-advertising">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product2.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -576,7 +576,7 @@ if (session_status() == PHP_SESSION_NONE) {
               </div>
             </div>
             <div>
-              <div class="product-item">
+              <div class="product-item ct-main-advertising">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product3.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -590,7 +590,7 @@ if (session_status() == PHP_SESSION_NONE) {
               </div>
             </div>
             <div>
-              <div class="product-item">
+              <div class="product-item ct-main-advertising">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product4.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -605,7 +605,7 @@ if (session_status() == PHP_SESSION_NONE) {
               </div>
             </div>
             <div>
-              <div class="product-item">
+              <div class="product-item ct-main-advertising">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product5.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -1117,15 +1117,65 @@ if (session_status() == PHP_SESSION_NONE) {
             });
           },
           requestMainAdvertising: function () {
-              $.ajax({
-                url: "db_webrequest_main_advertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
-                method: "POST",
-                // data:, // ส่งค่า product_id ไปยัง cart.php
-                success: function (response) {
-                  //จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
-                    alert(response);
-                }
-              });
+            $.ajax({
+              url: "db_webrequest_main_advertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+              method: "POST",
+              // data:, // ส่งค่า product_id ไปยัง cart.php
+              success: function (response) {
+                //จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                // alert(response);
+                Maha.initDisplayMainAdvertising(JSON.parse(response));
+              }
+            });
+          },
+          initDisplayMainAdvertising: function (data) {
+            // $('.owl-carousel5').find
+            var list_urls = [];
+            var list_name = [];
+            var list_MainAdvertising = '';
+
+            data.forEach(function (e) {
+              list_name.push(e.customer_name);
+              for (const f of e.file_urls) {
+                list_urls.push({ "id": e.id, "file_url": f });
+                break;
+              }
+
+
+              list_MainAdvertising += `
+                                        <div>
+                                          <div class="product-item">
+                                            <div class="pi-img-wrapper">
+                                              <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                                              <div>
+                                                <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                                                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                              </div>
+                                            </div>
+                                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                                            <div class="pi-price">ติดต่อ:</div>
+                                            <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                            <div class="sticker sticker-new"></div>
+                                          </div>
+                                        </div>
+                                      `;
+            });
+            console.log(list_urls);
+
+            $('.ct-main-advertising h3 a').each(function (index) {
+              $(this).text(list_name[index]);
+            });
+
+            $('.ct-main-advertising img').each(function (index) {
+              // สร้าง URL โดยใช้ข้อมูลจาก list_urls
+              var file_url = `upload/advertising/${list_urls[index].id}/${list_urls[index].file_url}`;
+
+              // กำหนดค่าของ src ของภาพ
+              $(this).attr('src', file_url);
+            });
+
+
+            // $('.owl-carousel5').html(list_MainAdvertising);
           },
           goBottom: function () {
             setTimeout(function () {

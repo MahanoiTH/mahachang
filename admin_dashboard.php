@@ -572,23 +572,34 @@ if (session_status() == PHP_SESSION_NONE) {
           },
           dataTableListAdvertising: function () {
             var dataTable = $('#cs_table_main_advertising').DataTable({
-              ajax: 'data/objects.txt',
+              method: "POST", // Added method option
               columns: [
-                { data: 'name' },
-                { data: 'position' },
-                { data: 'id' },
+                { data: 'customer_name' },
+                { data: 'description' },
+                { data: 'advertising_order' },
                 { data: 'start_date' },
-                { data: 'start_date' },
+                { data: 'end_date' },
                 {
                   data: function (data) {
-                    return '<button type="button" class="btn btn-default" ><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>';
+                    return `<button data-btn="edit" data-id="${data.id}" data-name="${data.customer_name}" data-desc="${data.description}" data-order="${data.advertising_order}" href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-default" ><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>`;
                   },
                 }
-              ]
-
+              ],
+              ajax: {
+                url: 'admin_db_datatable_main_advertising.php',
+                type: 'POST',
+                dataSrc: function (data) {
+                  // Assuming your server returns an object with a property named 'data'
+                  // Adjust this part based on your actual server response structure
+                  return data.data;
+                },
+              },
             });
-
           },
+
+
+
+
           initSetDatePicker: function () {
             $('.date-picker').datepicker({
               thaiyear: true,
@@ -625,6 +636,28 @@ if (session_status() == PHP_SESSION_NONE) {
               var active = 1;
               Maha.submitNewAdvertising(active);
             });
+
+          },
+          onClickBtnEditMainAdvertising: function () {
+            $('#cs_table_main_advertising_wrapper').on('click','[data-btn="edit"]', function () {
+              var id = $(this).data('id');
+              var name = $(this).data('name');
+              var desc = $(this).data('desc');
+              var order = $(this).data('order');
+              console.log(id);
+              console.log(name);
+              console.log(desc);
+              console.log(order);
+
+
+              $('#ct_name').val(name);
+              $('#ct_desc').val(desc);
+              $('#ct_order').val(order);
+
+
+              console.log('test');
+            });
+
 
           },
           submitNewAdvertising: function (active) {
@@ -694,6 +727,7 @@ if (session_status() == PHP_SESSION_NONE) {
             // Maha.initModalAdvertising();
             Maha.initSetDatePicker();
             Maha.onClickBtnSaveAddNewAdvertising();
+            Maha.onClickBtnEditMainAdvertising();
             Maha.initDropzone();
           }
         }
