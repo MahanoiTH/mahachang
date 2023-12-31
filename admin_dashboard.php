@@ -500,6 +500,7 @@ if (session_status() == PHP_SESSION_NONE) {
     var data_url = 'admin_db_datatable_main_advertising.php';
     var submit_jobs_url = "admin_db_submitMainAdvertising.php";
     var folder_type = 'advertising';
+    var job_type_id = 1;
 
 
     (function () {
@@ -590,6 +591,14 @@ if (session_status() == PHP_SESSION_NONE) {
             dataTable = $('#cs_table_main_advertising').DataTable({
 
               method: "POST", // Added method option
+              columnDefs: [
+                { width: '20%', targets: 0 }, // กำหนดความกว้างของคอลัมน์ที่ 0
+                { width: '40%', targets: 1 }, // กำหนดความกว้างของคอลัมน์ที่ 1
+                { width: '5%', targets: 2 }, // กำหนดความกว้างของคอลัมน์ที่ 2
+                { width: '12%', targets: 3 },  // กำหนดความกว้างของคอลัมน์ที่ 3
+                { width: '12%', targets: 4 },  // กำหนดความกว้างของคอลัมน์ที่ 4
+                { width: '11%', targets: 5 }   // กำหนดความกว้างของคอลัมน์ที่ 5
+              ],
               columns: [
                 { data: 'customer_name' },
                 { data: 'description' },
@@ -716,6 +725,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 if (response === "success") {
                   // window.location = 'business_profile_jobs.php';
                   console.log(response);
+                  window.location.reload();
                 } else {
                   alert(response);
                   Maha.submitFile(response);
@@ -734,6 +744,7 @@ if (session_status() == PHP_SESSION_NONE) {
             data.append("attc_list", attc_list_name);
             data.append("active", active);
             data.append("folder_type", folder_type);
+            data.append("job_type_id", job_type_id);
             // data.append('file_names', fileNames);
             // วนลูปเพื่อเพิ่มแต่ละไฟล์ลงใน FormData
             $.ajax({
@@ -762,47 +773,56 @@ if (session_status() == PHP_SESSION_NONE) {
                 data_url = 'admin_db_datatable_main_advertising.php';
                 $('#modal_add_new_advertising h2').text('รายการโฆษณาหลัก');
                 submit_jobs_url = '';
+                job_type_id = 1;
                 break;
               case 2:
                 data_url = 'db_datatable_jobs_interior_design.php';
                 $('#modal_add_new_advertising h2').text('งานออกแบบ ตกแต่งภายใน');
                 submit_jobs_url = 'db_websubmit_jobs_interior_design.php';
                 folder_type = 'interior_design';
+                job_type_id = 2;
                 break;
               case 3:
                 data_url = 'db_datatable_jobs_air_conditioning.php';
                 $('#modal_add_new_advertising h2').text('งานระบบแอร์ ระบบปรับอากาศ');
                 submit_jobs_url = 'air_conditioning';
+                job_type_id = 3;
                 break;
               case 4:
                 data_url = "db_datatable_jobs_electrical.php";
                 $('#modal_add_new_advertising h2').text('งานระบบไฟฟ้า งานระบบไฟฟ้า');
                 submit_jobs_url = 'electrical';
+                job_type_id = 4;
                 break;
               case 5:
                 data_url = "db_datatable_jobs_plumbing.php";
                 $('#modal_add_new_advertising h2').text('งานระบบประปา งานระบบประปา');
                 submit_jobs_url = 'plumbing';
+                job_type_id = 5;
                 break;
               case 6:
                 data_url = "db_datatable_jobs_steel.php";
                 $('#modal_add_new_advertising h2').text('งานเหล็ก งานโครงสร้างเหล็ก');
                 submit_jobs_url = 'steel';
+                job_type_id = 6;
                 break;
               case 7:
                 data_url = "db_datatable_jobs_flooring.php";
                 $('#modal_add_new_advertising h2').text('งานปูพื้น ปูพื้นกระเบื้อง');
                 submit_jobs_url = 'flooring';
+                job_type_id = 7;
                 break;
               case 8:
                 data_url = "db_datatable_jobs_design.php";
                 $('#modal_add_new_advertising h2').text('งานเขียนแบบ ออกแบบบ้าน');
                 submit_jobs_url = 'design';
+                job_type_id = 8;
                 break;
               case 9:
                 data_url = "db_datatable_jobs_construction.php";
                 $('#modal_add_new_advertising h2').text('งานสร้างบ้าน และอสังหาฯอื่นๆ');
                 submit_jobs_url = 'construction';
+                job_type_id = 9;
                 break;
               default:
                 data_url = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย

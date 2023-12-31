@@ -24,11 +24,11 @@
         <table id="cs_table_main_advertising" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>ชื่อลูกค้า</th>
+                    <th>ชื่อบริษัทรับเหมา</th>
                     <th>รายละเอียด</th>
                     <th>ลำดับ</th>
                     <th>เริ่มโฆษณา</th>
-                    <th>สิ้นสุดการโฆษณา</th>
+                    <th>สิ้นสุดโฆษณา</th>
                     <th>แก้ไข/ลบ</th>
                 </tr>
             </thead>

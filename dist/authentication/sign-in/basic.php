@@ -16,7 +16,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <head>
 	<base href="../../" />
-	<title>Oswald HTML Free - Bootstrap 5 HTML Multipurpose Admin Dashboard Theme by Keenthemes</title>
+	<title>มาหาช่าง</title>
 	<meta charset="utf-8" />
 	<meta name="description"
 		content="Axel admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
@@ -57,13 +57,12 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Header-->
 					<div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
 						<!--begin::Logo-->
-						<a href="../dist/index.html" class="py-2 py-lg-20">
+						<a href="../admin_dashboard.php" class="py-2 py-lg-20">
 							<img alt="Logo" src="assets/media/logos/default.svg" class="h-40px h-lg-50px" />
 						</a>
 						<!--end::Logo-->
 						<!--begin::Title-->
-						<h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Welcome to Oswald HTML
-							Free</h1>
+						<h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Welcome to MAHA CHANG</h1>
 						<!--end::Title-->
 						<!--begin::Description-->
 						<p class="d-none d-lg-block fw-semibold fs-2 text-white">Plan your blog post by choosing a topic
@@ -89,7 +88,7 @@ License: For each use you must have a valid license purchased only from above li
 					<div class="w-lg-500px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
 						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
-							data-kt-redirect-url="../dist/index.html" action="#">
+							data-kt-redirect-url="../admin_dashboard.php" action="#">
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->

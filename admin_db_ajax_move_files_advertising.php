@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fileNames_string = $_POST['attc_list'];
     $active = $_POST['active'];
     $folderType = $_POST['folder_type'];
+    $job_type_id = $_POST['job_type_id'];
 
     // ใช้ explode เพื่อแยกข้อความด้วย ',' และ trim เพื่อลบช่องว่างที่อาจจะเกิดขึ้น
     $fileNames_st = array_map('trim', explode(',', $fileNames_string));
@@ -19,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sourceFolder = "uploads";
 
         // สร้างโครงสร้างของโฟลเดอร์ปลายทาง (เปลี่ยนเป็น "upload/advertising/id")
-        $destinationFolder = "upload/advertising/$folderId";
+        // $destinationFolder = "upload/advertising/$folderId";
+        $destinationFolder = "upload/$folderType/$folderId";
 
         // ดำเนินการตรวจสอบและสร้างโฟลเดอร์ปลายทาง
         $destinationFolderPath = __DIR__ . '/' . $destinationFolder;
@@ -43,8 +45,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // echo "File $fileName moved to $destinationFolder successfully<br>";
 
                     // INSERT ข้อมูลลงในฐานข้อมูล
-                    $sql = "INSERT INTO cs_advertising_attachment (advertising_id, active, file_url) 
-                            VALUES ('$folderId', '$active', '$fileName')";
+                    switch ($job_type_id) {
+                        case '1':
+                            $tableName = 'cs_advertising_attachment';
+                            break;
+                        // Add more cases as needed for other folder types
+                        case '2':
+                            $tableName = 'jobs_interior_design_attachment';
+                            break;
+                        case '3':
+                            $tableName = 'jobs_air_conditioning_attachment';
+                            break;
+                        case '4':
+                            $tableName = 'jobs_electrical_attachment';
+                            break;
+                        case '5':
+                            $tableName = 'jobs_plumbing_attachment';
+                            break;
+                        case '6':
+                            $tableName = 'jobs_steel_attachment';
+                            break;
+                        case '7':
+                            $tableName = 'jobs_flooring_attachment';
+                            break;
+                        case '8':
+                            $tableName = 'jobs_design_attachment';
+                            break;
+                        case '9':
+                            $tableName = 'jobs_construction_attachment';
+                            break;
+                        default:
+                            echo "Invalid folder type_attachment";
+                            exit;
+                    }
+
+                    $sql = "INSERT INTO $tableName (advertising_id, active, file_url) 
+                    VALUES ('$folderId', '$active', '$fileName')";
                     if ($conn->query($sql) === TRUE) {
                         // echo "success";
                     } else {
