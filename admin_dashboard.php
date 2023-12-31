@@ -548,6 +548,13 @@ if (session_status() == PHP_SESSION_NONE) {
             attc_list.push({ 'id': attc_id, 'fileurl': '', 'name': fileName, 'ref_file_type_id': 0, 'active': 0 })
             //console.log(attc_list);
           },
+          onchangeTableType: function () {
+            $('#select_jobs').on('change', function () {
+              var id = $(this).val();
+              Maha.changTable(id);
+              // console.log(id);
+            });
+          },
           onclickBtnSearch: function () {
             $('#btn_search').on('click', function () {
               var job_id = $('#inputGroupSelect01').find("option:selected");
@@ -739,6 +746,46 @@ if (session_status() == PHP_SESSION_NONE) {
               }
             });
           },
+          changTable: function (table_id) {
+            var number = parseInt(table_id);
+            console.log(number);
+            var day;
+
+            switch (number) {
+              case 1:
+                day = "One";
+                break;
+              case 2:
+                day = "Two";
+                break;
+              case 3:
+                day = "Three";
+                break;
+              case 4:
+                day = "Four";
+                break;
+              case 5:
+                day = "Five";
+                break;
+              case 6:
+                day = "Six";
+                break;
+              case 7:
+                day = "Seven";
+                break;
+              case 8:
+                day = "Eight";
+                break;
+              case 9:
+                day = "Nine";
+                break;
+              default:
+                day = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย
+            }
+
+            console.log(day);
+
+          },
 
 
 
@@ -752,6 +799,7 @@ if (session_status() == PHP_SESSION_NONE) {
             Maha.onClickBtnEditMainAdvertising();
             Maha.onClickBtnDeleteMainAdvertising();
             Maha.initDropzone();
+            Maha.onchangeTableType();
           }
         }
       }();
