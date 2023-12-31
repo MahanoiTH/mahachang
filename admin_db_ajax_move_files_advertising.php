@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $folderId = $_POST['folder_id'];
     $fileNames_string = $_POST['attc_list'];
     $active = $_POST['active'];
+    $folderType = $_POST['folder_type'];
 
     // ใช้ explode เพื่อแยกข้อความด้วย ',' และ trim เพื่อลบช่องว่างที่อาจจะเกิดขึ้น
     $fileNames_st = array_map('trim', explode(',', $fileNames_string));

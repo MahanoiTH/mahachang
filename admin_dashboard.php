@@ -486,6 +486,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <script type="text/javascript" start_date>
 
     //submit new advertising
+    var dataTable;
     var start_date = '';
     var end_date = '';
     var ct_name = '';
@@ -496,6 +497,9 @@ if (session_status() == PHP_SESSION_NONE) {
     var advertising_id = 0;
     var attc_list = [];
     var attc_list_name = [];
+    var data_url = 'admin_db_datatable_main_advertising.php';
+    var submit_jobs_url = "admin_db_submitMainAdvertising.php";
+    var folder_type = 'advertising';
 
 
     (function () {
@@ -582,7 +586,9 @@ if (session_status() == PHP_SESSION_NONE) {
             });
           },
           dataTableListAdvertising: function () {
-            var dataTable = $('#cs_table_main_advertising').DataTable({
+
+            dataTable = $('#cs_table_main_advertising').DataTable({
+
               method: "POST", // Added method option
               columns: [
                 { data: 'customer_name' },
@@ -597,7 +603,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 }
               ],
               ajax: {
-                url: 'admin_db_datatable_main_advertising.php',
+                url: data_url,
                 type: 'POST',
                 dataSrc: function (data) {
                   // Assuming your server returns an object with a property named 'data'
@@ -700,7 +706,7 @@ if (session_status() == PHP_SESSION_NONE) {
             // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
 
             $.ajax({
-              url: "admin_db_submitMainAdvertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+              url: submit_jobs_url, // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
               method: "POST",
               data: data, // ส่งค่า product_id ไปยัง cart.php
               processData: false,  // อย่าจัดการข้อมูลเอง
@@ -727,6 +733,7 @@ if (session_status() == PHP_SESSION_NONE) {
             data.append('folder_id', id);
             data.append("attc_list", attc_list_name);
             data.append("active", active);
+            data.append("folder_type", folder_type);
             // data.append('file_names', fileNames);
             // วนลูปเพื่อเพิ่มแต่ละไฟล์ลงใน FormData
             $.ajax({
@@ -749,41 +756,61 @@ if (session_status() == PHP_SESSION_NONE) {
           changTable: function (table_id) {
             var number = parseInt(table_id);
             console.log(number);
-            var day;
 
             switch (number) {
               case 1:
-                day = "One";
+                data_url = 'admin_db_datatable_main_advertising.php';
+                $('#modal_add_new_advertising h2').text('รายการโฆษณาหลัก');
+                submit_jobs_url = '';
                 break;
               case 2:
-                day = "Two";
+                data_url = 'db_datatable_jobs_interior_design.php';
+                $('#modal_add_new_advertising h2').text('งานออกแบบ ตกแต่งภายใน');
+                submit_jobs_url = 'db_websubmit_jobs_interior_design.php';
+                folder_type = 'interior_design';
                 break;
               case 3:
-                day = "Three";
+                data_url = 'db_datatable_jobs_air_conditioning.php';
+                $('#modal_add_new_advertising h2').text('งานระบบแอร์ ระบบปรับอากาศ');
+                submit_jobs_url = 'air_conditioning';
                 break;
               case 4:
-                day = "Four";
+                data_url = "db_datatable_jobs_electrical.php";
+                $('#modal_add_new_advertising h2').text('งานระบบไฟฟ้า งานระบบไฟฟ้า');
+                submit_jobs_url = 'electrical';
                 break;
               case 5:
-                day = "Five";
+                data_url = "db_datatable_jobs_plumbing.php";
+                $('#modal_add_new_advertising h2').text('งานระบบประปา งานระบบประปา');
+                submit_jobs_url = 'plumbing';
                 break;
               case 6:
-                day = "Six";
+                data_url = "db_datatable_jobs_steel.php";
+                $('#modal_add_new_advertising h2').text('งานเหล็ก งานโครงสร้างเหล็ก');
+                submit_jobs_url = 'steel';
                 break;
               case 7:
-                day = "Seven";
+                data_url = "db_datatable_jobs_flooring.php";
+                $('#modal_add_new_advertising h2').text('งานปูพื้น ปูพื้นกระเบื้อง');
+                submit_jobs_url = 'flooring';
                 break;
               case 8:
-                day = "Eight";
+                data_url = "db_datatable_jobs_design.php";
+                $('#modal_add_new_advertising h2').text('งานเขียนแบบ ออกแบบบ้าน');
+                submit_jobs_url = 'design';
                 break;
               case 9:
-                day = "Nine";
+                data_url = "db_datatable_jobs_construction.php";
+                $('#modal_add_new_advertising h2').text('งานสร้างบ้าน และอสังหาฯอื่นๆ');
+                submit_jobs_url = 'construction';
                 break;
               default:
-                day = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย
+                data_url = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย
             }
 
-            console.log(day);
+            console.log(data_url);
+            dataTable.destroy();
+            Maha.dataTableListAdvertising();
 
           },
 
