@@ -15,7 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Fetch data from the result set
         while ($row = $result->fetch_assoc()) {
             // Convert the comma-separated file URLs to an array
-            $data[] = $row;
+            $formattedRow = array(
+                // 'newColumnName1' => $row['oldColumnName1'],
+                'active' => $row['active'],
+                'order' => $row['advertising_order'],
+                'name' => $row['customer_name'],
+                'desc' => $row['description'],
+                'phone_number' => $row['phone_number'],
+                'start_date' => $row['start_date'],
+                'end_date' => $row['end_date'],
+                // Add more columns as needed
+            );
+            $data[] = $formattedRow;
         }
 
         // Close the result set

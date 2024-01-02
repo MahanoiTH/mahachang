@@ -600,9 +600,9 @@ if (session_status() == PHP_SESSION_NONE) {
                 { width: '11%', targets: 5 }   // กำหนดความกว้างของคอลัมน์ที่ 5
               ],
               columns: [
-                { data: 'customer_name' },
-                { data: 'description' },
-                { data: 'advertising_order' },
+                { data: 'name' },
+                { data: 'desc' },
+                { data: 'order' },
                 { data: 'start_date' },
                 { data: 'end_date' },
                 {
