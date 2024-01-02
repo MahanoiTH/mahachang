@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Convert the comma-separated file URLs to an array
             $formattedRow = array(
                 // 'newColumnName1' => $row['oldColumnName1'],
+                'id' => $row['id'],
                 'active' => $row['active'],
                 'order' => $row['job_order'],
                 'name' => $row['client_name'],

@@ -483,7 +483,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- BEGIN CUSTOM JAVASCRIPTS -->
 
   <script src="js/DataTables/datatables.min.js"></script>
-  <script type="text/javascript" start_date>
+  <script type="text/javascript">
 
     //submit new advertising
     var dataTable;
@@ -607,7 +607,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 { data: 'end_date' },
                 {
                   data: function (data) {
-                    return `<button data-btn="edit" data-id="${data.id}" data-name="${data.customer_name}" data-desc="${data.description}" data-order="${data.advertising_order}" href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-default" ><i class="fa fa-edit"></i></button><button data-id="${data.id}" data-btn="delete" type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>`;
+                    return `<button data-btn="edit" data-id="${data.id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-default" ><i class="fa fa-edit"></i></button><button data-id="${data.id}" data-btn="delete" type="button" class="btn btn-danger" ><i class="fa fa-trash-o"></i> </button>`;
                   },
                 }
               ],
