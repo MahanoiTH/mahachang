@@ -48,38 +48,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     switch ($job_type_id) {
                         case '1':
                             $tableName = 'cs_advertising_attachment';
+                            $colNameId = 'advertising_id';
                             break;
                         // Add more cases as needed for other folder types
                         case '2':
                             $tableName = 'jobs_interior_design_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '3':
                             $tableName = 'jobs_air_conditioning_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '4':
                             $tableName = 'jobs_electrical_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '5':
                             $tableName = 'jobs_plumbing_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '6':
                             $tableName = 'jobs_steel_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '7':
                             $tableName = 'jobs_flooring_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '8':
                             $tableName = 'jobs_design_attachment';
+                            $colNameId = 'job_id';
                             break;
                         case '9':
                             $tableName = 'jobs_construction_attachment';
+                            $colNameId = 'job_id';
                             break;
                         default:
                             echo "Invalid folder type_attachment";
                             exit;
                     }
 
-                    $sql = "INSERT INTO $tableName (advertising_id, active, file_url) 
+                    $sql = "INSERT INTO $tableName ($colNameId, active, file_url) 
                     VALUES ('$folderId', '$active', '$fileName')";
                     if ($conn->query($sql) === TRUE) {
                         // echo "success";

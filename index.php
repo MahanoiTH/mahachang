@@ -1100,6 +1100,7 @@ if (session_status() == PHP_SESSION_NONE) {
     //Begin Global variable
     job_data_url = 'db_webrequest_jobs_interior_design.php';
     job_title = 'งานออกแบบ ตกแต่งภายใน';
+    var folder_name_img = 'interior_design';
 
     //End global variable
     (function () {
@@ -1181,34 +1182,42 @@ if (session_status() == PHP_SESSION_NONE) {
               case 1:
                 job_data_url = 'db_webrequest_jobs_interior_design.php';
                 job_title = 'งานออกแบบ ตกแต่งภายใน';
+                folder_name_img = 'interior_design';
                 break;
               case 2:
                 job_data_url = 'db_webrequest_jobs_air_conditioning.php';
                 job_title = 'งานระบบแอร์ ระบบปรับอากาศ';
+                folder_name_img = 'interior_design';
                 break;
               case 3:
                 job_data_url = 'db_webrequest_jobs_electrical.php';
                 job_title = 'งานระบบไฟฟ้า งานระบบไฟฟ้า';
+                folder_name_img = 'interior_design';
                 break;
               case 4:
                 job_data_url = "db_webrequest_jobs_plumbing.php";
                 job_title = 'งานระบบประปา งานระบบประปา';
+                folder_name_img = 'interior_design';
                 break;
               case 5:
                 job_data_url = "db_webrequest_jobs_steel.php";
                 job_title = 'งานเหล็ก งานโครงสร้างเหล็ก';
+                folder_name_img = 'interior_design';
                 break;
               case 6:
                 job_data_url = "db_webrequest_jobs_flooring.php";
                 job_title = 'งานปูพื้น ปูพื้นกระเบื้อง';
+                folder_name_img = 'interior_design';
                 break;
               case 7:
                 job_data_url = "db_webrequest_jobs_design.php";
                 job_title = 'งานเขียนแบบ ออกแบบบ้าน';
+                folder_name_img = 'interior_design';
                 break;
               case 8:
                 job_data_url = "db_webrequest_jobs_construction.php";
                 job_title = 'งานสร้างบ้าน และอสังหาฯอื่นๆ';
+                folder_name_img = 'interior_design';
                 break;
               default:
                 job_data_url = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย
@@ -1305,16 +1314,16 @@ if (session_status() == PHP_SESSION_NONE) {
                                         <div>
                                           <div class="product-item">
                                                   <div class="pi-img-wrapper">
-                                                          <img src="assets/pages/img/products/itProduct1.jpg"
+                                                          <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                   class="img-responsive" alt="Berry Lace Dress">
                                                           <div>
-                                                                  <a href="assets/pages/img/products/itProduct1.jpg"
+                                                                  <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                           class="btn btn-default fancybox-button">Zoom</a>
                                                                   <a href="#product-pop-up"
                                                                           class="btn btn-default fancybox-fast-view">View</a>
                                                           </div>
                                                   </div>
-                                                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                                                  <h3><a href="shop-item.html">${e.name}</a></h3>
                                                   <div class="pi-price">ติดต่อ:</div>
                                                   <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                                                   <div class="sticker sticker-new"></div>
@@ -1329,16 +1338,16 @@ if (session_status() == PHP_SESSION_NONE) {
                                       <div>
                                               <div class="product-item">
                                                       <div class="pi-img-wrapper">
-                                                              <img src="assets/pages/img/products/itProduct2.jpg"
+                                                              <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                       class="img-responsive" alt="Berry Lace Dress">
                                                               <div>
-                                                                      <a href="assets/pages/img/products/itProduct2.jpg"
+                                                                      <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                               class="btn btn-default fancybox-button">Zoom</a>
                                                                       <a href="#product-pop-up"
                                                                               class="btn btn-default fancybox-fast-view">View</a>
                                                               </div>
                                                       </div>
-                                                      <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                                                      <h3><a href="shop-item.html">${e.name}</a></h3>
                                                       <div class="pi-price">ติดต่อ:</div>
                                                       <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                                               </div>
@@ -1352,16 +1361,16 @@ if (session_status() == PHP_SESSION_NONE) {
                                                               <div>
                                                                       <div class="product-item">
                                                                               <div class="pi-img-wrapper">
-                                                                                      <img src="assets/pages/img/products/itProduct3.jpg"
+                                                                                      <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                                               class="img-responsive" alt="Berry Lace Dress">
                                                                                       <div>
-                                                                                              <a href="assets/pages/img/products/itProduct3.jpg"
+                                                                                              <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                                                       class="btn btn-default fancybox-button">Zoom</a>
                                                                                               <a href="#product-pop-up"
                                                                                                       class="btn btn-default fancybox-fast-view">View</a>
                                                                                       </div>
                                                                               </div>
-                                                                              <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
+                                                                              <h3><a href="shop-item.html">${e.name}</a></h3>
                                                                               <div class="pi-price">ติดต่อ:</div>
                                                                               <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                                                                       </div>

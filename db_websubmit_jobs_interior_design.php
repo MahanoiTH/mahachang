@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO jobs_interior_design (job_order, active, start_date, end_date, client_name, job_description) 
+            $sql = "INSERT INTO jobs_interior_design (advertising_order, active, start_date, end_date, customer_name, description) 
                     VALUES ('$ct_order', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc')";
             if ($conn->query($sql) === TRUE) {
                 // echo "success";
@@ -56,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } else {
                     // Update data in the database when active is not 0
                     $sql = "UPDATE jobs_interior_design 
-                            SET job_order = '$ct_order',
+                            SET advertising_order	 = '$ct_order',
                                 active = '$active',
-                                client_name = '$ct_name',
+                                customer_name = '$ct_name',
                                 description = '$ct_desc'
                             WHERE id = $id";
                 }

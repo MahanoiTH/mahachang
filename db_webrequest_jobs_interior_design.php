@@ -22,7 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         while ($row = $result->fetch_assoc()) {
             // Convert the comma-separated file URLs to an array
             $row['file_urls'] = explode(',', $row['file_urls']);
-            $data[] = $row;
+            $formattedRow = array(
+                'id' => $row['id'],
+                'order' => $row['advertising_order'],
+                'name' => $row['customer_name'],
+                'desc' => $row['description'],
+                'phone_number' => $row['phone_number'],
+                'file_urls' => $row['file_urls'],
+                // Add more columns as needed
+            );
+            $data[] = $formattedRow;
         }
 
         // Close the database connection

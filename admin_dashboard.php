@@ -139,7 +139,6 @@ if (session_status() == PHP_SESSION_NONE) {
     .dropzone.dz-started .dz-message {
       display: inline-block !important;
       width: 120px;
-      float: right;
       border: 1px solid rgba(238, 238, 238, 0.36);
       border-radius: 30px;
       height: 120px;
@@ -669,7 +668,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
           },
           onClickBtnEditMainAdvertising: function () {
-            $('#cs_table_main_advertising_wrapper').on('click', '[data-btn="edit"]', function () {
+            $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="edit"]', function () {
               advertising_id = $(this).data('id');
               var name = $(this).data('name');
               var desc = $(this).data('desc');
@@ -690,7 +689,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
           },
           onClickBtnDeleteMainAdvertising: function () {
-            $('#cs_table_main_advertising_wrapper').on('click', '[data-btn="delete"]', function () {
+            $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="delete"]', function () {
               console.log('start');
               advertising_id = $(this).data('id');
               var active = 0;
@@ -725,7 +724,9 @@ if (session_status() == PHP_SESSION_NONE) {
                 if (response === "success") {
                   // window.location = 'business_profile_jobs.php';
                   console.log(response);
-                  window.location.reload();
+                  // window.location.reload();
+                  dataTable.destroy();
+                  Maha.dataTableListAdvertising();
                 } else {
                   alert(response);
                   Maha.submitFile(response);
@@ -758,8 +759,13 @@ if (session_status() == PHP_SESSION_NONE) {
                 if (response === "success") {
                   // window.location = 'business_profile_jobs.php';
                   console.log(response);
+                  dataTable.destroy();
+                  Maha.dataTableListAdvertising();
                 } else {
                   alert(response);
+                  
+                  dataTable.destroy();
+                  Maha.dataTableListAdvertising();
                 }
               }
             });
