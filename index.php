@@ -1293,129 +1293,114 @@ if (session_status() == PHP_SESSION_NONE) {
             console.log(slicedData);
             var title = `<h2>${job_title}</h2>`;
             var count_job = 1;
-            var list_jobs = `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded">
-            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 698.001px;"><div class="owl-item active" style="width: 232.667px; margin-right: 0px;"><div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                  <div class="pi-price">ติดต่อ:</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                  <div class="sticker sticker-new"></div>
-                </div>
-              </div></div><div class="owl-item active" style="width: 232.667px; margin-right: 0px;"><div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/itProduct2.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/itProduct2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                  <div class="pi-price">ติดต่อ:</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                </div>
-              </div></div><div class="owl-item active" style="width: 232.667px; margin-right: 0px;"><div>
-                <div class="product-item">
-                  <div class="pi-img-wrapper">
-                    <img src="assets/pages/img/products/itProduct3.jpg" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                      <a href="assets/pages/img/products/itProduct3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                  </div>
-                  <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                  <div class="pi-price">ติดต่อ:</div>
-                  <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                </div>
-              </div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div></div></div></div>`;
-            // list_jobs += title;
-            // slicedData.forEach(function (e) {
-            //   if (count_job == 1) {
-            //     list_jobs += `
-            //                     <div class="owl-carousel owl-carousel3">
-            //                       <div>
-            //                         <div class="product-item">
-            //                           <div class="pi-img-wrapper">
-            //                             <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
-            //                             <div>
-            //                               <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-            //                               <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-            //                             </div>
-            //                           </div>
-            //                           <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-            //                           <div class="pi-price">ติดต่อ:</div>
-            //                           <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-            //                           <div class="sticker sticker-new"></div>
-            //                         </div>
-            //                       </div>
-            //                   `;
-            //     count_job += 1;     
-            //   } else if (count_job == 2) {
-            //     list_jobs += `
-            //                     <div>
-            //                       <div class="product-item">
-            //                         <div class="pi-img-wrapper">
-            //                           <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
-            //                           <div>
-            //                             <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-            //                             <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-            //                           </div>
-            //                         </div>
-            //                         <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-            //                         <div class="pi-price">ติดต่อ:</div>
-            //                         <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-            //                         <div class="sticker sticker-new"></div>
-            //                       </div>
-            //                     </div>
-            //                   `;
-            //     count_job += 1;
-            //   } else if (count_job == 3) {
-            //     list_jobs +=  `
-            //                       <div>
-            //                         <div class="product-item">
-            //                           <div class="pi-img-wrapper">
-            //                             <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
-            //                             <div>
-            //                               <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-            //                               <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-            //                             </div>
-            //                           </div>
-            //                           <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-            //                           <div class="pi-price">ติดต่อ:</div>
-            //                           <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-            //                           <div class="sticker sticker-new"></div>
-            //                         </div>
-            //                       </div>
-            //                     </div>
-            //                   `;
-            //     count_job = 1; //reset
-            //   }
+            var list_jobs = '';
+            list_jobs += title;
+            slicedData.forEach(function (e) {
+              if (count_job == 1) {
+                list_jobs += `
+                                <div class="owl-carousel owl-carousel3 owl-theme owl-loaded">
+                                  <div class="owl-stage-outer">
+                                    <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                      <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                        <div>
+                                          <div class="product-item">
+                                                  <div class="pi-img-wrapper">
+                                                          <img src="assets/pages/img/products/itProduct1.jpg"
+                                                                  class="img-responsive" alt="Berry Lace Dress">
+                                                          <div>
+                                                                  <a href="assets/pages/img/products/itProduct1.jpg"
+                                                                          class="btn btn-default fancybox-button">Zoom</a>
+                                                                  <a href="#product-pop-up"
+                                                                          class="btn btn-default fancybox-fast-view">View</a>
+                                                          </div>
+                                                  </div>
+                                                  <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                                                  <div class="pi-price">ติดต่อ:</div>
+                                                  <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                                  <div class="sticker sticker-new"></div>
+                                          </div>
+                                        </div>
+                                    </div>
+                               `;
+                count_job += 1;
+              } else if (count_job == 2) {
+                list_jobs += `
+                              <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                      <div>
+                                              <div class="product-item">
+                                                      <div class="pi-img-wrapper">
+                                                              <img src="assets/pages/img/products/itProduct2.jpg"
+                                                                      class="img-responsive" alt="Berry Lace Dress">
+                                                              <div>
+                                                                      <a href="assets/pages/img/products/itProduct2.jpg"
+                                                                              class="btn btn-default fancybox-button">Zoom</a>
+                                                                      <a href="#product-pop-up"
+                                                                              class="btn btn-default fancybox-fast-view">View</a>
+                                                              </div>
+                                                      </div>
+                                                      <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
+                                                      <div class="pi-price">ติดต่อ:</div>
+                                                      <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                              </div>
+                                      </div>
+                              </div>
+                               `;
+                count_job += 1;
+              } else if (count_job == 3) {
+                list_jobs += `
+                                              <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                                              <div>
+                                                                      <div class="product-item">
+                                                                              <div class="pi-img-wrapper">
+                                                                                      <img src="assets/pages/img/products/itProduct3.jpg"
+                                                                                              class="img-responsive" alt="Berry Lace Dress">
+                                                                                      <div>
+                                                                                              <a href="assets/pages/img/products/itProduct3.jpg"
+                                                                                                      class="btn btn-default fancybox-button">Zoom</a>
+                                                                                              <a href="#product-pop-up"
+                                                                                                      class="btn btn-default fancybox-fast-view">View</a>
+                                                                                      </div>
+                                                                              </div>
+                                                                              <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
+                                                                              <div class="pi-price">ติดต่อ:</div>
+                                                                              <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                                                      </div>
+                                                              </div>
+                                                      </div>
+                                              </div>
+                                      </div>
+                                      <div class="owl-controls">
+                                              <div class="owl-nav">
+                                                      <div class="owl-prev" style="display: none;">prev</div>
+                                                      <div class="owl-next" style="display: none;">next</div>
+                                              </div>
+                                              <div class="owl-dots" style="">
+                                                      <div class="owl-dot active"><span></span></div>
+                                              </div>
+                                      </div>
+                              </div>
+                               `;
+                count_job = 1; //reset
+              }
 
-            // });
-            console.log(list_jobs);
-            $('#content_jobs').html(list_jobs);
-          },
+               });
+              console.log(list_jobs);
+              $('#content_jobs').html(list_jobs);
+            },
 
-          init: function () {
-            // Oasis.submitpayment();
-            // Maha.goBottom();
-            Maha.requestMainAdvertising();
-            Maha.requestJobData();
-            Maha.onClickSelectJobType();
-          }
+              init: function () {
+                // Oasis.submitpayment();
+                // Maha.goBottom();
+                Maha.requestMainAdvertising();
+                Maha.requestJobData();
+                Maha.onClickSelectJobType();
+              }
         }
-      }();
-      $(document).ready(function () {
-        Maha.init();
-      });
-    })();
+        }();
+        $(document).ready(function () {
+          Maha.init();
+        });
+      })();
 
   </script>
   <!-- END PAGE LEVEL JAVASCRIPTS -->
