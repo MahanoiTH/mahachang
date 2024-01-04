@@ -14,6 +14,9 @@ Purchase Premium Metronic Admin Theme: http://themeforest.net/item/metronic-resp
 <!--[if !IE]><!-->
 <html lang="en">
 <?php
+
+include('db_check_login.php');
+
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
@@ -498,7 +501,7 @@ if (session_status() == PHP_SESSION_NONE) {
     var attc_list_name = [];
     var data_url = 'admin_db_datatable_main_advertising.php';
     var submit_jobs_url = "admin_db_submitMainAdvertising.php";
-    var folder_type = 'advertising';
+    var folder_name = 'advertising';
     var job_type_id = 1;
 
 
@@ -744,7 +747,7 @@ if (session_status() == PHP_SESSION_NONE) {
             data.append('folder_id', id);
             data.append("attc_list", attc_list_name);
             data.append("active", active);
-            data.append("folder_type", folder_type);
+            data.append("folder_type", folder_name);
             data.append("job_type_id", job_type_id);
             // data.append('file_names', fileNames);
             // วนลูปเพื่อเพิ่มแต่ละไฟล์ลงใน FormData
@@ -761,11 +764,13 @@ if (session_status() == PHP_SESSION_NONE) {
                   console.log(response);
                   dataTable.destroy();
                   Maha.dataTableListAdvertising();
+                  $('.fancybox-overlay').css('display', 'none');
                 } else {
                   alert(response);
                   
                   dataTable.destroy();
                   Maha.dataTableListAdvertising();
+                  $('.fancybox-overlay').css('display', 'none');
                 }
               }
             });
@@ -785,49 +790,56 @@ if (session_status() == PHP_SESSION_NONE) {
                 data_url = 'db_datatable_jobs_interior_design.php';
                 $('#modal_add_new_advertising h2').text('งานออกแบบ ตกแต่งภายใน');
                 submit_jobs_url = 'db_websubmit_jobs_interior_design.php';
-                folder_type = 'interior_design';
+                folder_name = 'interior_design';
                 job_type_id = 2;
                 break;
               case 3:
                 data_url = 'db_datatable_jobs_air_conditioning.php';
                 $('#modal_add_new_advertising h2').text('งานระบบแอร์ ระบบปรับอากาศ');
-                submit_jobs_url = 'air_conditioning';
+                submit_jobs_url = 'db_websubmit_jobs_air_conditioning.php';
+                folder_name = 'air_conditioning';
                 job_type_id = 3;
                 break;
               case 4:
                 data_url = "db_datatable_jobs_electrical.php";
                 $('#modal_add_new_advertising h2').text('งานระบบไฟฟ้า งานระบบไฟฟ้า');
-                submit_jobs_url = 'electrical';
+                submit_jobs_url = 'db_websubmit_jobs_electrical.php';
+                folder_name = 'electrical';
                 job_type_id = 4;
                 break;
               case 5:
                 data_url = "db_datatable_jobs_plumbing.php";
                 $('#modal_add_new_advertising h2').text('งานระบบประปา งานระบบประปา');
-                submit_jobs_url = 'plumbing';
+                submit_jobs_url = 'db_websubmit_jobs_plumbing.php';
+                folder_name = 'plumbing';
                 job_type_id = 5;
                 break;
               case 6:
                 data_url = "db_datatable_jobs_steel.php";
                 $('#modal_add_new_advertising h2').text('งานเหล็ก งานโครงสร้างเหล็ก');
-                submit_jobs_url = 'steel';
+                submit_jobs_url = 'db_websubmit_jobs_steel.php';
+                folder_name = 'steel';
                 job_type_id = 6;
                 break;
               case 7:
                 data_url = "db_datatable_jobs_flooring.php";
                 $('#modal_add_new_advertising h2').text('งานปูพื้น ปูพื้นกระเบื้อง');
-                submit_jobs_url = 'flooring';
+                submit_jobs_url = 'db_websubmit_jobs_flooring.php';
+                folder_name = 'flooring';
                 job_type_id = 7;
                 break;
               case 8:
                 data_url = "db_datatable_jobs_design.php";
                 $('#modal_add_new_advertising h2').text('งานเขียนแบบ ออกแบบบ้าน');
-                submit_jobs_url = 'design';
+                submit_jobs_url = 'db_websubmit_jobs_design.php';
+                folder_name = 'design';
                 job_type_id = 8;
                 break;
               case 9:
                 data_url = "db_datatable_jobs_construction.php";
                 $('#modal_add_new_advertising h2').text('งานสร้างบ้าน และอสังหาฯอื่นๆ');
-                submit_jobs_url = 'construction';
+                submit_jobs_url = 'db_websubmit_jobs_construction.php';
+                folder_name = 'construction';
                 job_type_id = 9;
                 break;
               default:

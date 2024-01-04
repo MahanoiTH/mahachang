@@ -21,7 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // ดำเนินการตรวจสอบข้อมูลเข้าสู่ระบบ
         if (checkLogin($email, $password)) {
-            echo 'เข้าสู่ระบบสำเร็จ';
+            // echo 'เข้าสู่ระบบสำเร็จ';
+            if ($_SESSION['email'] === "65108120039@rpu.ac.th"){
+                echo "../admin_dashboard.php";
+            } else {
+                echo "../index.php";
+            }
         } else {
             echo'เข้าสู่ระบบไม่สำเร็จ';
         }

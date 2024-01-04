@@ -14,6 +14,7 @@ License: For each use you must have a valid license purchased only from above li
 <html lang="en">
 <!--begin::Head-->
 
+
 <head>
 	<base href="../../" />
 	<title>มาหาช่าง</title>
@@ -41,6 +42,11 @@ License: For each use you must have a valid license purchased only from above li
 </head>
 <!--end::Head-->
 <!--begin::Body-->
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+?>
 
 <body id="kt_body" class="app-blank">
 	<!--begin::Theme mode setup on page load-->
@@ -57,7 +63,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Header-->
 					<div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
 						<!--begin::Logo-->
-						<a href="../admin_dashboard.php" class="py-2 py-lg-20">
+						<a href="#" class="py-2 py-lg-20">
 							<img alt="Logo" src="assets/media/logos/default.svg" class="h-40px h-lg-50px" />
 						</a>
 						<!--end::Logo-->
@@ -87,8 +93,8 @@ License: For each use you must have a valid license purchased only from above li
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px p-10 p-lg-15 mx-auto">
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
-							data-kt-redirect-url="../admin_dashboard.php" action="#">
+						<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" 
+							 action="#">
 							<!--begin::Heading-->
 							<div class="text-center mb-10">
 								<!--begin::Title-->
@@ -109,7 +115,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Label-->
 								<!--begin::Input-->
 								<input class="form-control form-control-lg form-control-solid" type="text" name="email"
-									autocomplete="off" id="input_email"/>
+									autocomplete="off" id="input_email" />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -128,7 +134,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Wrapper-->
 								<!--begin::Input-->
 								<input class="form-control form-control-lg form-control-solid" type="password"
-									name="password" autocomplete="off" id="input_password"/>
+									name="password" autocomplete="off" id="input_password" />
 								<!--end::Input-->
 							</div>
 							<!--end::Input group-->
@@ -213,14 +219,9 @@ License: For each use you must have a valid license purchased only from above li
 								method: "POST",
 								data: { email: email, password: password }, // ส่งค่า product_id ไปยัง cart.php
 								success: function (response) {
-									// จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
-									if (response === "เข้าสู่ระบบสำเร็จ") {
-										window.location = '../dist/index.php';
-										// alert('สสส');
-									} else {
-										// alert('สส');
-									}
+									window.location = response;
 								}
+
 							});
 						});
 					},

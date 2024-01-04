@@ -5,7 +5,7 @@
     if ($_SESSION['email'] == "") {
         echo "<script type='text/javascript'>";
         echo "alert('Please Login');";
-        echo "window.location = 'index.php';";
+        echo "window.location = 'dist/authentication/sign-in/basic.php';";
         echo "</script>";
     }
 ?>

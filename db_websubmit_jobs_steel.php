@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $active = $_POST['active'];
-
+    $create_by = $_SESSION['user_name'];
     // new main advertising
     if ($id == 0) {
         $ct_name = $_POST['ct_name'];
@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO customer_advertising (advertising_order, active, start_date, end_date, customer_name, description) 
-                    VALUES ('$ct_order', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc')";
+            $sql = "INSERT INTO jobs_steel (job_order, active, created_by, start_date, end_date, client_name, job_description) 
+                    VALUES ('$ct_order', '$active', '$create_by', '$start_date', '$end_date', '$ct_name', '$ct_desc')";
             if ($conn->query($sql) === TRUE) {
                 // echo "success";
                 $last_insert_id = $conn->insert_id;
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             if ($active == 0) {
                 // Update data in the database when active is 0
-                $sql = "UPDATE customer_advertising 
+                $sql = "UPDATE jobs_steel 
                         SET active = '$active'
                         WHERE id = $id";
             } else {
@@ -55,11 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "error";
                 } else {
                     // Update data in the database when active is not 0
-                    $sql = "UPDATE customer_advertising 
-                            SET advertising_order = '$ct_order',
+                    $sql = "UPDATE jobs_steel 
+                            SET job_order = '$ct_order',
                                 active = '$active',
-                                customer_name = '$ct_name',
-                                description = '$ct_desc'
+                                client_name = '$ct_name',
+                                job_description = '$ct_desc'
                             WHERE id = $id";
                 }
             }

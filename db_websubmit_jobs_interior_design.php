@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
     $active = $_POST['active'];
-
+    $create_by = $_SESSION['user_name'];
     // new main advertising
     if ($id == 0) {
         $ct_name = $_POST['ct_name'];
@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO jobs_interior_design (advertising_order, active, start_date, end_date, customer_name, description) 
-                    VALUES ('$ct_order', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc')";
+            $sql = "INSERT INTO jobs_interior_design (advertising_order, active, created_by, start_date, end_date, customer_name, description) 
+                    VALUES ('$ct_order', '$active', '$create_by', '$start_date', '$end_date', '$ct_name', '$ct_desc')";
             if ($conn->query($sql) === TRUE) {
                 // echo "success";
                 $last_insert_id = $conn->insert_id;
