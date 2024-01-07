@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'name' => $row['client_name'],
                 'desc' => $row['job_description'],
                 'phone_number' => $row['phone_number'],
+                'email' => $row['email'],
                 'start_date' => $row['start_date'],
                 'end_date' => $row['end_date'],
                 // Add more columns as needed

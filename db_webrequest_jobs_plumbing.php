@@ -3,7 +3,7 @@ include('server.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $sql = "SELECT jobs_plumbing.id,jobs_plumbing.job_order, jobs_plumbing.phone_number, jobs_plumbing.client_name, jobs_plumbing.job_description,
+    $sql = "SELECT jobs_plumbing.id,jobs_plumbing.job_order, jobs_plumbing.phone_number, jobs_plumbing.client_name, jobs_plumbing.job_description,jobs_plumbing.email,
                     GROUP_CONCAT(jobs_plumbing_attachment.file_url) AS file_urls
             FROM jobs_plumbing
             LEFT JOIN jobs_plumbing_attachment ON jobs_plumbing.id = jobs_plumbing_attachment.job_id 
@@ -28,7 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'name' => $row['client_name'],
                 'desc' => $row['job_description'],
                 'phone_number' => $row['phone_number'],
+                'email' => $row['email'],
                 'file_urls' => $row['file_urls'],
+                'type_name' => 'plumbing',
                 // Add more columns as needed
             );
             $data[] = $formattedRow;

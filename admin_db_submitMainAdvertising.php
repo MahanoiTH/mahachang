@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $ct_name = $_POST['ct_name'];
         $ct_desc = $_POST['ct_desc'];
         $ct_order = $_POST['ct_order'];
+        $ct_tol = $_POST['ct_tol'];
+        $ct_email = $_POST['ct_email'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
         // ตรวจสอบว่าข้อมูลถูกส่งมาหรือไม่
@@ -22,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO customer_advertising (advertising_order, active, start_date, end_date, customer_name, description) 
-                    VALUES ('$ct_order', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc')";
+            $sql = "INSERT INTO customer_advertising (advertising_order, active, start_date, end_date, customer_name, description, phone_number, email) 
+                    VALUES ('$ct_order', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc', '$ct_tol', '$ct_email')";
             if ($conn->query($sql) === TRUE) {
                 // echo "success";
                 $last_insert_id = $conn->insert_id;
@@ -47,6 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $ct_name = $_POST['ct_name'];
                 $ct_desc = $_POST['ct_desc'];
                 $ct_order = $_POST['ct_order'];
+                $ct_email = $_POST['ct_email'];
+                $ct_tol = $_POST['ct_tol'];
                 $start_date = $_POST['start_date'];
                 $end_date = $_POST['end_date'];
                 // Check if required data is not empty

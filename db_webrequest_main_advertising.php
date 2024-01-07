@@ -3,7 +3,7 @@ include('server.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $sql = "SELECT customer_advertising.id,customer_advertising.advertising_order, customer_advertising.phone_number, customer_advertising.customer_name, customer_advertising.description,
+    $sql = "SELECT customer_advertising.id,customer_advertising.advertising_order, customer_advertising.phone_number, customer_advertising.customer_name, customer_advertising.description,customer_advertising.email,
                     GROUP_CONCAT(cs_advertising_attachment.file_url) AS file_urls
             FROM customer_advertising
             LEFT JOIN cs_advertising_attachment ON customer_advertising.id = cs_advertising_attachment.advertising_id 
@@ -23,7 +23,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         while ($row = $result->fetch_assoc()) {
             // Convert the comma-separated file URLs to an array
             $row['file_urls'] = explode(',', $row['file_urls']);
-            $data[] = $row;
+            $formattedRow = array(
+                'id' => $row['id'],
+                'order' => $row['advertising_order'],
+                'name' => $row['customer_name'],
+                'desc' => $row['description'],
+                'phone_number' => $row['phone_number'],
+                'email' => $row['email'],
+                'file_urls' => $row['file_urls'],
+                'type_name' => 'advertising',
+                // Add more columns as needed
+            );
+            $data[] = $formattedRow;
         }
 
         // Close the database connection

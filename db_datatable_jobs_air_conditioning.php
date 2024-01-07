@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'order' => $row['job_order'],
                 'name' => $row['client_name'],
                 'desc' => $row['job_description'],
+                'email' => $row['email'],
                 'phone_number' => $row['phone_number'],
                 'start_date' => $row['start_date'],
                 'end_date' => $row['end_date'],

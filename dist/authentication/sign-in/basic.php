@@ -63,9 +63,7 @@ if (session_status() == PHP_SESSION_NONE) {
 					<!--begin::Header-->
 					<div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
 						<!--begin::Logo-->
-						<a href="#" class="py-2 py-lg-20">
-							<img alt="Logo" src="assets/media/logos/default.svg" class="h-40px h-lg-50px" />
-						</a>
+						
 						<!--end::Logo-->
 						<!--begin::Title-->
 						<h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Welcome to MAHA CHANG</h1>
@@ -128,7 +126,7 @@ if (session_status() == PHP_SESSION_NONE) {
 									<!--end::Label-->
 									<!--begin::Link-->
 									<a href="../dist/authentication/sign-in/password-reset.html"
-										class="link-primary fs-6 fw-bold">Forgot Password ?</a>
+										class="link-primary fs-6 fw-bold"></a>
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
@@ -148,25 +146,7 @@ if (session_status() == PHP_SESSION_NONE) {
 								</button>
 								<!--end::Submit button-->
 								<!--begin::Separator-->
-								<div class="text-center text-muted text-uppercase fw-bold mb-5">or</div>
-								<!--end::Separator-->
-								<!--begin::Google link-->
-								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-									<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg"
-										class="h-20px me-3" />Continue with Google</a>
-								<!--end::Google link-->
-								<!--begin::Google link-->
-								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-									<img alt="Logo" src="assets/media/svg/brand-logos/facebook-4.svg"
-										class="h-20px me-3" />Continue with Facebook</a>
-								<!--end::Google link-->
-								<!--begin::Google link-->
-								<a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-									<img alt="Logo" src="assets/media/svg/brand-logos/apple-black.svg"
-										class="theme-light-show h-20px me-3" />
-									<img alt="Logo" src="assets/media/svg/brand-logos/apple-black-dark.svg"
-										class="theme-dark-show h-20px me-3" />Continue with Apple</a>
-								<!--end::Google link-->
+								
 							</div>
 							<!--end::Actions-->
 						</form>
@@ -175,20 +155,6 @@ if (session_status() == PHP_SESSION_NONE) {
 					<!--end::Wrapper-->
 				</div>
 				<!--end::Content-->
-				<!--begin::Footer-->
-				<div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
-					<!--begin::Links-->
-					<div class="d-flex flex-center fw-semibold fs-6">
-						<a href="https://keenthemes.com" class="text-muted text-hover-primary px-2"
-							target="_blank">About</a>
-						<a href="https://devs.keenthemes.com" class="text-muted text-hover-primary px-2"
-							target="_blank">Support</a>
-						<a href="https://keenthemes.com/products/oswald-html-pro"
-							class="text-muted text-hover-primary px-2" target="_blank">Purchase</a>
-					</div>
-					<!--end::Links-->
-				</div>
-				<!--end::Footer-->
 			</div>
 			<!--end::Body-->
 		</div>

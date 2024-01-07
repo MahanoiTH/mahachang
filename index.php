@@ -127,9 +127,9 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- BEGIN TOP BAR MENU -->
         <div class="col-md-6 col-sm-6 additional-nav">
           <ul class="list-unstyled list-inline pull-right">
-            <li><a href="shop-account.html">My Account</a></li>
-            <li><a href="shop-wishlist.html">My Wishlist</a></li>
-            <li><a href="shop-checkout.html">Checkout</a></li>
+            <!-- <li><a href="shop-account.html">My Account</a></li> -->
+            <!-- <li><a href="shop-wishlist.html">My Wishlist</a></li> -->
+            <!-- <li><a href="shop-checkout.html">Checkout</a></li> -->
             <?php
             if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
               // ถ้าเข้าสู่ระบบแล้ว แสดงลิงก์ "Logout"
@@ -251,170 +251,25 @@ if (session_status() == PHP_SESSION_NONE) {
 
             <!-- BEGIN DROPDOWN MENU -->
             <ul class="dropdown-menu">
-              <li class="dropdown-submenu">
-                <a href="shop-product-list.html">Hi Tops <i class="fa fa-angle-right"></i></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="shop-product-list.html">Second Level Link</a></li>
-                  <li><a href="shop-product-list.html">Second Level Link</a></li>
-                  <li class="dropdown-submenu">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-                      Second Level Link
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="shop-product-list.html">Third Level Link</a></li>
-                      <li><a href="shop-product-list.html">Third Level Link</a></li>
-                      <li><a href="shop-product-list.html">Third Level Link</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
               <li><a href="shop-product-list.html">Running Shoes</a></li>
               <li><a href="shop-product-list.html">Jackets and Coats</a></li>
             </ul>
             <!-- END DROPDOWN MENU -->
           </li>
-          <li class="dropdown dropdown-megamenu">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-              เลือกหมวดงานเหมาอื่นๆ
-
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <div class="header-navigation-content">
-                  <div class="row">
-                    <div class="col-md-4 header-navigation-col">
-                      <h4>งานต่อเติม</h4>
-                      <ul>
-                        <li><a href="shop-product-list.html">ต่อเติมฐานรากและโครงสร้าง</a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมพื้น</a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมผนัง</a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมผนังทาสี</a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมดาดฟ้าหลังคา </a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมกระเบื้อง</a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมประตูและหน้าต่าง</a></li>
-                        <li><a href="shop-product-list.html">ต่อเติมสระว่ายน้ำ</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-4 header-navigation-col">
-                      <h4>งานโครงสร้าง</h4>
-                      <ul>
-                        <li><a href="shop-product-list.html">โครงสร้างของฐานราก</a></li>
-                        <li><a href="shop-product-list.html">โครงสร้างของเสาและคาน</a></li>
-                        <li><a href="shop-product-list.html">โครงสร้างของพื้นและบันได</a></li>
-                        <li><a href="shop-product-list.html">โครงสร้างของหลังคา</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-4 header-navigation-col">
-                      <h4>งานออกแบบ เขียนแบบ</h4>
-                      <ul>
-                        <li><a href="shop-product-list.html">เขียนแบบบ้าน</a></li>
-                        <li><a href="shop-product-list.html">เขียนแบบอาคาร</a></li>
-                        <li><a href="shop-product-list.html">เขียนแบบสถาปัตยกรรม</a></li>
-                        <li><a href="shop-product-list.html">เขียนแบบตกแต่งภายใน</a></li>
-                      </ul>
-
-                      <h4>งานติดตั้งระบบ</h4>
-                      <ul>
-                        <li><a href="shop-product-list.html">ระบบประปา</a></li>
-                        <li><a href="shop-product-list.html">ระบบไฟฟ้า</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-12 nav-brands">
-                      <ul>
-                        <li><a href="shop-product-list.html"><img title="esprit" alt="esprit"
-                              src="assets/pages/img/brands/esprit.jpg"></a></li>
-                        <li><a href="shop-product-list.html"><img title="gap" alt="gap"
-                              src="assets/pages/img/brands/gap.jpg"></a></li>
-                        <li><a href="shop-product-list.html"><img title="next" alt="next"
-                              src="assets/pages/img/brands/next.jpg"></a></li>
-                        <li><a href="shop-product-list.html"><img title="puma" alt="puma"
-                              src="assets/pages/img/brands/puma.jpg"></a></li>
-                        <li><a href="shop-product-list.html"><img title="zara" alt="zara"
-                              src="assets/pages/img/brands/zara.jpg"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li><a href="shop-item.html">งานโครงสร้าง</a></li>
-          <li class="dropdown dropdown100 nav-catalogue">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-              งานสร้างบ้าน
-
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <div class="header-navigation-content">
-                  <div class="row">
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                      <div class="product-item">
-                        <div class="pi-img-wrapper">
-                          <a href="shop-item.html"><img src="assets/pages/img/products/model4.jpg"
-                              class="img-responsive" alt="Berry Lace Dress"></a>
-                        </div>
-                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">ติดต่อ:</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                      <div class="product-item">
-                        <div class="pi-img-wrapper">
-                          <a href="shop-item.html"><img src="assets/pages/img/products/model3.jpg"
-                              class="img-responsive" alt="Berry Lace Dress"></a>
-                        </div>
-                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">ติดต่อ:</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                      <div class="product-item">
-                        <div class="pi-img-wrapper">
-                          <a href="shop-item.html"><img src="assets/pages/img/products/model7.jpg"
-                              class="img-responsive" alt="Berry Lace Dress"></a>
-                        </div>
-                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">ติดต่อ:</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-6">
-                      <div class="product-item">
-                        <div class="pi-img-wrapper">
-                          <a href="shop-item.html"><img src="assets/pages/img/products/model4.jpg"
-                              class="img-responsive" alt="Berry Lace Dress"></a>
-                        </div>
-                        <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                        <div class="pi-price">ติดต่อ:</div>
-                        <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-              หมวดงานยอดนิยม
+              ฝากลงประกาศรับงานกับเว็บไซต์ของเรา
 
             </a>
 
+            <!-- BEGIN DROPDOWN MENU -->
             <ul class="dropdown-menu">
-              <li class="active"><a href="shop-index.html">งานออกแบบ ตกแต่งภายใน</a></li>
-              <li><a href="shop-index-header-fix.html">งานระบบแอร์ ระบบปรับอากาศ</a></li>
-              <li><a href="shop-index-light-footer.html">งานระบบไฟฟ้า งานระบบไฟฟ้า</a></li>
-              <li><a href="shop-product-list.html">งานระบบประปา งานระบบประปา</a></li>
-              <li><a href="shop-search-result.html">งานเหล็ก งานโครงสร้างเหล็ก</a></li>
-              <li><a href="shop-item.html">งานปูพื้น ปูพื้นกระเบื้อง</a></li>
-              <li><a href="shop-shopping-cart-null.html">งานเขียนแบบ ออกแบบบ้าน</a></li>
-              <li><a href="shop-shopping-cart.html">งานสร้างบ้าน และอสังหาฯอื่นๆ</a></li>
+              <li><a href="bs_announcement.php">สร้างประกาศ</a></li>
+              <!-- <li><a href="shop-product-list.html">Jackets and Coats</a></li> -->
             </ul>
+            <!-- END DROPDOWN MENU -->
           </li>
+          
 
 
           <!-- <li><a
@@ -547,7 +402,7 @@ if (session_status() == PHP_SESSION_NONE) {
           <h2>ประกาศโดยผู้สนับสนุน สนใจแสดงโฆษณาตำแหน่งนี้ โทร. 060 6542 111</h2>
           <div class="owl-carousel owl-carousel5">
             <div>
-              <div class="product-item ct-main-advertising">
+              <div class="product-item ct-main-advertising" data-desc="#">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -556,13 +411,13 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <div class="pi-price">ติดต่อ:<span></span></div>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
             <div>
-              <div class="product-item ct-main-advertising">
+              <div class="product-item ct-main-advertising" data-desc="#">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product2.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -571,12 +426,12 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <div class="pi-price">ติดต่อ:<span></span></div>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
             <div>
-              <div class="product-item ct-main-advertising">
+              <div class="product-item ct-main-advertising" data-desc="#">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product3.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -585,12 +440,12 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <div class="pi-price">ติดต่อ:<span></span></div>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
             <div>
-              <div class="product-item ct-main-advertising">
+              <div class="product-item ct-main-advertising" data-desc="#">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product4.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -599,13 +454,13 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <div class="pi-price">ติดต่อ:<span></span></div>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
             <div>
-              <div class="product-item ct-main-advertising">
+              <div class="product-item ct-main-advertising" data-desc="#">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product5.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
@@ -614,8 +469,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <div class="pi-price">ติดต่อ:<span></span></div>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
 
@@ -696,7 +551,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
@@ -711,7 +566,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
             <div>
@@ -725,7 +580,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
           </div>
@@ -741,7 +596,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
                 <div class="sticker sticker-new"></div>
               </div>
             </div>
@@ -756,7 +611,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
             <div>
@@ -770,7 +625,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
             <div>
@@ -784,7 +639,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress4</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
                 <div class="sticker sticker-sale"></div>
               </div>
             </div>
@@ -799,7 +654,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
             <div>
@@ -813,7 +668,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress6</a></h3>
                 <div class="pi-price">ติดต่อ:</div>
-                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                <!-- <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a> -->
               </div>
             </div>
           </div>
@@ -1019,11 +874,11 @@ if (session_status() == PHP_SESSION_NONE) {
           <h2>Cool green dress with red bell</h2>
           <div class="price-availability-block clearfix">
             <div class="price">
-              <strong><span>$</span>47.00</strong>
-              <em>$<span>62.00</span></em>
+              <!-- <strong><span>$</span>47.00</strong>
+              <em>$<span>62.00</span></em> -->
             </div>
             <div class="availability">
-              Availability: <strong>In Stock</strong>
+              <!-- Availability: <strong>In Stock</strong> -->
             </div>
           </div>
           <div class="description">
@@ -1032,30 +887,29 @@ if (session_status() == PHP_SESSION_NONE) {
           </div>
           <div class="product-page-options">
             <div class="pull-left">
-              <label class="control-label">Size:</label>
-              <select class="form-control input-sm">
-                <option>L</option>
-                <option>M</option>
-                <option>XL</option>
-              </select>
-            </div>
-            <div class="pull-left">
-              <label class="control-label">Color:</label>
-              <select class="form-control input-sm">
-                <option>Red</option>
-                <option>Blue</option>
-                <option>Black</option>
-              </select>
+              <label class="control-label ">ช่องทางติดต่อ:</label>
             </div>
           </div>
-          <div class="product-page-cart">
+          <div class="product-page-options">
+            <div class="pull-left">
+              <label class="#">โทร:</label>
+              <span id="contact_tol">0628881234</span>
+            </div>
+          </div>
+          <div class="product-page-options">
+            <div class="pull-left">
+              <label class="control-label">อีเมล์:</label>
+              <span id="contact_email">hdidal@gmail.com</span>
+            </div>
+          </div>
+          <!-- <div class="product-page-cart">
             <div class="product-quantity">
               <input id="product-quantity" type="text" value="1" readonly name="product-quantity"
                 class="form-control input-sm">
             </div>
             <button class="btn btn-primary" type="submit">ดูรายละเอียด</button>
             <a href="shop-item.html" class="btn btn-default">More details</a>
-          </div>
+          </div> -->
         </div>
 
         <div class="sticker sticker-sale"></div>
@@ -1177,6 +1031,38 @@ if (session_status() == PHP_SESSION_NONE) {
             });
 
           },
+          onClcikViewJob: function () {
+            $('body').on('click', '.fancybox-fast-view', function () {
+              console.log('test');
+              var title = $(this).closest('.product-item').find('h3').text();
+              var img = $(this).closest('.product-item').find('img').attr('src');
+              var desc = $(this).closest('.product-item').data('desc');
+              // ดึงค่าของ data-src
+              var dataSrcValue = $(this).data('src');
+              var folder_name = $(this).data('type');
+              var id = $(this).data('id');
+              var email = $(this).data('email');
+              var tol = $(this).data('tol');
+              // แยกข้อมูลเป็น list
+              var dataList = dataSrcValue.split(',');
+
+              // dataList ตอนนี้คือ array ที่เก็บค่าทุกค่าที่อยู่ใน data-src
+              console.log(dataList);
+
+              console.log(title);
+              console.log(desc);
+
+              $('#product-pop-up h2').text(title);
+              $('#product-pop-up p').text(desc);
+              $('#contact_tol').text(tol);
+              $('#contact_email').text(email);
+
+              for (var i = 0; i <= dataList.length; i++) {
+                var file_url = 'upload/' + folder_name + '/' + id + '/' + dataList[i];
+                $("#product-pop-up img:eq(" + i + ")").attr('src', file_url);
+              }
+            });
+          },
           onChangeJobType: function (id) {
             switch (id) {
               case 1:
@@ -1187,37 +1073,37 @@ if (session_status() == PHP_SESSION_NONE) {
               case 2:
                 job_data_url = 'db_webrequest_jobs_air_conditioning.php';
                 job_title = 'งานระบบแอร์ ระบบปรับอากาศ';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'air_conditioning';
                 break;
               case 3:
                 job_data_url = 'db_webrequest_jobs_electrical.php';
                 job_title = 'งานระบบไฟฟ้า งานระบบไฟฟ้า';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'electrical';
                 break;
               case 4:
                 job_data_url = "db_webrequest_jobs_plumbing.php";
                 job_title = 'งานระบบประปา งานระบบประปา';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'plumbing';
                 break;
               case 5:
                 job_data_url = "db_webrequest_jobs_steel.php";
                 job_title = 'งานเหล็ก งานโครงสร้างเหล็ก';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'steel';
                 break;
               case 6:
                 job_data_url = "db_webrequest_jobs_flooring.php";
                 job_title = 'งานปูพื้น ปูพื้นกระเบื้อง';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'flooring';
                 break;
               case 7:
                 job_data_url = "db_webrequest_jobs_design.php";
                 job_title = 'งานเขียนแบบ ออกแบบบ้าน';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'design';
                 break;
               case 8:
                 job_data_url = "db_webrequest_jobs_construction.php";
                 job_title = 'งานสร้างบ้าน และอสังหาฯอื่นๆ';
-                folder_name_img = 'interior_design';
+                folder_name_img = 'construction';
                 break;
               default:
                 job_data_url = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย
@@ -1252,14 +1138,38 @@ if (session_status() == PHP_SESSION_NONE) {
             // $('.owl-carousel5').find
             var list_urls = [];
             var list_name = [];
+            var list_desc = [];
+            var list_dataSrcString = [];
             var list_MainAdvertising = '';
+            var folder_name = '';
+            var list_id = [];
+            var list_tol = [];
+            var list_email = [];
 
             data.forEach(function (e) {
               list_name.push(e.customer_name);
+              list_desc.push(e.description);
+              list_id.push(e.id);
+              list_tol.push(e.phone_number);
+              list_email.push(e.email);
+              folder_name = e.type_name;
               for (const f of e.file_urls) {
                 list_urls.push({ "id": e.id, "file_url": f });
                 break;
               }
+
+              var fileUrlArray = e.file_urls;
+              var dataSrcString = '';
+
+              // ใช้ลูปเพื่อสร้าง string ที่รวมค่าจากรายการ
+              for (var i = 0; i < fileUrlArray.length; i++) {
+                dataSrcString += fileUrlArray[i];
+                if (i < fileUrlArray.length - 1) {
+                  // เพิ่ม comma ระหว่างค่า, ยกเว้นค่าที่สุดท้าย
+                  dataSrcString += ',';
+                }
+              }
+              list_dataSrcString.push(dataSrcString);
 
 
               list_MainAdvertising += `
@@ -1269,12 +1179,12 @@ if (session_status() == PHP_SESSION_NONE) {
                                               <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                                               <div>
                                                 <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                                <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                                                <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                class="btn btn-default fancybox-fast-view">View</a>
                                               </div>
                                             </div>
                                             <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
                                             <div class="pi-price">ติดต่อ:</div>
-                                            <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
                                             <div class="sticker sticker-new"></div>
                                           </div>
                                         </div>
@@ -1285,6 +1195,31 @@ if (session_status() == PHP_SESSION_NONE) {
             $('.ct-main-advertising h3 a').each(function (index) {
               $(this).text(list_name[index]);
             });
+
+            $('.ct-main-advertising').each(function (index) {
+              $(this).attr('data-desc', list_desc[index]);
+            });
+
+            $('.ct-main-advertising .fancybox-fast-view').each(function (index) {
+              $(this).attr('data-type', folder_name);
+            });
+
+            $('.ct-main-advertising .fancybox-fast-view').each(function (index) {
+              $(this).attr('data-src', list_dataSrcString[index]);
+            });
+
+            $('.ct-main-advertising .fancybox-fast-view').each(function (index) {
+              $(this).attr('data-id', list_id[index]);
+            });
+
+            $('.ct-main-advertising .fancybox-fast-view').each(function (index) {
+              $(this).attr('data-tol', list_tol[index] || '-');
+            });
+
+            $('.ct-main-advertising .fancybox-fast-view').each(function (index) {
+              $(this).attr('data-email', list_email[index] || '-');
+            });
+
 
             $('.ct-main-advertising img').each(function (index) {
               // สร้าง URL โดยใช้ข้อมูลจาก list_urls
@@ -1305,6 +1240,17 @@ if (session_status() == PHP_SESSION_NONE) {
             var list_jobs = '';
             list_jobs += title;
             slicedData.forEach(function (e) {
+              var fileUrlArray = e.file_urls;
+
+              // ใช้ลูปเพื่อสร้าง string ที่รวมค่าจากรายการ
+              var dataSrcString = '';
+              for (var i = 0; i < fileUrlArray.length; i++) {
+                dataSrcString += fileUrlArray[i];
+                if (i < fileUrlArray.length - 1) {
+                  // เพิ่ม comma ระหว่างค่า, ยกเว้นค่าที่สุดท้าย
+                  dataSrcString += ',';
+                }
+              }
               if (count_job == 1) {
                 list_jobs += `
                                 <div class="owl-carousel owl-carousel3 owl-theme owl-loaded">
@@ -1312,20 +1258,19 @@ if (session_status() == PHP_SESSION_NONE) {
                                     <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
                                       <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
                                         <div>
-                                          <div class="product-item">
+                                          <div class="product-item" data-desc="${e.desc}">
                                                   <div class="pi-img-wrapper">
                                                           <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                   class="img-responsive" alt="Berry Lace Dress">
                                                           <div>
                                                                   <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                           class="btn btn-default fancybox-button">Zoom</a>
-                                                                  <a href="#product-pop-up"
+                                                                  <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
                                                                           class="btn btn-default fancybox-fast-view">View</a>
                                                           </div>
                                                   </div>
                                                   <h3><a href="shop-item.html">${e.name}</a></h3>
-                                                  <div class="pi-price">ติดต่อ:</div>
-                                                  <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                                  <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
                                                   <div class="sticker sticker-new"></div>
                                           </div>
                                         </div>
@@ -1336,20 +1281,19 @@ if (session_status() == PHP_SESSION_NONE) {
                 list_jobs += `
                               <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
                                       <div>
-                                              <div class="product-item">
+                                              <div class="product-item" data-desc="${e.desc}">
                                                       <div class="pi-img-wrapper">
                                                               <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                       class="img-responsive" alt="Berry Lace Dress">
                                                               <div>
                                                                       <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                               class="btn btn-default fancybox-button">Zoom</a>
-                                                                      <a href="#product-pop-up"
+                                                                      <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
                                                                               class="btn btn-default fancybox-fast-view">View</a>
                                                               </div>
                                                       </div>
                                                       <h3><a href="shop-item.html">${e.name}</a></h3>
-                                                      <div class="pi-price">ติดต่อ:</div>
-                                                      <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                                      <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
                                               </div>
                                       </div>
                               </div>
@@ -1359,20 +1303,19 @@ if (session_status() == PHP_SESSION_NONE) {
                 list_jobs += `
                                               <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
                                                               <div>
-                                                                      <div class="product-item">
+                                                                      <div class="product-item" data-desc="${e.desc}">
                                                                               <div class="pi-img-wrapper">
                                                                                       <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                                               class="img-responsive" alt="Berry Lace Dress">
                                                                                       <div>
                                                                                               <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
                                                                                                       class="btn btn-default fancybox-button">Zoom</a>
-                                                                                              <a href="#product-pop-up"
+                                                                                              <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
                                                                                                       class="btn btn-default fancybox-fast-view">View</a>
                                                                                       </div>
                                                                               </div>
                                                                               <h3><a href="shop-item.html">${e.name}</a></h3>
-                                                                              <div class="pi-price">ติดต่อ:</div>
-                                                                              <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                                                              <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
                                                                       </div>
                                                               </div>
                                                       </div>
@@ -1392,24 +1335,25 @@ if (session_status() == PHP_SESSION_NONE) {
                 count_job = 1; //reset
               }
 
-               });
-              console.log(list_jobs);
-              $('#content_jobs').html(list_jobs);
-            },
+            });
+            // console.log(list_jobs);
+            $('#content_jobs').html(list_jobs);
+          },
 
-              init: function () {
-                // Oasis.submitpayment();
-                // Maha.goBottom();
-                Maha.requestMainAdvertising();
-                Maha.requestJobData();
-                Maha.onClickSelectJobType();
-              }
+          init: function () {
+            // Oasis.submitpayment();
+            // Maha.goBottom();
+            Maha.requestMainAdvertising();
+            Maha.requestJobData();
+            Maha.onClickSelectJobType();
+            Maha.onClcikViewJob();
+          }
         }
-        }();
-        $(document).ready(function () {
-          Maha.init();
-        });
-      })();
+      }();
+      $(document).ready(function () {
+        Maha.init();
+      });
+    })();
 
   </script>
   <!-- END PAGE LEVEL JAVASCRIPTS -->

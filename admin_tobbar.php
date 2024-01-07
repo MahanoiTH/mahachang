@@ -36,9 +36,9 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- BEGIN TOP BAR MENU -->
         <div class="col-md-6 col-sm-6 additional-nav">
           <ul class="list-unstyled list-inline pull-right">
-            <li><a href="shop-account.html">My Account</a></li>
-            <li><a href="shop-wishlist.html">My Wishlist</a></li>
-            <li><a href="shop-checkout.html">Checkout</a></li>
+            <!-- <li><a href="shop-account.html">My Account</a></li> -->
+            <!-- <li><a href="shop-wishlist.html">My Wishlist</a></li> -->
+            <!-- <li><a href="shop-checkout.html">Checkout</a></li> -->
             <?php
             if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
               // ถ้าเข้าสู่ระบบแล้ว แสดงลิงก์ "Logout"
