@@ -508,9 +508,9 @@ if (session_status() == PHP_SESSION_NONE) {
     var advertising_id = 0;
     var attc_list = [];
     var attc_list_name = [];
-    var data_url = 'admin_db_datatable_main_advertising.php';
-    var submit_jobs_url = "admin_db_submitMainAdvertising.php";
-    var folder_name = 'advertising';
+    var data_url = 'admin_db_datatable_job.php';
+    var submit_jobs_url = "admin_db_submit_job.php";
+    var folder_name = 'main_advertising';
     var job_type_id = 1;
 
 
@@ -567,8 +567,34 @@ if (session_status() == PHP_SESSION_NONE) {
           onchangeTableType: function () {
             $('#select_jobs').on('change', function () {
               var id = $(this).val();
-              Maha.changTable(id);
+              job_type_id = $(this).val();
+              folder_name = $(this).find('option:selected').data('folder');
+
+              console.log(folder_name);
+
+              dataTable.destroy();
+              Maha.dataTableListAdvertising();
+              // Maha.changTable(id);
               // console.log(id);
+            });
+          },
+          requestSelect: function () {
+            $.ajax({
+              url: "db_webrequest_select_jobs_type.php",
+              method: "POST",
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+
+                var result = JSON.parse(response);
+                var option = '';
+
+                result.forEach(function (e) {
+                  option += `<option value="${e.id}" data-folder="${e.folder_name}" >${e.name}</option>`;
+                });
+                console.log(option);
+                $('#select_jobs').html(option);
+              }
             });
           },
           onclickBtnSearch: function () {
@@ -633,6 +659,7 @@ if (session_status() == PHP_SESSION_NONE) {
               ajax: {
                 url: data_url,
                 type: 'POST',
+                data: { job_type_id : job_type_id }, // ส่งค่า product_id ไปยัง cart.php
                 dataSrc: function (data) {
                   // Assuming your server returns an object with a property named 'data'
                   // Adjust this part based on your actual server response structure
@@ -737,11 +764,12 @@ if (session_status() == PHP_SESSION_NONE) {
             if (active == 1) {
 
               data.append('id', advertising_id);
-              data.append('ct_name', ct_name);
-              data.append('ct_desc', ct_desc);
-              data.append('ct_order', ct_order);
-              data.append('ct_email', ct_email);
-              data.append('ct_tol', ct_tol);
+              data.append('company_name', ct_name);
+              data.append('job_type_id', job_type_id);
+              data.append('desc', ct_desc);
+              data.append('job_order', ct_order);
+              data.append('email', ct_email);
+              data.append('tol', ct_tol);
               data.append('start_date', start_date);
               data.append('end_date', end_date);
               data.append('active', active);
@@ -779,11 +807,10 @@ if (session_status() == PHP_SESSION_NONE) {
             // var fileNames = [{fil"_1.jpg", "_6.jpg"];
             var active = 1;
             var data = new FormData();
-            data.append('folder_id', id);
+            data.append('job_id', id);
             data.append("attc_list", attc_list_name);
             data.append("active", active);
-            data.append("folder_type", folder_name);
-            data.append("job_type_id", job_type_id);
+            data.append("folder_name", folder_name);
             // data.append('file_names', fileNames);
             // วนลูปเพื่อเพิ่มแต่ละไฟล์ลงใน FormData
             $.ajax({
@@ -799,13 +826,13 @@ if (session_status() == PHP_SESSION_NONE) {
                   console.log(response);
                   dataTable.destroy();
                   Maha.dataTableListAdvertising();
-                  $('.fancybox-overlay').css('display', 'none');
+                  $('.fancybox-close').click();
                 } else {
                   alert(response);
 
                   dataTable.destroy();
                   Maha.dataTableListAdvertising();
-                  $('.fancybox-overlay').css('display', 'none');
+                  $('.fancybox-close').click();
                 }
               }
             });
@@ -900,6 +927,7 @@ if (session_status() == PHP_SESSION_NONE) {
             Maha.onClickBtnDeleteMainAdvertising();
             Maha.initDropzone();
             Maha.onchangeTableType();
+            Maha.requestSelect();
           }
         }
       }();

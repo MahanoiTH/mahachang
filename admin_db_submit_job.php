@@ -10,22 +10,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // new main advertising
     if ($id == 0) {
-        $ct_name = $_POST['ct_name'];
-        $ct_desc = $_POST['ct_desc'];
-        $ct_order = $_POST['ct_order'];
-        $ct_tol = $_POST['ct_tol'];
-        $ct_email = $_POST['ct_email'];
+        $job_type_id = $_POST['job_type_id'];
+        $order = $_POST['job_order'];
+        $company_name = $_POST['company_name'];
         $start_date = $_POST['start_date'];
         $end_date = $_POST['end_date'];
+        $tol = $_POST['tol'];
+        $desc = $_POST['desc'];
+        $email = $_POST['email'];
+        $created_by = $_SESSION['user_name'];
         // ตรวจสอบว่าข้อมูลถูกส่งมาหรือไม่
-        if (empty($ct_name) || empty($ct_desc) || empty($ct_order) || empty($start_date) || empty($end_date) || empty($active)) {
+        if (empty($company_name) || empty($desc) || empty($job_type_id)) {
             // ข้อมูลไม่ครบ
             echo "error";
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO customer_advertising (advertising_order, active, start_date, end_date, customer_name, description, phone_number, email) 
-                    VALUES ('$ct_order', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc', '$ct_tol', '$ct_email')";
+            $sql = "INSERT INTO job (job_type_id, job_order, active, created_by, start_date, end_date, phone_number, company_name, job_description, email) 
+                    VALUES ('$job_type_id', '$order', '$active', '$created_by', '$start_date', '$end_date', '$tol', '$company_name', '$desc', '$email')";
             if ($conn->query($sql) === TRUE) {
                 // echo "success";
                 $last_insert_id = $conn->insert_id;
@@ -42,28 +44,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             if ($active == 0) {
                 // Update data in the database when active is 0
-                $sql = "UPDATE customer_advertising 
+                $sql = "UPDATE job 
                         SET active = '$active'
                         WHERE id = $id";
             } else {
-                $ct_name = $_POST['ct_name'];
-                $ct_desc = $_POST['ct_desc'];
-                $ct_order = $_POST['ct_order'];
-                $ct_email = $_POST['ct_email'];
-                $ct_tol = $_POST['ct_tol'];
+                $company_name = $_POST['ct_name'];
+                $desc = $_POST['ct_desc'];
+                $order = $_POST['ct_order'];
+                $email = $_POST['ct_email'];
+                $tol = $_POST['ct_tol'];
                 $start_date = $_POST['start_date'];
                 $end_date = $_POST['end_date'];
                 // Check if required data is not empty
-                if (empty($ct_name) || empty($ct_desc) || empty($ct_order)) {
+                if (empty($company_name) || empty($desc) || empty($order)) {
                     // Data is incomplete
                     echo "error";
                 } else {
                     // Update data in the database when active is not 0
-                    $sql = "UPDATE customer_advertising 
-                            SET advertising_order = '$ct_order',
+                    $sql = "UPDATE job 
+                            SET job_order = '$ct_order',
                                 active = '$active',
-                                customer_name = '$ct_name',
-                                description = '$ct_desc'
+                                company_name = '$ct_name',
+                                job_description = '$ct_desc'
                             WHERE id = $id";
                 }
             }
