@@ -107,14 +107,14 @@
             <!-- END DROPDOWN MENU -->
           </li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="bs_advertiment.php">
               ฝากลงประกาศรับงานกับเว็บไซต์ของเรา
 
             </a>
 
             <!-- BEGIN DROPDOWN MENU -->
             <ul class="dropdown-menu">
-              <li><a href="bs_announcement.php">สร้างประกาศ</a></li>
+              <li><a href="bs_advertiment.php">สร้างประกาศ</a></li>
               <!-- <li><a href="shop-product-list.html">Jackets and Coats</a></li> -->
             </ul>
             <!-- END DROPDOWN MENU -->
