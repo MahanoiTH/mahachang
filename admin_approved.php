@@ -198,7 +198,7 @@ if (session_status() == PHP_SESSION_NONE) {
       <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
       <div class="row margin-bottom-40">
         <!-- BEGIN SALE PRODUCT -->
-        <b class="h2 margin-bottom-40">รายการคำขออนุมัติประกาศรับงาน</b>
+        <b class="h2 margin-bottom-40">รายการงานที่อนุมัติแล้ว</b>
         <hr>
         <!-- <a href="javascript:;" class="btn btn-success add2cart pull-right">เพิ่มรายการ</a> -->
 
@@ -436,7 +436,7 @@ if (session_status() == PHP_SESSION_NONE) {
     var advertising_id = 0;
     var attc_list = [];
     var attc_list_name = [];
-    var data_url = 'admin_db_datable_advertiment_waiting_approve.php'; //datatable
+    var data_url = 'admin_db_datable_advertiment_approved.php'; //datatable
     var submit_jobs_url = "admin_db_submitMainAdvertising.php";
     var folder_name = 'advertising';
     var job_type_id = 1;

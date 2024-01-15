@@ -198,7 +198,7 @@ if (session_status() == PHP_SESSION_NONE) {
             <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
             <div class="row margin-bottom-40">
                 <!-- BEGIN SALE PRODUCT -->
-                <b class="h2 margin-bottom-40">รายการคำขออนุมัติประกาศรับงาน</b>
+                <b class="h2 margin-bottom-40">เพิ่มประเภทงานใหม่</b>
                 <hr>
                 <!-- <a href="javascript:;" class="btn btn-success add2cart pull-right">เพิ่มรายการ</a> -->
 
