@@ -695,6 +695,7 @@ if (session_status() == PHP_SESSION_NONE) {
           },
           onClickBtnApprove: function () {
             $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="approve"]', function () {
+              var id = $(this).data('id');
               var name = $(this).data('name');
               var desc = $(this).data('desc');
               var job_type_id = $(this).data('job_type_id');
@@ -710,7 +711,7 @@ if (session_status() == PHP_SESSION_NONE) {
               console.log(email);
               console.log(job_type_id);
               console.log(user_id);
-              Maha.submitApproveAdvertising(name,desc,job_type_id,tol,email,status_job,user_id,active);
+              Maha.submitApproveAdvertising(id,name,desc,job_type_id,tol,email,status_job,user_id,active);
               console.log('test');
             });
           },
@@ -720,8 +721,9 @@ if (session_status() == PHP_SESSION_NONE) {
 
             });
           },
-          submitApproveAdvertising: function (name,desc,job_type_id,tol,email,status_job,user_id,active) {
+          submitApproveAdvertising: function (id,name,desc,job_type_id,tol,email,status_job,user_id,active) {
             var data = new FormData();
+            data.append('id', id);
             data.append('status_job', status_job);
             data.append('company_id', user_id)
             data.append('company_name', name);

@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // new main advertising
     if ($status_job == 1) {
+        $id = $_POST['id'];
         $job_type_id = $_POST['job_type_id'];
         $active = $_POST['active'];
         $create_by = $_SESSION['user_name'];
@@ -25,13 +26,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO job (job_type_id, active,created_by, phone_number, company_id, company_name, job_description, email) 
-                    VALUES ('$job_type_id', '$active','$create_by', '$phone_number', '$company_id', '$company_name', '$job_description', '$email')";
+            $sql = "INSERT INTO job (job_type_id, active, created_by, phone_number, company_id, company_name, job_description, email) 
+                    VALUES ('$job_type_id', '$active', '$create_by', '$phone_number', '$company_id', '$company_name', '$job_description', '$email')";
             if ($conn->query($sql) === TRUE) {
-                // echo "success";
+                // Insert successful, get last insert ID
                 $last_insert_id = $conn->insert_id;
-                echo $last_insert_id;
+
+                // Update waiting_approval status
+                $status_advertisement_sql = "UPDATE waiting_approval 
+                                            SET status_id = '$status_job'
+                                            WHERE id = $id";
+                if ($conn->query($status_advertisement_sql) === TRUE) {
+                    echo $last_insert_id;
+                } else {
+                    // Error updating status
+                    echo "error";
+                }
             } else {
+                // Error inserting data
                 echo "error";
             }
         }
