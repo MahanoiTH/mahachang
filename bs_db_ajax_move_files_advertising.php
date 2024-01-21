@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // สร้างโครงสร้างของโฟลเดอร์ปลายทาง (เปลี่ยนเป็น "upload/advertising/id")
         // $destinationFolder = "upload/advertising/$folderId";
-        $destinationFolder = "upload/business/$folderType/$folderId";
+        $destinationFolder = "upload/business/$folderId";
 
         // ดำเนินการตรวจสอบและสร้างโฟลเดอร์ปลายทาง
         $destinationFolderPath = __DIR__ . '/' . $destinationFolder;

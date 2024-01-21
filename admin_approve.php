@@ -226,6 +226,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <tr>
                 <th>ชื่อบริษัทรับเหมา</th>
                 <th>รายละเอียด</th>
+                <th>ประเภทงาน</th>
                 <th>รูป</th>
                 <th>เริ่มโฆษณา</th>
                 <th>สิ้นสุดโฆษณา</th>
@@ -247,6 +248,22 @@ if (session_status() == PHP_SESSION_NONE) {
     </div>
   </div>
 
+  <!-- BEGIN MODAL ADD NEW ADVERTISING -->
+  <div id="modal_show_img" style="display: none; width: 700px;">
+    <div class="product-page product-pop-up">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h2>รูปงาน</h2>
+          <div class="price-availability-block clearfix">
+            <div class="col-sm-12" id="jobImageList" style="width: 400px; height: 400px">
+            </div>
+          </div>
+        </div>
+        <div class="sticker sticker-sale"></div>
+      </div>
+    </div>
+  </div>
+  <!-- END MODAL ADD NEW ADVERTISING -->
   <!-- BEGIN MODAL ADD NEW ADVERTISING -->
   <div id="modal_add_new_advertising" style="display: none; width: 700px;">
     <div class="product-page product-pop-up">
@@ -437,10 +454,11 @@ if (session_status() == PHP_SESSION_NONE) {
     var attc_list = [];
     var attc_list_name = [];
     var data_url = 'admin_db_datable_advertiment_waiting_approve.php'; //datatable
+    var submit_approve_jobs_url = 'admin_db_submit_approve.php';
     var submit_jobs_url = "admin_db_submitMainAdvertising.php";
     var folder_name = 'advertising';
     var job_type_id = 1;
-
+    var nameJobTypeList = [];
 
     (function () {
 
@@ -544,20 +562,25 @@ if (session_status() == PHP_SESSION_NONE) {
               method: "POST", // Added method option
 
               columnDefs: [
-                { width: '20%', targets: 0 }, // กำหนดความกว้างของคอลัมน์ที่ 0
-                { width: '40%', targets: 1 }, // กำหนดความกว้างของคอลัมน์ที่ 1
-                { width: '5%', targets: 2 }, // กำหนดความกว้างของคอลัมน์ที่ 2
-                { width: '11%', targets: 3 },  // กำหนดความกว้างของคอลัมน์ที่ 3
-                { width: '11%', targets: 4 },  // กำหนดความกว้างของคอลัมน์ที่ 4
-                { width: '13%', targets: 5 }   // กำหนดความกว้างของคอลัมน์ที่ 5
+                { width: '15%', targets: 0 }, // กำหนดความกว้างของคอลัมน์ที่ 0
+                { width: '30%', targets: 1 }, // กำหนดความกว้างของคอลัมน์ที่ 1
+                { width: '15%', targets: 2 }, // กำหนดความกว้างของคอลัมน์ที่ 1
+                { width: '5%', targets:  3}, // กำหนดความกว้างของคอลัมน์ที่ 2
+                { width: '11%', targets: 4 },  // กำหนดความกว้างของคอลัมน์ที่ 3
+                { width: '11%', targets: 5 },  // กำหนดความกว้างของคอลัมน์ที่ 4
+                { width: '13%', targets: 6 }   // กำหนดความกว้างของคอลัมน์ที่ 5
               ],
               columns: [
                 { data: 'name' },
                 { data: 'desc' },
+                { data: function (data){
+                    return  Maha.getJobTypeName(data.job_type_id);
+                  }
+                },
                 {
                   data: function (data) {
                     return `<div class="textcenter">
-                                <button data-btn="edit" data-id="${data.id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}"  href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-success" ><i class="fa fa-picture-o" aria-hidden="true"></i></button>
+                                <button data-btn="img" data-id="${data.id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}"  href="#modal_show_img" type="button" class="fancybox-fast-view btn btn-success" ><i class="fa fa-picture-o" aria-hidden="true"></i></button>
                             </div>`;
                   }
                 },
@@ -566,8 +589,8 @@ if (session_status() == PHP_SESSION_NONE) {
                 {
                   data: function (data) {
                     return `<div class="textcenter">
-                                <button data-btn="edit" data-id="${data.id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}"  href="#modal_add_new_advertising" type="button" class="fancybox-fast-view btn btn-success" ><i class="fa fa-check"></i></button>
-                                <button data-id="${data.id}" data-btn="delete" type="button" class="btn btn-danger" ><i class="fa fa-times"></i> </button>
+                                <button data-btn="approve" data-id="${data.id}" data-job_type_id="${data.job_type_id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}" data-user_id="${data.user_id}"   type="button" class="btn btn-success" ><i class="fa fa-check"></i></button>
+                                <button data-id="${data.id}" data-btn="reject" type="button" class="btn btn-danger" ><i class="fa fa-times"></i> </button>
                             </div>`;
                   }
                 },
@@ -643,12 +666,6 @@ if (session_status() == PHP_SESSION_NONE) {
               var email = $(this).data('email');
 
               var dz_img = `<div class="dz-preview dz-processing dz-success dz-complete dz-image-preview">  <div class="dz-image"><img data-dz-thumbnail="" alt="5.jpg" src=""></div>  <div class="dz-details">    <div class="dz-size"><span data-dz-size=""><strong>97.6</strong> KB</span></div>    <div class="dz-filename"><span data-dz-name="">5.jpg</span></div>  </div>  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress="" style="width: 100%;"></span></div>  <div class="dz-error-message"><span data-dz-errormessage=""></span></div>  <div class="dz-success-mark">    <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">      <title>Check</title>      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <path d="M23.5,31.8431458 L17.5852419,25.9283877 C16.0248253,24.3679711 13.4910294,24.366835 11.9289322,25.9289322 C10.3700136,27.4878508 10.3665912,30.0234455 11.9283877,31.5852419 L20.4147581,40.0716123 C20.5133999,40.1702541 20.6159315,40.2626649 20.7218615,40.3488435 C22.2835669,41.8725651 24.794234,41.8626202 26.3461564,40.3106978 L43.3106978,23.3461564 C44.8771021,21.7797521 44.8758057,19.2483887 43.3137085,17.6862915 C41.7547899,16.1273729 39.2176035,16.1255422 37.6538436,17.6893022 L23.5,31.8431458 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z" stroke-opacity="0.198794158" stroke="#747474" fill-opacity="0.816519475" fill="#FFFFFF"></path>      </g>    </svg>  </div>  <div class="dz-error-mark">    <svg width="54px" height="54px" viewBox="0 0 54 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">      <title>Error</title>      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">        <g stroke="#747474" stroke-opacity="0.198794158" fill="#FFFFFF" fill-opacity="0.816519475">          <path d="M32.6568542,29 L38.3106978,23.3461564 C39.8771021,21.7797521 39.8758057,19.2483887 38.3137085,17.6862915 C36.7547899,16.1273729 34.2176035,16.1255422 32.6538436,17.6893022 L27,23.3431458 L21.3461564,17.6893022 C19.7823965,16.1255422 17.2452101,16.1273729 15.6862915,17.6862915 C14.1241943,19.2483887 14.1228979,21.7797521 15.6893022,23.3461564 L21.3431458,29 L15.6893022,34.6538436 C14.1228979,36.2202479 14.1241943,38.7516113 15.6862915,40.3137085 C17.2452101,41.8726271 19.7823965,41.8744578 21.3461564,40.3106978 L27,34.6568542 L32.6538436,40.3106978 C34.2176035,41.8744578 36.7547899,41.8726271 38.3137085,40.3137085 C39.8758057,38.7516113 39.8771021,36.2202479 38.3106978,34.6538436 L32.6568542,29 Z M27,53 C41.3594035,53 53,41.3594035 53,27 C53,12.6405965 41.3594035,1 27,1 C12.6405965,1 1,12.6405965 1,27 C1,41.3594035 12.6405965,53 27,53 Z"></path>        </g>      </g>    </svg>  </div><a class="dz-remove" href="javascript:undefined;" data-dz-remove="">Remove file</a></div>`
-
-
-
-
-
-
               console.log(name);
               console.log(desc);
               console.log(order);
@@ -674,6 +691,66 @@ if (session_status() == PHP_SESSION_NONE) {
               advertising_id = $(this).data('id');
               var active = 0;
               Maha.submitNewAdvertising(active);
+            });
+          },
+          onClickBtnApprove: function () {
+            $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="approve"]', function () {
+              var name = $(this).data('name');
+              var desc = $(this).data('desc');
+              var job_type_id = $(this).data('job_type_id');
+              var tol = $(this).data('tol');
+              var email = $(this).data('email');
+              var status_job = 1 //approve
+              var user_id = $(this).data('user_id');
+              var active = 1;
+
+              console.log(name);
+              console.log(desc);
+              console.log(tol);
+              console.log(email);
+              console.log(job_type_id);
+              console.log(user_id);
+              Maha.submitApproveAdvertising(name,desc,job_type_id,tol,email,status_job,user_id,active);
+              console.log('test');
+            });
+          },
+          onClickBtnReject: function () {
+            $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="reject"]', function () {
+              console.log('reject');
+
+            });
+          },
+          submitApproveAdvertising: function (name,desc,job_type_id,tol,email,status_job,user_id,active) {
+            var data = new FormData();
+            data.append('status_job', status_job);
+            data.append('company_id', user_id)
+            data.append('company_name', name);
+            data.append('job_type_id', job_type_id);
+            data.append('phone_number', tol);
+            data.append('job_description', desc);
+            data.append('email', email);
+            data.append('active', active);
+            // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
+
+            $.ajax({
+              url: submit_approve_jobs_url, // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+              method: "POST",
+              data: data, // ส่งค่า product_id ไปยัง cart.php
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+                // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                if (response === "success") {
+                  // window.location = 'business_profile_jobs.php';
+                  console.log(response);
+                  // window.location.reload();
+                  dataTable.destroy();
+                  Maha.dataTableListAdvertising();
+                } else {
+                  alert(response);
+                  // Maha.submitFile(response);
+                }
+              }
             });
           },
           submitNewAdvertising: function (active) {
@@ -839,6 +916,10 @@ if (session_status() == PHP_SESSION_NONE) {
               success: function (response) {
 
                 var result = JSON.parse(response);
+
+                result.forEach(function (e){
+                  nameJobTypeList.push({'id':e.id,'name':e.name});
+                });
                 var option = '';
 
                 result.forEach(function (e) {
@@ -848,6 +929,47 @@ if (session_status() == PHP_SESSION_NONE) {
                 $('#select_jobs').html(option);
               }
             });
+          },
+          onclickBtnShowImg: function () {
+            $('body').on('click','[data-btn="img"]', function () {
+              console.log('test');
+              var id = $(this).data('id');
+              console.log(id);
+              Maha.requestDataFileName(id);
+            });
+          },
+          requestDataFileName: function (id) {
+            var data = new FormData();
+            data.append('job_id', id);
+            $.ajax({
+              url: "admin_db_webrequest_files_advertising.php",
+              method: "POST",
+              data: data,
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+
+                var result = JSON.parse(response);
+                console.log(response);
+                Maha.imgDisplay(result);
+              }
+            });
+          },
+          imgDisplay: function (data) {
+            var imgDisplayList = '';
+            data.forEach(function (e){
+              imgDisplayList += `<img style="height: 400px; width: auto;" src="upload/business/${e.job_id}/${e.file_name}" ><hr>`;
+            });
+            $('#jobImageList').html(imgDisplayList);
+          },
+          getJobTypeName: function (id) {
+            var result = null;
+            nameJobTypeList.forEach(function (e) {
+              if(e.id == id) {
+                result = e.name;
+              }
+            });
+            return result;
           },
 
 
@@ -864,6 +986,9 @@ if (session_status() == PHP_SESSION_NONE) {
             Maha.initDropzone();
             Maha.onchangeTableType();
             Maha.requestSelect();
+            Maha.onclickBtnShowImg();
+            Maha.onClickBtnApprove();
+            Maha.onClickBtnReject();
           }
         }
       }();

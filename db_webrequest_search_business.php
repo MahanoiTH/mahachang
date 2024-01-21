@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($job_type_id == -1) {
             $sql = "SELECT business_jobs.description, business_jobs.img_url, users.username
                     FROM business_jobs
-                    INNER JOIN users ON business_jobs.user_id = users.user_id 
+                    INNER JOIN users ON business_jobs.user_id = users.id 
                     WHERE users.active = 1";
         } else {
             // ตรวจสอบค่า job_type_id ก่อนใช้ในคำสั่ง SQL
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $sql = "SELECT business_jobs.description, business_jobs.img_url, users.company_name
                     FROM business_jobs
-                    INNER JOIN users ON business_jobs.user_id = users.user_id
+                    INNER JOIN users ON business_jobs.user_id = users.id
                     WHERE business_jobs.job_id = $job_type_id";
         }
 

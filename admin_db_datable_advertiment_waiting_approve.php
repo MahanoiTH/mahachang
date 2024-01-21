@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $formattedRow = array(
                 // 'newColumnName1' => $row['oldColumnName1'],
                 'id' => $row['id'],
+                'job_type_id' => $row['job_type_id'],
+                'user_id' => $row['user_id'],
                 'active' => $row['active'],
                 'order' => $row['job_order'],
                 'name' => $row['client_name'],
