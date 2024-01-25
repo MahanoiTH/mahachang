@@ -450,6 +450,7 @@ if (session_status() == PHP_SESSION_NONE) {
     var submit_jobs_url = "bs_db_submit_advertiment.php";
     var folder_name = 'main_advertising';
     var job_type_id = 1;
+    var bs_id = 0;
 
 
     (function () {

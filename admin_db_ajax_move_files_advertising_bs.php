@@ -8,7 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['job_id'];
     $fileNames_string = $_POST['attc_list'];
     $active = $_POST['active'];
-    $folderName = $_POST['folder_name'];
+    $bs_id = $_POST['bs_id'];
+    $old_id = $_POST['old_id'];
 
     // ใช้ explode เพื่อแยกข้อความด้วย ',' และ trim เพื่อลบช่องว่างที่อาจจะเกิดขึ้น
     $fileNames_st = array_map('trim', explode(',', $fileNames_string));
@@ -16,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ตรวจสอบว่ามี ID และชื่อไฟล์ที่ส่งมาหรือไม่
     if (!empty($id) && !empty($fileNames_st)) {
         // ชื่อโฟลเดอร์ต้นทาง
-        $sourceFolder = "uploads";
+        $sourceFolder = "upload/img_jobs_awaiting/$bs_id/$old_id";
 
         // สร้างโครงสร้างของโฟลเดอร์ปลายทาง (เปลี่ยนเป็น "upload/advertising/id")
         // $destinationFolder = "upload/advertising/$folderId";

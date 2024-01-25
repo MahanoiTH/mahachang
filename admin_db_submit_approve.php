@@ -7,7 +7,6 @@ if (session_status() == PHP_SESSION_NONE) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status_job = $_POST['status_job'];
 
-    // new main advertising
     if ($status_job == 1) {
         $id = $_POST['id'];
         $job_type_id = $_POST['job_type_id'];
@@ -48,8 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
     } else {
+        $id = $_POST['id'];
+        $active = $_POST['active'];
+
         // Check if required data is not empty
-        if (empty($active) && empty($id)) {
+        if (empty($active) || empty($id)) {
             // Data is incomplete
             echo "error null";
         } else {
@@ -62,10 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $ct_name = $_POST['ct_name'];
                 $ct_desc = $_POST['ct_desc'];
                 $ct_order = $_POST['ct_order'];
-                $ct_email = $_POST['ct_email'];
-                $ct_tol = $_POST['ct_tol'];
-                $start_date = $_POST['start_date'];
-                $end_date = $_POST['end_date'];
+
                 // Check if required data is not empty
                 if (empty($ct_name) || empty($ct_desc) || empty($ct_order)) {
                     // Data is incomplete

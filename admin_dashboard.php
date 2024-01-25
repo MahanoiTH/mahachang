@@ -64,6 +64,8 @@ if (session_status() == PHP_SESSION_NONE) {
   <link href="assets/plugins/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
   <!-- Page level plugin styles END -->
 
+  
+
   <!-- Theme styles START -->
   <link href="assets/pages/css/components.css" rel="stylesheet">
   <link href="assets/pages/css/slider.css" rel="stylesheet">
@@ -159,6 +161,8 @@ if (session_status() == PHP_SESSION_NONE) {
       color: #aaa;
       line-height: 110px;
     }
+
+    
   </style>
   <!--END CSS THIS PAGE -->
 </head>
@@ -494,6 +498,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- BEGIN CUSTOM JAVASCRIPTS -->
 
   <script src="js/DataTables/datatables.min.js"></script>
+  <script src="assets/plugins/bootbox/bootbox.all.min.js"></script>
   <script type="text/javascript">
 
     //submit new advertising
@@ -713,6 +718,7 @@ if (session_status() == PHP_SESSION_NONE) {
               console.log(start_date);
               var active = 1;
               Maha.submitNewAdvertising(active);
+              
             });
 
           },
@@ -756,7 +762,19 @@ if (session_status() == PHP_SESSION_NONE) {
               console.log('start');
               advertising_id = $(this).data('id');
               var active = 0;
-              Maha.submitNewAdvertising(active);
+              bootbox.confirm({
+                  size: "small",
+                  message: "คุณต้องการลบข้อมูลงานนี้?",
+                  callback: function (result) {
+                      // result เป็น boolean; true = OK, false = Cancel
+                      if (result) {
+                        Maha.submitNewAdvertising(active);
+                      } else {
+                          console.log("User cancelled the operation.");
+                      }
+                  }
+              });
+              
             });
           },
           submitNewAdvertising: function (active) {

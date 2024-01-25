@@ -952,9 +952,9 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- CUSTOM SCRIPT -->
   <script>
     //Begin Global variable
-    job_data_url = 'db_webrequest_jobs_interior_design.php';
-    job_title = 'งานออกแบบ ตกแต่งภายใน';
-    var folder_name_img = 'interior_design';
+    var job_data_url = 'db_webrequest_jobs.php';
+    var job_title = 'งานออกแบบ ตกแต่งภายใน';
+    var folder_name_img = 'img_jobs_approved';
 
     //End global variable
     (function () {
@@ -1027,7 +1027,8 @@ if (session_status() == PHP_SESSION_NONE) {
             var id = 0;
             $('.sidebar').on('click', 'a', function () {
               id = $(this).data('id');
-              Maha.onChangeJobType(id);
+              console.log(id);
+              Maha.requestJobData(id);
             });
 
           },
@@ -1063,53 +1064,6 @@ if (session_status() == PHP_SESSION_NONE) {
               }
             });
           },
-          onChangeJobType: function (id) {
-            switch (id) {
-              case 1:
-                job_data_url = 'db_webrequest_jobs_interior_design.php';
-                job_title = 'งานออกแบบ ตกแต่งภายใน';
-                folder_name_img = 'interior_design';
-                break;
-              case 2:
-                job_data_url = 'db_webrequest_jobs_air_conditioning.php';
-                job_title = 'งานระบบแอร์ ระบบปรับอากาศ';
-                folder_name_img = 'air_conditioning';
-                break;
-              case 3:
-                job_data_url = 'db_webrequest_jobs_electrical.php';
-                job_title = 'งานระบบไฟฟ้า งานระบบไฟฟ้า';
-                folder_name_img = 'electrical';
-                break;
-              case 4:
-                job_data_url = "db_webrequest_jobs_plumbing.php";
-                job_title = 'งานระบบประปา งานระบบประปา';
-                folder_name_img = 'plumbing';
-                break;
-              case 5:
-                job_data_url = "db_webrequest_jobs_steel.php";
-                job_title = 'งานเหล็ก งานโครงสร้างเหล็ก';
-                folder_name_img = 'steel';
-                break;
-              case 6:
-                job_data_url = "db_webrequest_jobs_flooring.php";
-                job_title = 'งานปูพื้น ปูพื้นกระเบื้อง';
-                folder_name_img = 'flooring';
-                break;
-              case 7:
-                job_data_url = "db_webrequest_jobs_design.php";
-                job_title = 'งานเขียนแบบ ออกแบบบ้าน';
-                folder_name_img = 'design';
-                break;
-              case 8:
-                job_data_url = "db_webrequest_jobs_construction.php";
-                job_title = 'งานสร้างบ้าน และอสังหาฯอื่นๆ';
-                folder_name_img = 'construction';
-                break;
-              default:
-                job_data_url = "Invalid Number"; // เพิ่มเคสนี้เพื่อจัดการกรณีที่ตัวเลขไม่ได้ระบุใน case ใดเลย
-            }
-            Maha.requestJobData();
-          },
           requestMainAdvertising: function () {
             $.ajax({
               url: "db_webrequest_main_advertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
@@ -1122,12 +1076,14 @@ if (session_status() == PHP_SESSION_NONE) {
               }
             });
           },
-          requestJobData: function () {
+          requestJobData: function (id) {
             $.ajax({
               url: job_data_url, // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
               method: "POST",
+              data: {job_type_id: id},
               // data:, // ส่งค่า product_id ไปยัง cart.php
               success: function (response) {
+                console.log(response);
                 //จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
                 // alert(response);
                 Maha.initDisplayJobs(JSON.parse(response));
@@ -1339,14 +1295,33 @@ if (session_status() == PHP_SESSION_NONE) {
             // console.log(list_jobs);
             $('#content_jobs').html(list_jobs);
           },
+          requestSelect: function () {
+            $.ajax({
+              url: "db_webrequest_select_jobs_type.php",
+              method: "POST",
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+
+                var result = JSON.parse(response);
+                var option = '';
+                result.forEach(function (e) {
+                  option += `<li class="list-group-item clearfix"><a data-id="${e.id}"><i class="fa fa-angle-right"></i>${e.name}</a></li>`;
+                });
+                console.log(option);
+                $('.sidebar-menu').html(option);
+              }
+            });
+          },
 
           init: function () {
             // Oasis.submitpayment();
             // Maha.goBottom();
             Maha.requestMainAdvertising();
-            Maha.requestJobData();
+            Maha.requestJobData(1);
             Maha.onClickSelectJobType();
             Maha.onClcikViewJob();
+            Maha.requestSelect();
           }
         }
       }();

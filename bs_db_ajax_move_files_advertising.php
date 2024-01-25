@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $active = $_POST['active'];
     $folderType = $_POST['folder_type'];
     $job_type_id = $_POST['job_type_id'];
+    $bs_id = $_SESSION['user_id'];
 
     // ใช้ explode เพื่อแยกข้อความด้วย ',' และ trim เพื่อลบช่องว่างที่อาจจะเกิดขึ้น
     $fileNames_st = array_map('trim', explode(',', $fileNames_string));
@@ -21,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // สร้างโครงสร้างของโฟลเดอร์ปลายทาง (เปลี่ยนเป็น "upload/advertising/id")
         // $destinationFolder = "upload/advertising/$folderId";
-        $destinationFolder = "upload/business/$folderId";
+        $destinationFolder = "upload/img_jobs_awaiting/$bs_id/$folderId";
 
         // ดำเนินการตรวจสอบและสร้างโฟลเดอร์ปลายทาง
         $destinationFolderPath = __DIR__ . '/' . $destinationFolder;

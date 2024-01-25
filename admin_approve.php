@@ -437,7 +437,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- END PAGE LEVEL JAVASCRIPTS -->
 
   <!-- BEGIN CUSTOM JAVASCRIPTS -->
-
+  <script src="assets/plugins/bootbox/bootbox.all.min.js"></script>
   <script src="js/DataTables/datatables.min.js"></script>
   <script type="text/javascript">
 
@@ -459,6 +459,9 @@ if (session_status() == PHP_SESSION_NONE) {
     var folder_name = 'advertising';
     var job_type_id = 1;
     var nameJobTypeList = [];
+    var bs_id = 0; //id ของ บริษัทรับเหมา
+    var old_id = 0;
+    var show_file_user_id = 0;
 
     (function () {
 
@@ -580,7 +583,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 {
                   data: function (data) {
                     return `<div class="textcenter">
-                                <button data-btn="img" data-id="${data.id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}"  href="#modal_show_img" type="button" class="fancybox-fast-view btn btn-success" ><i class="fa fa-picture-o" aria-hidden="true"></i></button>
+                                <button data-btn="img" data-user_id="${data.user_id}" data-id="${data.id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}"  href="#modal_show_img" type="button" class="fancybox-fast-view btn btn-success" ><i class="fa fa-picture-o" aria-hidden="true"></i></button>
                             </div>`;
                   }
                 },
@@ -704,6 +707,8 @@ if (session_status() == PHP_SESSION_NONE) {
               var status_job = 1 //approve
               var user_id = $(this).data('user_id');
               var active = 1;
+              bs_id = user_id;
+              old_id = id;
 
               console.log(name);
               console.log(desc);
@@ -711,7 +716,19 @@ if (session_status() == PHP_SESSION_NONE) {
               console.log(email);
               console.log(job_type_id);
               console.log(user_id);
-              Maha.submitApproveAdvertising(id,name,desc,job_type_id,tol,email,status_job,user_id,active);
+              bootbox.confirm({
+                  size: "small",
+                  message: "กด OK เพื่อยืนยันการอนุมัติ",
+                  callback: function (result) {
+                      // result เป็น boolean; true = OK, false = Cancel
+                      if (result) {
+                        Maha.submitApproveAdvertising(id,name,desc,job_type_id,tol,email,status_job,user_id,active);
+                      } else {
+                          console.log("User cancelled the operation.");
+                      }
+                  }
+              });
+              
               console.log('test');
             });
           },
@@ -750,7 +767,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   Maha.dataTableListAdvertising();
                 } else {
                   alert(response);
-                  // Maha.submitFile(response);
+                  Maha.submitFile(response);
                 }
               }
             });
@@ -802,15 +819,17 @@ if (session_status() == PHP_SESSION_NONE) {
             // var fileNames = [{fil"_1.jpg", "_6.jpg"];
             var active = 1;
             var data = new FormData();
-            data.append('folder_id', id);
+            data.append('job_id', id);
             data.append("attc_list", attc_list_name);
             data.append("active", active);
             data.append("folder_type", folder_name);
             data.append("job_type_id", job_type_id);
+            data.append("bs_id", bs_id);
+            data.append("old_id", old_id);
             // data.append('file_names', fileNames);
             // วนลูปเพื่อเพิ่มแต่ละไฟล์ลงใน FormData
             $.ajax({
-              url: "admin_db_ajax_move_files_advertising.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+              url: "admin_db_ajax_move_files_advertising_bs.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
               method: "POST",
               data: data, // ส่งค่า product_id ไปยัง cart.php
               processData: false,  // อย่าจัดการข้อมูลเอง
@@ -938,6 +957,7 @@ if (session_status() == PHP_SESSION_NONE) {
               var id = $(this).data('id');
               console.log(id);
               Maha.requestDataFileName(id);
+              show_file_user_id = $(this).data('user_id');
             });
           },
           requestDataFileName: function (id) {
@@ -952,6 +972,9 @@ if (session_status() == PHP_SESSION_NONE) {
               success: function (response) {
 
                 var result = JSON.parse(response);
+                data.forEach(function () {
+                  attc_list_name.push(result.file_name);
+                });
                 console.log(response);
                 Maha.imgDisplay(result);
               }
@@ -960,7 +983,7 @@ if (session_status() == PHP_SESSION_NONE) {
           imgDisplay: function (data) {
             var imgDisplayList = '';
             data.forEach(function (e){
-              imgDisplayList += `<img style="height: 400px; width: auto;" src="upload/business/${e.job_id}/${e.file_name}" ><hr>`;
+              imgDisplayList += `<img style="height: 400px; width: auto;" src="upload/img_jobs_awaiting/${show_file_user_id}/${e.job_id}/${e.file_name}" ><hr>`;
             });
             $('#jobImageList').html(imgDisplayList);
           },
