@@ -698,7 +698,11 @@ if (session_status() == PHP_SESSION_NONE) {
           },
           onClickBtnApprove: function () {
             $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="approve"]', function () {
+              //เก็บชื่อรูปใส่ list เพื่อเตรียมเอาไว้ย้ายไฟล์
+              
+              
               var id = $(this).data('id');
+              Maha.requestGetFileName(id);
               var name = $(this).data('name');
               var desc = $(this).data('desc');
               var job_type_id = $(this).data('job_type_id');
@@ -735,6 +739,18 @@ if (session_status() == PHP_SESSION_NONE) {
           onClickBtnReject: function () {
             $('body').on('click', '#cs_table_main_advertising_wrapper [data-btn="reject"]', function () {
               console.log('reject');
+              bootbox.confirm({
+                  size: "small",
+                  message: "กด OK เพื่อยืนยันการปฎิเสธการอนุมัติ",
+                  callback: function (result) {
+                      // result เป็น boolean; true = OK, false = Cancel
+                      // if (result) {
+                      //   Maha.submitApproveAdvertising(id,name,desc,job_type_id,tol,email,status_job,user_id,active);
+                      // } else {
+                      //     console.log("User cancelled the operation.");
+                      // }
+                  }
+              });
 
             });
           },
@@ -970,13 +986,33 @@ if (session_status() == PHP_SESSION_NONE) {
               processData: false,  // อย่าจัดการข้อมูลเอง
               contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
               success: function (response) {
-
+                attc_list_name = [] //reset
                 var result = JSON.parse(response);
                 data.forEach(function () {
                   attc_list_name.push(result.file_name);
                 });
-                console.log(response);
+                console.log(attc_list_name);
                 Maha.imgDisplay(result);
+              }
+            });
+          },
+          requestGetFileName: function (id){
+            var data = new FormData();
+            data.append('job_id', id);
+            $.ajax({
+              url: "admin_db_webrequest_files_advertising.php",
+              method: "POST",
+              data: data,
+              processData: false,  // อย่าจัดการข้อมูลเอง
+              contentType: false,  // ประเภทข้อมูลอ้างอิงไปที่ไฟล์แนบ
+              success: function (response) {
+                attc_list_name = [] //reset
+                var result = JSON.parse(response);
+                console.log(result);
+                result.forEach(function (e) {
+                  attc_list_name.push(e.file_name);
+                });
+                console.log(attc_list_name);
               }
             });
           },

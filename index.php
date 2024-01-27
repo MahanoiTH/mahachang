@@ -244,19 +244,6 @@ if (session_status() == PHP_SESSION_NONE) {
       <div class="header-navigation">
         <ul>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-              ศูนย์รวมผู้รับเหมา
-
-            </a>
-
-            <!-- BEGIN DROPDOWN MENU -->
-            <ul class="dropdown-menu">
-              <li><a href="shop-product-list.html">Running Shoes</a></li>
-              <li><a href="shop-product-list.html">Jackets and Coats</a></li>
-            </ul>
-            <!-- END DROPDOWN MENU -->
-          </li>
-          <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="bs_advertiment.php">
               ฝากลงประกาศรับงานกับเว็บไซต์ของเรา
 
@@ -1310,15 +1297,20 @@ if (session_status() == PHP_SESSION_NONE) {
                 });
                 console.log(option);
                 $('.sidebar-menu').html(option);
+
+                Maha.hideTabMainAdvertising();
               }
             });
+          },
+          hideTabMainAdvertising: function () {
+            $('.list-group-item:first').hide();
           },
 
           init: function () {
             // Oasis.submitpayment();
             // Maha.goBottom();
             Maha.requestMainAdvertising();
-            Maha.requestJobData(1);
+            Maha.requestJobData(2);
             Maha.onClickSelectJobType();
             Maha.onClcikViewJob();
             Maha.requestSelect();
