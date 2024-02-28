@@ -1,7 +1,7 @@
 <?php
 include('server.php');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['insert'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = isset($_POST['username']) ? $_POST['username'] : '';
     $company_name = isset($_POST['business_name']) ? $_POST['business_name'] : '';
     $phone = isset($_POST['phone']) ? $_POST['phone'] : '';

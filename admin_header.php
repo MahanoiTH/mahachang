@@ -25,18 +25,7 @@
             </ul>
             <!-- END DROPDOWN MENU -->
           </li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-              ขอลงประกาศรับงาน
-
-            </a>
-
-            <!-- BEGIN DROPDOWN MENU -->
-            <ul class="dropdown-menu">
-              <li><a href="admin_dashboard.php">สร้างรายระเอียดการรับงาน</a></li>
-            </ul>
-            <!-- END DROPDOWN MENU -->
-          </li>
+          
           
 
 

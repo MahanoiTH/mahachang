@@ -1,73 +1,273 @@
-<div class="owl-carousel owl-carousel3 owl-theme owl-loaded">
-        <div class="owl-stage-outer">
-                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
-                        <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
-                                <div>
-                                        <div class="product-item">
-                                                <div class="pi-img-wrapper">
-                                                        <img src="assets/pages/img/products/itProduct1.jpg"
-                                                                class="img-responsive" alt="Berry Lace Dress">
-                                                        <div>
-                                                                <a href="assets/pages/img/products/itProduct1.jpg"
-                                                                        class="btn btn-default fancybox-button">Zoom</a>
-                                                                <a href="#product-pop-up"
-                                                                        class="btn btn-default fancybox-fast-view">View</a>
-                                                        </div>
-                                                </div>
-                                                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                                                <div class="pi-price">ติดต่อ:</div>
-                                                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                                                <div class="sticker sticker-new"></div>
+@{
+        ViewBag.Title = "Signin";
+    }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Thailand i4.0 Index : Login | FTI and NSTDA </title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta ht tp-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="~/Content/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/plugins/bootstrap.bws-custom/css/bootstrap.bws-custom.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="~/Content/assets/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="~/Content/assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="~/Content/assets/css/login.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/css/custom.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/assets/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="icon" href="~/Content/assets/img/logo_big.png" />
+        <style>
+            
+        </style>
+    </head>
+    <body class="login">
+        <!-- BEGIN : LOGIN PAGE -->
+        <div class="user-login-5">
+            <div class="row bs-reset">
+                <div class="col-sm-10 login-container bs-reset">
+                    <a href="@Url.Action("Index", "Signin")">
+                        <img class="login-logo login-6" src="~/Content/assets/img/logo_big.png" />
+                    </a>
+                    <div class="login-content">
+                        <h1 >Industry 4.0 Readiness Assessment System</h1>
+                        <form action="javascript:;" id="form_signin" class="login-form" method="post" novalidate="novalidate" >
+                            @{
+                                if (!string.IsNullOrWhiteSpace(ViewBag.err))
+                                {
+                                    <text>
+                                        <div id="alert-bar" class="mb20 alert alert-danger" style="font-size:14px;">
+                                            <button class="close" data-close="alert"></button>
+                                            <span>
+                                                @ViewBag.err
+                                            </span>
                                         </div>
-                                </div>
-                        </div>
-                        <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
-                                <div>
-                                        <div class="product-item">
-                                                <div class="pi-img-wrapper">
-                                                        <img src="assets/pages/img/products/itProduct2.jpg"
-                                                                class="img-responsive" alt="Berry Lace Dress">
-                                                        <div>
-                                                                <a href="assets/pages/img/products/itProduct2.jpg"
-                                                                        class="btn btn-default fancybox-button">Zoom</a>
-                                                                <a href="#product-pop-up"
-                                                                        class="btn btn-default fancybox-fast-view">View</a>
-                                                        </div>
-                                                </div>
-                                                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                                                <div class="pi-price">ติดต่อ:</div>
-                                                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
+                                    </text>
+                                }
+                                if (!string.IsNullOrWhiteSpace(ViewBag.note))
+                                {
+                                    <text>
+                                        <div class="mb20 alert alert-success" style="font-size:14px;">
+                                            <button class="close" data-close="alert"></button>
+                                            <span>
+                                                @ViewBag.note
+                                            </span>
                                         </div>
+                                    </text>
+                                }
+                            }
+                            <div class="row">
+                                <div class="col-sm-10 mb10">
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text"
+                                           autocomplete="off" placeholder="อีเมล" id="username" name="username" value="" required="" aria-required="true" />
                                 </div>
-                        </div>
-                        <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
-                                <div>
-                                        <div class="product-item">
-                                                <div class="pi-img-wrapper">
-                                                        <img src="assets/pages/img/products/itProduct3.jpg"
-                                                                class="img-responsive" alt="Berry Lace Dress">
-                                                        <div>
-                                                                <a href="assets/pages/img/products/itProduct3.jpg"
-                                                                        class="btn btn-default fancybox-button">Zoom</a>
-                                                                <a href="#product-pop-up"
-                                                                        class="btn btn-default fancybox-fast-view">View</a>
-                                                        </div>
-                                                </div>
-                                                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                                                <div class="pi-price">ติดต่อ:</div>
-                                                <a href="javascript:;" class="btn btn-default add2cart">ดูรายละเอียด</a>
-                                        </div>
+                                <div class="col-sm-10 mb10">
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password"
+                                           autocomplete="off" placeholder="รหัสผ่าน" id="password" name="password" value="" required="" aria-required="true" />
                                 </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-20 mb10 text-right">
+                                    <button class="btn btn-primary " id="b_signin_submit" style="padding:6px 20px;"
+                                            type="button">
+                                        Sign In
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-20 mb10 text-right" style="font-size:14px;">
+                                    <a href="@Url.Action("RegistrationSelect", "Signin")">ลงทะเบียนเข้าร่วมโครงการ</a>
+                                    <span style="margin:0 10px;">|</span>
+                                    <a href="@Url.Action("ForgetPassword", "Signin")">ลืมรหัสผ่าน?</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="login-footer">
+                        <div class="row">
+                            <div class="col-sm-20">
+                                <div class="login-copyright">
+                                    <p style="color:#000;">&copy; 2021 <a target="_blank" href="http://www.nstda.or.th/" style="color:#007baa;">National Science and Technology Development Agency (NSTDA)</a> and
+                                    <a target="_blank" href="http://www.fti.or.th/" style="color:#007baa;">The Federation of Thai Industries (FTI)</a> All rights reserved.</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
                 </div>
+                <div class="col-sm-10 d-none d-sm-block bs-reset">
+                    <div class="login-bg"></div>
+                </div>
+            </div>
         </div>
-        <div class="owl-controls">
-                <div class="owl-nav">
-                        <div class="owl-prev" style="display: none;">prev</div>
-                        <div class="owl-next" style="display: none;">next</div>
-                </div>
-                <div class="owl-dots" style="">
-                        <div class="owl-dot active"><span></span></div>
-                </div>
-        </div>
-</div>
+        @PDPAHelper.generatePDPAModal()
+    </body>
+    <!--[if lt IE 9]>
+    <script src="~/Content/assets/global/plugins/respond.min.js"></script>
+    <script src="~/Content/assets/plugins/excanvas.min.js"></script>
+    <script src="~/Content/assets/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
+    <!-- BEGIN CORE PLUGINS -->
+    <environment include="Development,Production">
+        <script src="~/Content/assets/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="~/Content/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="~/Content/assets/scripts/app.js" type="text/javascript"></script>
+        <script src="~/Content/assets/scripts/layout.js" type="text/javascript"></script>
+        <script src="~/Content/assets/plugins/bootstrap-sweetalert/sweetalert.min.js"></script>
+    </environment>
+    @PDPAHelper.generatePDPAModalJS(Url)
+    <script type="text/javascript">
+        var is_confirm_pdpa = 0;
+    var Login = function () {
+        
+        $('.login-form').validate({
+            errorElement: 'span', //default input error message container
+            errorClass: 'help-block', // default input error message class
+            focusInvalid: false, // do not focus the last invalid input
+            rules: {
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
+                },
+                remember: {
+                    required: false
+                },
+            },
+            messages: {
+                username: {
+                    required: "Username is required."
+                },
+                password: {
+                    required: "Password is required."
+                },
+            },
+            invalidHandler: function (event, validator) { //display error alert on form submit
+                $('.alert-danger', $('.login-form')).show();
+            },
+            highlight: function (element) { // hightlight error inputs
+                $(element).closest('.form-group').addClass('has-error'); // set error class to the control group
+            },
+            success: function (label) {
+                label.closest('.form-group').removeClass('has-error');
+                label.remove();
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.closest('.input-icon'));
+            },
+            submitHandler: function (form) {
+                form.submit(); // form validation success, call ajax form submit
+            }
+        });
+    
+        $('#b_signin_submit').on('click', function () {
+            var data = new FormData();
+            data.append("username", $('#username').val());
+            data.append("password", $('#password').val());
+            data.append("is_pdpa", is_confirm_pdpa);
+            //use to send ajax to controller
+            App.blockUI();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Authentication", "Signin")',
+                data: data,
+                cache: false,
+                processData: false, // Don't process the files
+                contentType: false // Set content type to false as jQuery will tell the server its a query string request
+            })
+            .done(function (response) {
+                App.unblockUI();
+                if (response.startsWith("ERROR:")) {
+                    window.location = '?err=' + response.split(":").slice(1).join(":"); // response.split(":")[1];
+                }
+                else if (response == "SUCCESS") {
+                    window.location.href = "@Url.Action("Index", "Home")";
+                }
+                else if (response.startsWith("REQUIRE_PDPA")) {
+                    initPDPA();
+                    $('#btn_submit_modal_pdpa').on('click', function () {
+                        $('#b_signin_submit').trigger('click');
+                    });
+                }
+                else if (response.startsWith("AWAITING_GOOGLE_AUTH:")) {
+                    window.location.href = "@Url.Action("GoogleAuthentication", "Signin")?otp=" + response.split(":")[1];
+                }
+                else {
+                    window.location = '?err=Unknown Error: CODE=' + response;
+                }
+            });
+        });
+        $('.login-form input').keypress(function (e) {
+            if (e.which == 13) {
+                if ($('.login-form').validate().form()) {
+                    $('#b_signin_submit').trigger('click');
+                }
+                return false;
+            }
+            });
+    
+        @*
+        $('.forget-form input').keypress(function (e) {
+            if (e.which == 13) {
+                if ($('.forget-form').validate().form()) {
+                    $('.forget-form').submit();
+                }
+                return false;
+            }
+        });
+        $('#forget-password').click(function () {
+            $('.login-form').hide();
+            $('.forget-form').show();
+        });
+        $('#back-btn').click(function () {
+            $('.login-form').show();
+            $('.forget-form').hide();
+        });
+        *@
+    
+    }();
+    
+    jQuery(document).ready(function () {
+        // init background slide images
+        $(".login-bg").backstretch([
+            "../Content/assets/img/bg/bg1.jpg",
+            "../Content/assets/img/bg/bg2.jpg",
+            "../Content/assets/img/bg/bg3.jpg"
+        ],
+        {
+            fade: 1000,
+            duration: 8000
+        });
+        $('.forget-form').hide();
+    });
+    </script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME LAYOUT SCRIPTS -->
+    <!-- END THEME LAYOUT SCRIPTS -->
+    </html>

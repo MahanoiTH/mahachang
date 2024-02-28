@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['insert'])) {
     $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
-    $user_type = 3; // กำหนดให้เป็นลูกค้าตลอด
+    $user_type = 2; // กำหนดให้เป็นลูกค้าตลอด
 
     // ตรวจสอบความปลอดภัยและป้องกัน SQL Injection
     $username = mysqli_real_escape_string($conn, $username);

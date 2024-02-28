@@ -100,7 +100,7 @@ if (session_status() == PHP_SESSION_NONE) {
 								<!--end::Title-->
 								<!--begin::Link-->
 								<div class="text-gray-400 fw-semibold fs-4">New Here?
-									<a href="../dist/authentication/sign-up/basic.html"
+									<a href="../dist/authentication/sign-up/basic.php"
 										class="link-primary fw-bold">Create an Account</a>
 								</div>
 								<!--end::Link-->

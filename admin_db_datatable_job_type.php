@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // 'newColumnName1' => $row['oldColumnName1'],
                 'id' => $row['id'],
                 'name' => $row['job_name'],
+                'keyword' => $row['key_words'],
+                'folder_name' => $row['folder_name'],
                 // Add more columns as needed
             );
             $data[] = $formattedRow;

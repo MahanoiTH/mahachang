@@ -148,142 +148,14 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- END TOP BAR -->
 
   <!-- BEGIN HEADER -->
-  <div class="header">
-    <div class="container">
-      <a class="site-logo" href="index.php"><img src="assets/corporate/img/logos/logo-mahachang.png"
-          alt="Metronic Shop UI"></a>
+  <?php
+  if (isset($_SESSION['email']) && $_SESSION['email'] == "65108120039@rpu.ac.th") { // ตรวจสอบว่าฟังก์ชัน addmin คืนค่า true
+    include('admin_header.php');
+  } else {
+    include('user_header.php');
+  }
+  ?>
 
-      <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
-
-      <!-- BEGIN CART -->
-      <!-- <div class="top-cart-block">
-        <div class="top-cart-info">
-          <a href="javascript:void(0);" class="top-cart-info-count">3 items</a>
-          <a href="javascript:void(0);" class="top-cart-info-value">$1260</a>
-        </div>
-        <i class="fa fa-shopping-cart"></i>
-
-        <div class="top-cart-content-wrapper">
-          <div class="top-cart-content">
-            <ul class="scroller" style="height: 250px;">
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-              <li>
-                <a href="shop-item.html"><img src="assets/pages/img/cart-img.jpg" alt="Rolex Classic Watch" width="37"
-                    height="34"></a>
-                <span class="cart-content-count">x 1</span>
-                <strong><a href="shop-item.html">Rolex Classic Watch</a></strong>
-                <em>$1230</em>
-                <a href="javascript:void(0);" class="del-goods">&nbsp;</a>
-              </li>
-            </ul>
-            <div class="text-right">
-              <a href="shop-shopping-cart.html" class="btn btn-default">View Cart</a>
-              <a href="shop-checkout.html" class="btn btn-primary">Checkout</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!--END CART -->
-
-      <!-- BEGIN NAVIGATION -->
-      <div class="header-navigation">
-        <ul>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="bs_advertiment.php">
-              ฝากลงประกาศรับงานกับเว็บไซต์ของเรา
-
-            </a>
-
-            <!-- BEGIN DROPDOWN MENU -->
-            <ul class="dropdown-menu">
-              <li><a href="bs_advertiment.php">สร้างประกาศ</a></li>
-              <!-- <li><a href="shop-product-list.html">Jackets and Coats</a></li> -->
-            </ul>
-            <!-- END DROPDOWN MENU -->
-          </li>
-          
-
-
-          <!-- <li><a
-              href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes&amp;utm_source=download&amp;utm_medium=banner&amp;utm_campaign=metronic_frontend_freebie"
-              target="_blank">Admin theme</a></li> -->
-
-          <!-- BEGIN TOP SEARCH -->
-          <li class="menu-search">
-            <span class="sep"></span>
-            <i class="fa fa-search search-btn"></i>
-            <div class="search-box">
-              <form action="#">
-                <div class="input-group">
-                  <input type="text" placeholder="Search" class="form-control">
-                  <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">Search</button>
-                  </span>
-                </div>
-              </form>
-            </div>
-          </li>
-          <!-- END TOP SEARCH -->
-        </ul>
-      </div>
-      <!-- END NAVIGATION -->
-    </div>
-  </div>
   <!-- Header END -->
 
   <!-- BEGIN SLIDER -->
@@ -385,16 +257,16 @@ if (session_status() == PHP_SESSION_NONE) {
       <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
       <div class="row margin-bottom-40">
         <!-- BEGIN SALE PRODUCT -->
+        <h2>ประกาศโดยผู้สนับสนุน สนใจแสดงโฆษณาตำแหน่งนี้ โทร. 060 6542 111</h2>
         <div class="col-md-12 sale-product">
-          <h2>ประกาศโดยผู้สนับสนุน สนใจแสดงโฆษณาตำแหน่งนี้ โทร. 060 6542 111</h2>
-          <div class="owl-carousel owl-carousel5">
+          <div class="owl-carousel owl-carousel5" id="content_mian_advertising">
             <div>
               <div class="product-item ct-main-advertising" data-desc="#">
                 <div class="pi-img-wrapper">
                   <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising"  href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -409,7 +281,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product2.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
@@ -423,7 +295,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product3.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
@@ -437,7 +309,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product4.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
@@ -452,7 +324,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product5.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
@@ -466,9 +338,20 @@ if (session_status() == PHP_SESSION_NONE) {
         <!-- END SALE PRODUCT -->
       </div>
       <!-- END SALE PRODUCT & NEW ARRIVALS -->
-
+      <!-- BEGIN SEARCH BOX -->
+      <div class="search-box margin-bottom-25" style="display: block;">
+        <form action="#">
+          <div class="input-group">
+            <input type="text" placeholder="Search" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </span>
+          </div>
+        </form>
+      </div>
+      <!-- END SEARCH BOX -->
       <!-- BEGIN SIDEBAR & CONTENT -->
-      <div class="row margin-bottom-40 ">
+      <div class="row margin-bottom-40 margin-bottom-25">
         <!-- BEGIN SIDEBAR -->
         <div class="sidebar col-md-3 col-sm-4">
           <ul class="list-group margin-bottom-25 sidebar-menu">
@@ -533,7 +416,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view" >View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -850,12 +733,12 @@ if (session_status() == PHP_SESSION_NONE) {
           <div class="product-main-image">
             <img src="assets/pages/img/products/model7.jpg" alt="Cool green dress with red bell" class="img-responsive">
           </div>
-          <div class="product-other-images">
+          <!-- <div class="product-other-images">
             <a href="javascript:;" class="active"><img alt="Berry Lace Dress"
                 src="assets/pages/img/products/model3.jpg"></a>
             <a href="javascript:;"><img alt="Berry Lace Dress" src="assets/pages/img/products/model4.jpg"></a>
             <a href="javascript:;"><img alt="Berry Lace Dress" src="assets/pages/img/products/model5.jpg"></a>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-6 col-sm-6 col-xs-9">
           <h2>Cool green dress with red bell</h2>
@@ -1022,6 +905,9 @@ if (session_status() == PHP_SESSION_NONE) {
           onClcikViewJob: function () {
             $('body').on('click', '.fancybox-fast-view', function () {
               console.log('test');
+              var getUrlImg = $(this).closest('.pi-img-wrapper').find('img').attr('src');
+              console.log('get: ' + getUrlImg);
+
               var title = $(this).closest('.product-item').find('h3').text();
               var img = $(this).closest('.product-item').find('img').attr('src');
               var desc = $(this).closest('.product-item').data('desc');
@@ -1049,6 +935,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 var file_url = 'upload/' + folder_name + '/' + id + '/' + dataList[i];
                 $("#product-pop-up img:eq(" + i + ")").attr('src', file_url);
               }
+              $('.product-main-image img').attr('src', getUrlImg);
             });
           },
           requestMainAdvertising: function () {
@@ -1067,7 +954,7 @@ if (session_status() == PHP_SESSION_NONE) {
             $.ajax({
               url: job_data_url, // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
               method: "POST",
-              data: {job_type_id: id},
+              data: { job_type_id: id },
               // data:, // ส่งค่า product_id ไปยัง cart.php
               success: function (response) {
                 console.log(response);
@@ -1076,6 +963,28 @@ if (session_status() == PHP_SESSION_NONE) {
                 Maha.initDisplayJobs(JSON.parse(response));
               }
             });
+          },
+          initDisplayMainAdvertising2: function (data) {
+            data.forEach(function (e) {
+
+            });
+            list_MainAdvertising += `
+                                        <div>
+                                          <div class="product-item">
+                                            <div class="pi-img-wrapper">
+                                              <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
+                                              <div>
+                                                <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                                                <a href="#product-pop-up" data-btn="btn_view_main_advertising" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                class="btn btn-default fancybox-fast-view">View</a>
+                                              </div>
+                                            </div>
+                                            <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
+                                            <div class="pi-price">ติดต่อ:</div>
+                                            <div class="sticker sticker-new"></div>
+                                          </div>
+                                        </div>
+                                      `;
           },
           initDisplayMainAdvertising: function (data) {
             // $('.owl-carousel5').find
@@ -1122,7 +1031,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                               <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                                               <div>
                                                 <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                                                <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                <a href="#product-pop-up" data-btn="btn_view_main_advertising" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
                                                 class="btn btn-default fancybox-fast-view">View</a>
                                               </div>
                                             </div>
@@ -1305,12 +1214,18 @@ if (session_status() == PHP_SESSION_NONE) {
           hideTabMainAdvertising: function () {
             $('.list-group-item:first').hide();
           },
+          onClickbtnViewMianAdvertising: function () {
+            $('.sale-product').on('click', '[data-btn="btn_view_main_advertising"]', function () {
+              console.log('teststst');
+            });
+          },
 
           init: function () {
             // Oasis.submitpayment();
             // Maha.goBottom();
             Maha.requestMainAdvertising();
             Maha.requestJobData(2);
+            Maha.onClickbtnViewMianAdvertising();
             Maha.onClickSelectJobType();
             Maha.onClcikViewJob();
             Maha.requestSelect();
