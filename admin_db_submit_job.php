@@ -5,11 +5,17 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'];
+    // Assuming 'active' and 'id' are always set for simplicity. Adjust based on real application logic.
     $active = $_POST['active'];
+    $id = $_POST['id'];
 
-    // new main advertising
+    // Prepared statement placeholder variables
+    $stmt = null;
+    $sql = "";
+
     if ($id == 0) {
+        // Handling new main advertising insert
+        // Assume all necessary fields are provided. Validate as required.
         $job_type_id = $_POST['job_type_id'];
         $order = $_POST['job_order'];
         $company_name = $_POST['company_name'];
@@ -17,65 +23,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $end_date = $_POST['end_date'];
         $tol = $_POST['tol'];
         $desc = $_POST['desc'];
+        $key_word = $_POST['key_word'];
         $email = $_POST['email'];
-        $created_by = $_SESSION['user_name'];
-        // ตรวจสอบว่าข้อมูลถูกส่งมาหรือไม่
-        if (empty($company_name) || empty($desc) || empty($job_type_id)) {
-            // ข้อมูลไม่ครบ
-            echo "error";
-        } else {
-            // Process and move uploaded image files to the designated folder
-            // Insert data into the database
-            $sql = "INSERT INTO job (job_type_id, job_order, active, created_by, start_date, end_date, phone_number, company_name, job_description, email) 
-                    VALUES ('$job_type_id', '$order', '$active', '$created_by', '$start_date', '$end_date', '$tol', '$company_name', '$desc', '$email')";
-            if ($conn->query($sql) === TRUE) {
-                // echo "success";
-                $last_insert_id = $conn->insert_id;
-                echo $last_insert_id;
-            } else {
-                echo "error";
-            }
-        }
-    } else {
-        // Check if required data is not empty
-        if (empty($active) && empty($id)) {
-            // Data is incomplete
-            echo "error null";
-        } else {
-            if ($active == 0) {
-                // Update data in the database when active is 0
-                $sql = "UPDATE job 
-                        SET active = '$active'
-                        WHERE id = $id";
-            } else {
-                $company_name = $_POST['ct_name'];
-                $desc = $_POST['ct_desc'];
-                $order = $_POST['ct_order'];
-                $email = $_POST['ct_email'];
-                $tol = $_POST['ct_tol'];
-                $start_date = $_POST['start_date'];
-                $end_date = $_POST['end_date'];
-                // Check if required data is not empty
-                if (empty($company_name) || empty($desc) || empty($order)) {
-                    // Data is incomplete
-                    echo "error";
-                } else {
-                    // Update data in the database when active is not 0
-                    $sql = "UPDATE job 
-                            SET job_order = '$ct_order',
-                                active = '$active',
-                                company_name = '$ct_name',
-                                job_description = '$ct_desc'
-                            WHERE id = $id";
-                }
-            }
+        $created_by = $_SESSION['user_name']; // Make sure session is started and user_name is set.
 
-            if ($conn->query($sql) === TRUE) {
-                echo "success";
-            } else {
-                echo "error connect";
-            }
+        // Assuming your form has an input field of type 'file' named 'image'
+        if (isset($_FILES['image'])) {
+            $file_name = $_FILES['image']['name'];
+            $file_tmp = $_FILES['image']['tmp_name'];
+            $upload_directory = 'uploads/'; // Make sure this directory exists and is writable
+            $upload_path = $upload_directory . $file_name;
+            move_uploaded_file($file_tmp, $upload_path);
+            // You may want to store $upload_path or $file_name in the database along with other job details
+        }
+
+        // Prepare statement to insert new job
+        $sql = "INSERT INTO job (job_type_id, job_order, active, created_by, start_date, end_date, phone_number, company_name, job_description, email, key_words) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("iisssssssss", $job_type_id, $order, $active, $created_by, $start_date, $end_date, $tol, $company_name, $desc, $email, $key_word);
+
+    } else {
+        // Handle job update
+        if ($active == 0) {
+            // Only updating 'active' status
+            $sql = "UPDATE job SET active = ? WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ii", $active, $id);
+        } else {
+            // Updating multiple fields
+            $company_name = $_POST['company_name'];
+            $desc = $_POST['desc'];
+            $key_word = $_POST['key_word'];
+            $order = $_POST['job_order'];
+            $email = $_POST['email'];
+            $tol = $_POST['tol'];
+            $start_date = $_POST['start_date'];
+            $end_date = $_POST['end_date'];
+
+            $sql = "UPDATE job SET job_order = ?, active = ?, company_name = ?, job_description = ?, key_words = ?, email = ?, phone_number = ?, start_date = ?, end_date = ? WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("iisssssssi", $order, $active, $company_name, $desc, $key_word, $email, $tol, $start_date, $end_date, $id);
         }
     }
+
+    // Execute prepared statement
+    if ($stmt && $stmt->execute()) {
+        echo ($id == 0) ? $conn->insert_id : "success"; // For new entries, output last insert ID, otherwise just confirm success
+    } else {
+        echo "error"; // Simplified error handling. Consider more specific error messaging in real applications.
+    }
+
+    if ($stmt) {
+        $stmt->close();
+    }
 }
+
 ?>

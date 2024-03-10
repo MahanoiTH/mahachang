@@ -191,18 +191,20 @@ if (session_status() == PHP_SESSION_NONE) {
           <div class="container">
             <div class="carousel-position-four text-center">
               <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
-                Unlimted
+                มาหา<span class="color-red-v2">ช่าง</span>
               </h2>
               <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-                Layout Options
+              ศูนย์รวม
+                บริษัท
               </p>
               <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-                Fully Responsive
+              บริษัท
+                รับเหมาก่อสร้าง
               </p>
               <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
             </div>
-            <img class="carousel-position-five animate-delay hidden-sm hidden-xs"
-              src="assets/pages/img/shop-slider/slide2/price.png" alt="Price" data-animation="animated zoomIn">
+            <!-- <img class="carousel-position-five animate-delay hidden-sm hidden-xs"
+              src="assets/pages/img/shop-slider/slide2/price.png" alt="Price" data-animation="animated zoomIn"> -->
           </div>
         </div>
 
@@ -211,13 +213,13 @@ if (session_status() == PHP_SESSION_NONE) {
           <div class="container">
             <div class="carousel-position-four text-center">
               <span class="carousel-subtitle-v3 margin-bottom-15" data-animation="animated fadeInDown">
-                Full Admin &amp; Frontend
+                <!-- Full Admin &amp; Frontend -->
               </span>
               <p class="carousel-subtitle-v4" data-animation="animated fadeInDown">
-                eCommerce UI
+                มาหาช่าง
               </p>
               <p class="carousel-subtitle-v3" data-animation="animated fadeInDown">
-                Is Ready For Your Project
+              พาร์ทเนอร์ที่คุณวางใจได้ในทุกโครงการก่อสร้างของคุณ!
               </p>
             </div>
           </div>
@@ -229,8 +231,8 @@ if (session_status() == PHP_SESSION_NONE) {
             <div class="center-block-wrap">
               <div class="center-block-body">
                 <h2 class="carousel-title-v1 margin-bottom-20" data-animation="animated fadeInDown">
-                  The most <br />
-                  wanted bijouterie
+                Find your dream builder <br />
+                 handshake to home.
                 </h2>
                 <a class="carousel-btn" href="#" data-animation="animated fadeInUp">But It Now!</a>
               </div>
@@ -593,8 +595,8 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class="col-md-4 steps-block-col">
           <i class="fa fa-gift"></i>
           <div>
-            <h2>บริการ</h2>
-            <em>3 Gifts daily for lucky customers</em>
+            <h2 class="margin-top-10">มั่นใจในบริการ</h2>
+            <!-- <em>บริษัท </em> -->
           </div>
           <span>&nbsp;</span>
         </div>
@@ -613,54 +615,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- BEGIN PRE-FOOTER -->
   <div class="pre-footer">
     <div class="container">
-      <div class="row">
-        <!-- BEGIN BOTTOM ABOUT BLOCK -->
-        <div class="col-md-3 col-sm-6 pre-footer-col">
-          <h2>About us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut
-            laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit lobortis nisl
-            aliquip commodo consequat. </p>
-          <p>Duis autem vel eum iriure dolor vulputate velit esse molestie at dolore.</p>
-        </div>
-        <!-- END BOTTOM ABOUT BLOCK -->
-        <!-- BEGIN BOTTOM INFO BLOCK -->
-        <div class="col-md-3 col-sm-6 pre-footer-col">
-          <h2>Information</h2>
-          <ul class="list-unstyled">
-            <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Delivery Information</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Customer Service</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Order Tracking</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Shipping &amp; Returns</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Careers</a></li>
-            <li><i class="fa fa-angle-right"></i> <a href="javascript:;">Payment Methods</a></li>
-          </ul>
-        </div>
-        <!-- END INFO BLOCK -->
-
-        <!-- BEGIN TWITTER BLOCK -->
-        <!-- <div class="col-md-3 col-sm-6 pre-footer-col">
-          <h2 class="margin-bottom-0">Latest Tweets</h2>
-          <a class="twitter-timeline" href="https://twitter.com/twitterapi" data-tweet-limit="2" data-theme="dark"
-            data-link-color="#57C8EB" data-widget-id="455411516829736961"
-            data-chrome="noheader nofooter noscrollbar noborders transparent">Loading tweets by @keenthemes...</a>
-        </div> -->
-        <!-- END TWITTER BLOCK -->
-
-        <!-- BEGIN BOTTOM CONTACTS -->
-        <div class="col-md-3 col-sm-6 pre-footer-col">
-          <h2>Our Contacts</h2>
-          <address class="margin-bottom-40">
-            35, Lorem Lis Street, Park Ave<br>
-            California, US<br>
-            Phone: 300 323 3456<br>
-            Fax: 300 323 1456<br>
-            Email: <a href="mailto:info@metronic.com">info@metronic.com</a><br>
-            Skype: <a href="skype:metronic">metronic</a>
-          </address>
-        </div>
-        <!-- END BOTTOM CONTACTS -->
-      </div>
+      
       <hr>
       <div class="row">
         <!-- BEGIN SOCIAL ICONS -->
@@ -698,37 +653,6 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- END PRE-FOOTER -->
 
   <!-- BEGIN FOOTER -->
-  <div class="footer">
-    <div class="container">
-      <div class="row">
-        <!-- BEGIN COPYRIGHT -->
-        <div class="col-md-4 col-sm-4 padding-top-10">
-          2015 © Keenthemes. ALL Rights Reserved.
-        </div>
-        <!-- END COPYRIGHT -->
-        <!-- BEGIN PAYMENTS -->
-        <div class="col-md-4 col-sm-4">
-          <ul class="list-unstyled list-inline pull-right">
-            <li><img src="assets/corporate/img/payments/western-union.jpg" alt="We accept Western Union"
-                title="We accept Western Union"></li>
-            <li><img src="assets/corporate/img/payments/american-express.jpg" alt="We accept American Express"
-                title="We accept American Express"></li>
-            <li><img src="assets/corporate/img/payments/MasterCard.jpg" alt="We accept MasterCard"
-                title="We accept MasterCard"></li>
-            <li><img src="assets/corporate/img/payments/PayPal.jpg" alt="We accept PayPal" title="We accept PayPal">
-            </li>
-            <li><img src="assets/corporate/img/payments/visa.jpg" alt="We accept Visa" title="We accept Visa"></li>
-          </ul>
-        </div>
-        <!-- END PAYMENTS -->
-        <!-- BEGIN POWERED -->
-        <div class="col-md-4 col-sm-4 text-right">
-          <p class="powered">Powered by: <a href="http://www.keenthemes.com/">KeenThemes.com</a></p>
-        </div>
-        <!-- END POWERED -->
-      </div>
-    </div>
-  </div>
   <!-- END FOOTER -->
 
   <!-- BEGIN fast view of a product -->
@@ -1422,7 +1346,7 @@ if (session_status() == PHP_SESSION_NONE) {
             $('#content_jobs').html(totol_content);
             $('#content_jobs').prepend('<h2>ผลการค้นหา</h2>');
             if (data.length == 0){
-              $('#content_jobs').append('<br><br><br><br><h2 class="text-center">-ไม่พบข้อมูล-</h2>');
+              $('#content_jobs').append('<br><br><br><br><h3 class="text-center">ค้นหาไม่พบ</h3><br><h2 class="text-center">ไม่พบสิ่งที่คุณค้นหา ขออภัยในความไม่สะดวกค่ะ</h2>');
             }
           },
 
