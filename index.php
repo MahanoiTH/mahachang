@@ -266,7 +266,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a data-btn="btn_view_main_advertising"  href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up"
+                      class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -281,7 +282,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product2.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product2.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up"
+                      class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
@@ -295,7 +297,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product3.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product3.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up"
+                      class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
@@ -309,7 +312,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product4.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product4.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up"
+                      class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
@@ -324,7 +328,8 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/product5.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/product5.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a data-btn="btn_view_main_advertising" href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                    <a data-btn="btn_view_main_advertising" href="#product-pop-up"
+                      class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
@@ -340,11 +345,12 @@ if (session_status() == PHP_SESSION_NONE) {
       <!-- END SALE PRODUCT & NEW ARRIVALS -->
       <!-- BEGIN SEARCH BOX -->
       <div class="search-box margin-bottom-25" style="display: block;">
-        <form action="#">
+        <form>
           <div class="input-group">
             <input type="text" placeholder="Search" class="form-control">
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="submit">Search</button>
+              <!-- <button class="btn btn-primary" type="submit">Search</button> -->
+              <button class="btn btn-primary" id="btn_search">Search</button>
             </span>
           </div>
         </form>
@@ -416,7 +422,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   <img src="assets/pages/img/products/itProduct1.jpg" class="img-responsive" alt="Berry Lace Dress">
                   <div>
                     <a href="assets/pages/img/products/itProduct1.jpg" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view" >View</a>
+                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                   </div>
                 </div>
                 <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
@@ -825,7 +831,7 @@ if (session_status() == PHP_SESSION_NONE) {
     var job_data_url = 'db_webrequest_jobs.php';
     var job_title = 'งานออกแบบ ตกแต่งภายใน';
     var folder_name_img = 'img_jobs_approved';
-
+    var global_job_title = 'งานออกแบบ ตกแต่งภายใน';
     //End global variable
     (function () {
       var Maha = function () {
@@ -897,16 +903,18 @@ if (session_status() == PHP_SESSION_NONE) {
             var id = 0;
             $('.sidebar').on('click', 'a', function () {
               id = $(this).data('id');
-              console.log(id);
+              var job_name = $(this).text();
+              global_job_title = job_name;
+              // console.log(id);
               Maha.requestJobData(id);
             });
 
           },
           onClcikViewJob: function () {
             $('body').on('click', '.fancybox-fast-view', function () {
-              console.log('test');
+              // console.log('test');
               var getUrlImg = $(this).closest('.pi-img-wrapper').find('img').attr('src');
-              console.log('get: ' + getUrlImg);
+              // console.log('get: ' + getUrlImg);
 
               var title = $(this).closest('.product-item').find('h3').text();
               var img = $(this).closest('.product-item').find('img').attr('src');
@@ -921,10 +929,10 @@ if (session_status() == PHP_SESSION_NONE) {
               var dataList = dataSrcValue.split(',');
 
               // dataList ตอนนี้คือ array ที่เก็บค่าทุกค่าที่อยู่ใน data-src
-              console.log(dataList);
+              // console.log(dataList);
 
-              console.log(title);
-              console.log(desc);
+              // console.log(title);
+              // console.log(desc);
 
               $('#product-pop-up h2').text(title);
               $('#product-pop-up p').text(desc);
@@ -957,7 +965,7 @@ if (session_status() == PHP_SESSION_NONE) {
               data: { job_type_id: id },
               // data:, // ส่งค่า product_id ไปยัง cart.php
               success: function (response) {
-                console.log(response);
+                // console.log(response);
                 //จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
                 // alert(response);
                 Maha.initDisplayJobs(JSON.parse(response));
@@ -1042,7 +1050,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                         </div>
                                       `;
             });
-            console.log(list_urls);
+            // console.log(list_urls);
 
             $('.ct-main-advertising h3 a').each(function (index) {
               $(this).text(list_name[index]);
@@ -1086,8 +1094,8 @@ if (session_status() == PHP_SESSION_NONE) {
           },
           initDisplayJobs: function (data) {
             var slicedData = data.slice(0, Math.floor(data.length / 3) * 3);
-            console.log(slicedData);
-            var title = `<h2>${job_title}</h2>`;
+            // console.log(slicedData);
+            var title = `<h2>${global_job_title}</h2>`;
             var count_job = 1;
             var list_jobs = '';
             list_jobs += title;
@@ -1204,7 +1212,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 result.forEach(function (e) {
                   option += `<li class="list-group-item clearfix"><a data-id="${e.id}"><i class="fa fa-angle-right"></i>${e.name}</a></li>`;
                 });
-                console.log(option);
+                // console.log(option);
                 $('.sidebar-menu').html(option);
 
                 Maha.hideTabMainAdvertising();
@@ -1219,6 +1227,204 @@ if (session_status() == PHP_SESSION_NONE) {
               console.log('teststst');
             });
           },
+          onClickSearch: function () {
+
+            $('#btn_search').on('click', function (event) {
+              event.preventDefault();
+              console.log('search');
+              var str_search = $(this).closest('.input-group').find('input').val();
+              console.log(str_search);
+
+              $.ajax({
+                url: "db_webrequest_search_job.php", // เปลี่ยนเป็น URL ของ cart.php ที่คุณใช้งาน
+                method: "POST",
+                data: { str_keyword: str_search, job_type_id: null },
+                // data:, // ส่งค่า product_id ไปยัง cart.php
+                success: function (response) {
+                  console.log(response);
+                  Maha.initDisplaySearchJobs(JSON.parse(response));
+                  //จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
+                  // alert(response);
+                  // Maha.initDisplayJobs(JSON.parse(response));
+                }
+              });
+
+            });
+
+
+          },
+          initDisplaySearchJobs: function (data) {
+            $('#content_jobs h2').text('ผลการค้นหา');
+            var count3 = 0;
+            var totol_content = ``;
+            var count_data = data.length;
+            var totol_item3 = ``;
+            if (count_data > 3) {
+              console.log("เข้ามากกว่าสาม");
+              data.forEach(function (e) {
+                var fileUrlArray = e.file_urls;
+                var dataSrcString = '';
+                for (var i = 0; i < fileUrlArray.length; i++) {
+                  dataSrcString += fileUrlArray[i];
+                  if (i < fileUrlArray.length - 1) {
+                    // เพิ่ม comma ระหว่างค่า, ยกเว้นค่าที่สุดท้าย
+                    dataSrcString += ',';
+                  }
+                }
+                if (count3 != 3) {
+                  totol_item3 += `<div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                    <div>
+                                      <div class="product-item" data-desc="test">
+                                              <div class="pi-img-wrapper">
+                                                  <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}" class="img-responsive" alt="Berry Lace Dress">
+                                                  <div>
+                                                    <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                      class="btn btn-default fancybox-button">Zoom</a>
+                                                    <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                      class="btn btn-default fancybox-fast-view">View</a>
+                                                  </div>
+                                              </div>
+                                              <h3><a href="shop-item.html">${e.name || '-'}</a></h3>
+                                              <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
+                                              <div class="sticker sticker-new"></div>
+                                        </div>
+                                    </div>
+                                  </div>`;
+                  count3 += 1;
+                  count_data -= 1;
+                  if (count_data == 0){
+                    console.log('หมดแล้ว');
+                    totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
+                                    <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                        ${totol_item3}
+                                      </div>
+                                    </div>
+                                        <div class="owl-controls">
+                                                <div class="owl-nav">
+                                                        <div class="owl-prev" style="display: none;">prev</div>
+                                                        <div class="owl-next" style="display: none;">next</div>
+                                                </div>
+                                                <div class="owl-dots" style="">
+                                                        <div class="owl-dot active"><span></span></div>
+                                                </div>
+                                        </div>
+                                </div>`;
+                  }
+                } else {
+                  totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
+                                    <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                        ${totol_item3}
+                                      </div>
+                                    </div>
+                                        <div class="owl-controls">
+                                                <div class="owl-nav">
+                                                        <div class="owl-prev" style="display: none;">prev</div>
+                                                        <div class="owl-next" style="display: none;">next</div>
+                                                </div>
+                                                <div class="owl-dots" style="">
+                                                        <div class="owl-dot active"><span></span></div>
+                                                </div>
+                                        </div>
+                                </div>`;
+                  totol_item3 = ``;
+                  totol_item3 += `<div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                    <div>
+                                      <div class="product-item" data-desc="test">
+                                              <div class="pi-img-wrapper">
+                                                  <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}" class="img-responsive" alt="Berry Lace Dress">
+                                                  <div>
+                                                    <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                      class="btn btn-default fancybox-button">Zoom</a>
+                                                    <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                      class="btn btn-default fancybox-fast-view">View</a>
+                                                  </div>
+                                              </div>
+                                              <h3><a href="shop-item.html">${e.name || '-'}</a></h3>
+                                              <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
+                                              <div class="sticker sticker-new"></div>
+                                        </div>
+                                    </div>
+                                  </div>`;
+                  count3 = 1;
+                  count_data -= 1;
+                  if (count_data == 0){
+                    console.log('หมดแล้ว');
+                    totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
+                                    <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                        ${totol_item3}
+                                      </div>
+                                    </div>
+                                        <div class="owl-controls">
+                                                <div class="owl-nav">
+                                                        <div class="owl-prev" style="display: none;">prev</div>
+                                                        <div class="owl-next" style="display: none;">next</div>
+                                                </div>
+                                                <div class="owl-dots" style="">
+                                                        <div class="owl-dot active"><span></span></div>
+                                                </div>
+                                        </div>
+                                </div>`;
+                  }
+                }
+              });
+            } else {
+              console.log("<=3");
+              data.forEach(function (e) {
+                var fileUrlArray = e.file_urls;
+                var dataSrcString = '';
+                for (var i = 0; i < fileUrlArray.length; i++) {
+                  dataSrcString += fileUrlArray[i];
+                  if (i < fileUrlArray.length - 1) {
+                    // เพิ่ม comma ระหว่างค่า, ยกเว้นค่าที่สุดท้าย
+                    dataSrcString += ',';
+                  }
+                }
+                totol_item3 += `<div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                    <div>
+                                      <div class="product-item" data-desc="test">
+                                              <div class="pi-img-wrapper">
+                                                  <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}" class="img-responsive" alt="Berry Lace Dress">
+                                                  <div>
+                                                    <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                      class="btn btn-default fancybox-button">Zoom</a>
+                                                    <a href="#product-pop-up" data-src="${dataSrcString}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                      class="btn btn-default fancybox-fast-view">View</a>
+                                                  </div>
+                                              </div>
+                                              <h3><a href="shop-item.html">${e.name || '-'}</a></h3>
+                                              <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
+                                              <div class="sticker sticker-new"></div>
+                                        </div>
+                                    </div>
+                                  </div>`;
+              });
+              totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded">
+                                    <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                        ${totol_item3}
+                                      </div>
+                                    </div>
+                                        <div class="owl-controls">
+                                                <div class="owl-nav">
+                                                        <div class="owl-prev" style="display: none;">prev</div>
+                                                        <div class="owl-next" style="display: none;">next</div>
+                                                </div>
+                                                <div class="owl-dots" style="">
+                                                        <div class="owl-dot active"><span></span></div>
+                                                </div>
+                                        </div>
+                                </div>`;
+
+            }
+            $('#content_jobs').html(totol_content);
+            $('#content_jobs').prepend('<h2>ผลการค้นหา</h2>');
+            if (data.length == 0){
+              $('#content_jobs').append('<br><br><br><br><h2 class="text-center">-ไม่พบข้อมูล-</h2>');
+            }
+          },
 
           init: function () {
             // Oasis.submitpayment();
@@ -1229,6 +1435,7 @@ if (session_status() == PHP_SESSION_NONE) {
             Maha.onClickSelectJobType();
             Maha.onClcikViewJob();
             Maha.requestSelect();
+            Maha.onClickSearch();
           }
         }
       }();
