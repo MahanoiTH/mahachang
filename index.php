@@ -1070,7 +1070,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                 </div>`;
                   list_jobs = '';
                   count_item3 = 0; //reset
-                  if (count_data < 3) {
+                  if (count_data <= 3) {
                     is_data_on_full = true;
                   }
                 }
