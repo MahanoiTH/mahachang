@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $company_name = $_POST['company_name'];
         $job_description = $_POST['job_description'];
         $email = $_POST['email'];
+        $key_word = $_POST['key_word'];
 
         // ตรวจสอบว่าข้อมูลถูกส่งมาหรือไม่
         if (empty($active)) {
@@ -25,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO job (job_type_id, active, created_by, phone_number, company_id, company_name, job_description, email) 
-                    VALUES ('$job_type_id', '$active', '$create_by', '$phone_number', '$company_id', '$company_name', '$job_description', '$email')";
+            $sql = "INSERT INTO job (job_type_id, active, created_by, phone_number, company_id, company_name, job_description, email, key_words) 
+                    VALUES ('$job_type_id', '$active', '$create_by', '$phone_number', '$company_id', '$company_name', '$job_description', '$email', '$key_word')";
             if ($conn->query($sql) === TRUE) {
                 // Insert successful, get last insert ID
                 $last_insert_id = $conn->insert_id;

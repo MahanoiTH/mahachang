@@ -226,7 +226,7 @@ if (session_status() == PHP_SESSION_NONE) {
               <tr>
                 <th>ชื่อบริษัทรับเหมา</th>
                 <th>รายละเอียด</th>
-                <th>ประเภทงาน</th>
+                <th>คำค้นหา</th>
                 <th>รูป</th>
                 <th>เริ่มโฆษณา</th>
                 <th>สิ้นสุดโฆษณา</th>
@@ -576,10 +576,7 @@ if (session_status() == PHP_SESSION_NONE) {
               columns: [
                 { data: 'name' },
                 { data: 'desc' },
-                { data: function (data){
-                    return  Maha.getJobTypeName(data.job_type_id);
-                  }
-                },
+                { data: 'key_word'},
                 {
                   data: function (data) {
                     return `<div class="textcenter">
@@ -592,7 +589,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 {
                   data: function (data) {
                     return `<div class="textcenter">
-                                <button data-btn="approve" data-id="${data.id}" data-job_type_id="${data.job_type_id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}" data-user_id="${data.user_id}"   type="button" class="btn btn-success" ><i class="fa fa-check"></i></button>
+                                <button data-btn="approve" data-key_word="${data.key_word}" data-id="${data.id}" data-job_type_id="${data.job_type_id}" data-name="${data.name}" data-desc="${data.desc}" data-order="${data.order}" data-tol="${data.phone_number}" data-email="${data.email}" data-user_id="${data.user_id}"   type="button" class="btn btn-success" ><i class="fa fa-check"></i></button>
                                 <button data-id="${data.id}" data-btn="reject" type="button" class="btn btn-danger" ><i class="fa fa-times"></i> </button>
                             </div>`;
                   }
@@ -710,6 +707,7 @@ if (session_status() == PHP_SESSION_NONE) {
               var email = $(this).data('email');
               var status_job = 1 //approve
               var user_id = $(this).data('user_id');
+              var key_word = $(this).data('key_word');
               var active = 1;
               bs_id = user_id;
               old_id = id;
@@ -726,7 +724,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   callback: function (result) {
                       // result เป็น boolean; true = OK, false = Cancel
                       if (result) {
-                        Maha.submitApproveAdvertising(id,name,desc,job_type_id,tol,email,status_job,user_id,active);
+                        Maha.submitApproveAdvertising(id,name,desc,job_type_id,tol,email,status_job,user_id,active,key_word);
                       } else {
                           console.log("User cancelled the operation.");
                       }
@@ -754,7 +752,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
             });
           },
-          submitApproveAdvertising: function (id,name,desc,job_type_id,tol,email,status_job,user_id,active) {
+          submitApproveAdvertising: function (id,name,desc,job_type_id,tol,email,status_job,user_id,active,key_word) {
             var data = new FormData();
             data.append('id', id);
             data.append('status_job', status_job);
@@ -764,6 +762,7 @@ if (session_status() == PHP_SESSION_NONE) {
             data.append('phone_number', tol);
             data.append('job_description', desc);
             data.append('email', email);
+            data.append('key_word', key_word);
             data.append('active', active);
             // ดึงไฟล์ภาพที่เลือกแล้วและเพิ่มไปยัง FormData
 

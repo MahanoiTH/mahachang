@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $end_date = $_POST['end_date'];
         $job_type_id = $_POST['job_type_id'];
         $user_id = $_SESSION['user_id'];
+        $key_word = $_POST['key_word'];
         // ตรวจสอบว่าข้อมูลถูกส่งมาหรือไม่
         if (empty($ct_name) || empty($ct_desc) || empty($start_date) || empty($end_date) || empty($active)) {
             // ข้อมูลไม่ครบ
@@ -25,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Process and move uploaded image files to the designated folder
             // Insert data into the database
-            $sql = "INSERT INTO waiting_approval (job_type_id, user_id, active, start_date, end_date, client_name, job_description, phone_number, email) 
-                    VALUES ('$job_type_id','$user_id', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc', '$ct_tol', '$ct_email')";
+            $sql = "INSERT INTO waiting_approval (job_type_id, user_id, active, start_date, end_date, client_name, job_description, phone_number, email, key_words) 
+                    VALUES ('$job_type_id','$user_id', '$active', '$start_date', '$end_date', '$ct_name', '$ct_desc', '$ct_tol', '$ct_email', '$key_word')";
             if ($conn->query($sql) === TRUE) {
                 // echo "success";
                 $last_insert_id = $conn->insert_id;
@@ -51,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $ct_desc = $_POST['ct_desc'];
                 $ct_email = $_POST['ct_email'];
                 $ct_tol = $_POST['ct_tol'];
+                $key_word = $_POST['key_word'];
                 $start_date = $_POST['start_date'];
                 $end_date = $_POST['end_date'];
                 // Check if required data is not empty
@@ -64,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 active = '$active',
                                 customer_name = '$ct_name',
                                 description = '$ct_desc'
+                                key_words = '$key_word'
                             WHERE id = $id";
                 }
             }

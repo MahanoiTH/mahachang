@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'name' => $row['client_name'],
                 'desc' => $row['job_description'],
                 'email' => $row['email'],
+                'key_word' => $row['key_words'],
                 'phone_number' => $row['phone_number'],
                 'start_date' => $row['start_date'],
                 'end_date' => $row['end_date'],

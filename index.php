@@ -194,11 +194,11 @@ if (session_status() == PHP_SESSION_NONE) {
                 มาหา<span class="color-red-v2">ช่าง</span>
               </h2>
               <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-              ศูนย์รวม
+                ศูนย์รวม
                 บริษัท
               </p>
               <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-              บริษัท
+                บริษัท
                 รับเหมาก่อสร้าง
               </p>
               <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
@@ -219,7 +219,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 มาหาช่าง
               </p>
               <p class="carousel-subtitle-v3" data-animation="animated fadeInDown">
-              พาร์ทเนอร์ที่คุณวางใจได้ในทุกโครงการก่อสร้างของคุณ!
+                พาร์ทเนอร์ที่คุณวางใจได้ในทุกโครงการก่อสร้างของคุณ!
               </p>
             </div>
           </div>
@@ -231,8 +231,8 @@ if (session_status() == PHP_SESSION_NONE) {
             <div class="center-block-wrap">
               <div class="center-block-body">
                 <h2 class="carousel-title-v1 margin-bottom-20" data-animation="animated fadeInDown">
-                Find your dream builder <br />
-                 handshake to home.
+                  Find your dream builder <br />
+                  handshake to home.
                 </h2>
                 <a class="carousel-btn" href="#" data-animation="animated fadeInUp">But It Now!</a>
               </div>
@@ -615,7 +615,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- BEGIN PRE-FOOTER -->
   <div class="pre-footer">
     <div class="container">
-      
+
       <hr>
       <div class="row">
         <!-- BEGIN SOCIAL ICONS -->
@@ -1017,6 +1017,114 @@ if (session_status() == PHP_SESSION_NONE) {
             // $('.owl-carousel5').html(list_MainAdvertising);
           },
           initDisplayJobs: function (data) {
+            var count_data = data.length;
+            var count_item3 = 0;
+            var list_jobs = '';
+            var totol_content = '';
+            var is_data_on_full = false;
+            if (count_data < 3) {
+              is_data_on_full = true;
+            }
+
+            data.forEach(function (e) {
+
+              if (!is_data_on_full) {
+                count_item3 += 1;
+                list_jobs += `
+                              <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                <div>
+                                  <div class="product-item" data-desc="${e.desc}">
+                                          <div class="pi-img-wrapper">
+                                                  <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                          class="img-responsive" alt="Berry Lace Dress">
+                                                  <div>
+                                                          <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                                  class="btn btn-default fancybox-button">Zoom</a>
+                                                          <a href="#product-pop-up" data-src="${e.file_urls[0]}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                                  class="btn btn-default fancybox-fast-view">View</a>
+                                                  </div>
+                                          </div>
+                                          <h3><a href="shop-item.html">${e.name}</a></h3>
+                                          <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
+                                          <div class="sticker sticker-new"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              `;
+                if (count_item3 == 3) {
+                  totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
+                                    <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                        ${list_jobs}
+                                      </div>
+                                    </div>
+                                        <div class="owl-controls">
+                                                <div class="owl-nav">
+                                                        <div class="owl-prev" style="display: none;">prev</div>
+                                                        <div class="owl-next" style="display: none;">next</div>
+                                                </div>
+                                                <div class="owl-dots" style="">
+                                                        <div class="owl-dot active"><span></span></div>
+                                                </div>
+                                        </div>
+                                </div>`;
+                  list_jobs = '';
+                  count_item3 = 0; //reset
+                  if (count_data < 3) {
+                    is_data_on_full = true;
+                  }
+                }
+              } else {
+                list_jobs += `
+                              <div class="owl-item active" style="width: 282.667px; margin-right: 0px;">
+                                <div>
+                                  <div class="product-item" data-desc="${e.desc}">
+                                          <div class="pi-img-wrapper">
+                                                  <img src="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                          class="img-responsive" alt="Berry Lace Dress">
+                                                  <div>
+                                                          <a href="upload/${folder_name_img}/${e.id}/${e.file_urls[0]}"
+                                                                  class="btn btn-default fancybox-button">Zoom</a>
+                                                          <a href="#product-pop-up" data-src="${e.file_urls[0]}" data-type="${e.type_name}" data-id="${e.id}" data-tol="${e.phone_number || '-'}" data-email="${e.email || '-'}"
+                                                                  class="btn btn-default fancybox-fast-view">View</a>
+                                                  </div>
+                                          </div>
+                                          <h3><a href="shop-item.html">${e.name}</a></h3>
+                                          <div class="pi-price">ติดต่อ: ${e.phone_number || '-'}</div>
+                                          <div class="sticker sticker-new"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              `;
+                if (count_data == 1) {
+                  totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
+                                    <div class="owl-stage-outer">
+                                      <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 848.001px;">
+                                        ${list_jobs}
+                                      </div>
+                                    </div>
+                                        <div class="owl-controls">
+                                                <div class="owl-nav">
+                                                        <div class="owl-prev" style="display: none;">prev</div>
+                                                        <div class="owl-next" style="display: none;">next</div>
+                                                </div>
+                                                <div class="owl-dots" style="">
+                                                        <div class="owl-dot active"><span></span></div>
+                                                </div>
+                                        </div>
+                                </div>`;
+
+                }
+
+              }
+
+              count_data -= 1;
+            });
+            $('#content_jobs').html(totol_content);
+            $('#content_jobs').prepend('<h2>'+global_job_title+'</h2>');
+
+          },
+          initDisplayJobs2: function (data) {
             var slicedData = data.slice(0, Math.floor(data.length / 3) * 3);
             // console.log(slicedData);
             var title = `<h2>${global_job_title}</h2>`;
@@ -1058,7 +1166,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                                   <div class="sticker sticker-new"></div>
                                           </div>
                                         </div>
-                                    </div>
+                                      </div>
                                `;
                 count_job += 1;
               } else if (count_job == 2) {
@@ -1216,7 +1324,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                   </div>`;
                   count3 += 1;
                   count_data -= 1;
-                  if (count_data == 0){
+                  if (count_data == 0) {
                     console.log('หมดแล้ว');
                     totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
                                     <div class="owl-stage-outer">
@@ -1273,7 +1381,7 @@ if (session_status() == PHP_SESSION_NONE) {
                                   </div>`;
                   count3 = 1;
                   count_data -= 1;
-                  if (count_data == 0){
+                  if (count_data == 0) {
                     console.log('หมดแล้ว');
                     totol_content += `<div class="owl-carousel owl-carousel3 owl-theme owl-loaded margin-bottom-15">
                                     <div class="owl-stage-outer">
@@ -1345,7 +1453,7 @@ if (session_status() == PHP_SESSION_NONE) {
             }
             $('#content_jobs').html(totol_content);
             $('#content_jobs').prepend('<h2>ผลการค้นหา</h2>');
-            if (data.length == 0){
+            if (data.length == 0) {
               $('#content_jobs').append('<br><br><br><br><h3 class="text-center">ค้นหาไม่พบ</h3><br><h2 class="text-center">ไม่พบสิ่งที่คุณค้นหา ขออภัยในความไม่สะดวกค่ะ</h2>');
             }
           },
