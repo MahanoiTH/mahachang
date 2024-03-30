@@ -457,7 +457,7 @@ if (session_status() == PHP_SESSION_NONE) {
     var submit_approve_jobs_url = 'admin_db_submit_approve.php';
     var submit_jobs_url = "admin_db_submitMainAdvertising.php";
     var folder_name = 'advertising';
-    var job_type_id = 1;
+    var job_type_id = -1;
     var nameJobTypeList = [];
     var bs_id = 0; //id ของ บริษัทรับเหมา
     var old_id = 0;
@@ -957,6 +957,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   nameJobTypeList.push({'id':e.id,'name':e.name});
                 });
                 var option = '';
+                option += `<option value="-1">ทั้งหมด</option>`;
 
                 result.forEach(function (e) {
                   option += `<option value="${e.id}" data-folder="${e.folder_name}" >${e.name}</option>`;

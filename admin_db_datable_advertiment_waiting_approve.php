@@ -8,8 +8,13 @@ if (session_status() == PHP_SESSION_NONE) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $JOB_TYPE_ID = $_POST['job_type_id'];
 
-    $sql = "SELECT * FROM waiting_approval WHERE waiting_approval.active = 1 AND waiting_approval.job_type_id = $JOB_TYPE_ID AND waiting_approval.status_id = 0";
-    $result = $conn->query($sql);
+    if ($JOB_TYPE_ID > 0){
+        $sql = "SELECT * FROM waiting_approval WHERE waiting_approval.active = 1 AND waiting_approval.job_type_id = $JOB_TYPE_ID AND waiting_approval.status_id = 0";
+        $result = $conn->query($sql);
+    } else {
+        $sql = "SELECT * FROM waiting_approval WHERE waiting_approval.active = 1 AND waiting_approval.status_id = 0";
+        $result = $conn->query($sql);
+    }
 
     // Check for errors in query execution
     if (!$result) {

@@ -161,6 +161,8 @@ if (session_status() == PHP_SESSION_NONE) {
       color: #aaa;
       line-height: 110px;
     }
+
+    
   </style>
   <!--END CSS THIS PAGE -->
 </head>
@@ -853,13 +855,14 @@ if (session_status() == PHP_SESSION_NONE) {
                 // จัดการการตอบสนองจาก cart.php ที่ส่งกลับมา
                 if (response === "success") {
                   // window.location = 'business_profile_jobs.php';
+                  bootbox.alert('บันทึกข้อมูลสำเร็จ');
                   console.log(response);
                   // window.location.reload();
                   dataTable.destroy();
                   Maha.dataTableListAdvertising();
                   $('.fancybox-item.fancybox-close').click();
                 } else {
-                  alert(response);
+                  // alert(response);
                   Maha.submitFile(response);
                 }
               }
@@ -893,7 +896,7 @@ if (session_status() == PHP_SESSION_NONE) {
                   Maha.dataTableListAdvertising();
                   $('.fancybox-close').click();
                 } else {
-                  alert(response);
+                  // alert(response);
 
                   dataTable.destroy();
                   Maha.dataTableListAdvertising();

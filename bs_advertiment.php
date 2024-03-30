@@ -295,10 +295,10 @@ if (session_status() == PHP_SESSION_NONE) {
               <label for="">คำที่จะใช้ค้นหาเจอ</label>
               <textarea id="ct_keyword" name="ct_keyword" rows="4" cols="40"></textarea>
             </div>
-            <label for="">ลำดับ(โฆษณาหลักจะแสดงแค่5อันดับแรก)</label>
+            <!-- <label for="">ลำดับ(โฆษณาหลักจะแสดงแค่5อันดับแรก)</label>
             <div class="row mt5">
               <div class="col-sm-11 "><input id="ct_order" type="text" class="form-control"></div>
-            </div>
+            </div> -->
             <label for="" class="mt5">อีเมล์</label>
             <div class="row mt5">
               <div class="col-sm-11 "><input id="ct_email" type="text" class="form-control"></div>
@@ -701,7 +701,7 @@ if (session_status() == PHP_SESSION_NONE) {
               data.append('job_type_id', job_type_id);
               data.append('ct_name', ct_name);
               data.append('ct_desc', ct_desc);
-              data.append('ct_order', ct_order);
+              data.append('ct_order', 999);
               data.append('ct_email', ct_email);
               data.append('key_word', ct_key_word);
               data.append('ct_tol', ct_tol);

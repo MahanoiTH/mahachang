@@ -20,7 +20,7 @@
             <ul class="dropdown-menu">
               <li><a href="admin_dashboard.php">จัดการประกาศ</a></li>
               <li><a href="admin_approve.php">อนุมัติลงประกาศรับงาน</a></li>
-              <li><a href="admin_approved.php">รายการงานที่อนุมัติ</a></li>
+              <!-- <li><a href="admin_approved.php">รายการงานที่อนุมัติ</a></li> -->
               <li><a href="admin_new_job_type.php">เพิ่มประเภทงานใหม่</a></li>
             </ul>
             <!-- END DROPDOWN MENU -->

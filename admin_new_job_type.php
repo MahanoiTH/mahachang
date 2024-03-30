@@ -270,10 +270,10 @@ if (session_status() == PHP_SESSION_NONE) {
                             <label for=""><h4>ชื่อโฟรเดอร์</h4></label><br />
                             <textarea id="ct_folder_name" name="ct_folder_name" rows="4" cols="90"></textarea>
                         </div>
-                        <div class="cs-name">
+                        <!-- <div class="cs-name">
                             <label for=""><h4>คำค้นหา</h4></label><br />
                             <textarea id="ct_keywords" name="ct_keywords" rows="4" cols="90"></textarea>
-                        </div>
+                        </div> -->
                         <hr>
                         <div class="row mt5">
                             <div class="col-sm-11">
